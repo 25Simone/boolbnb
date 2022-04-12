@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.home');
 });
 
 Auth::routes();
@@ -27,7 +27,7 @@ Route::middleware("auth")
   ->group(function () {
     // GROUP LOGGED ROUTE
 
-    Route::resource('apartments', 'ApartmentsController');  
+    Route::resource('apartments', 'ApartmentController');  
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
