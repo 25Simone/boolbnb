@@ -11,7 +11,7 @@ class Sponsor extends Model
         'price',
         'duration'
     ];
-    // Relation  apartments - sponsots
+    // Relation  apartments - sponsor
     public function apartments() {
         return $this->belongsToMany('App\Apartment');
     }
