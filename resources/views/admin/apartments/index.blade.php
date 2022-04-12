@@ -6,23 +6,6 @@
         <h4 class="nav-item">
             <a class="nav-link" href="{{route('admin.apartments.create')}}">Create</a>
         </h4>
-        {{-- <ul>
-            @foreach ($apartments as $apartment)
-                <li>{{ $apartment->title }}</li>
-                <li>{{ $apartment->rooms_number }}</li>
-                <li>{{ $apartment->beds_number }}</li>
-                <li>{{ $apartment->baths_number }}</li>
-                <li>{{ $apartment->guests }}</li>
-                <li>{{ $apartment->squaremeters }}</li>
-                <li>{{ $apartment->longitude }}</li>
-                <li>{{ $apartment->latitude }}</li>
-                <li>{{ $apartment->visible }}</li>
-                <li>{{ $apartment->slug }}</li>
-                <li>{{ $apartment->photo }}</li>
-                <li>{{ $apartment->address }}</li>
-                <li>{{ $apartment->user->name }}</li>
-            @endforeach
-        </ul> --}}
         <table class="table table-dark">
             <thead>
                 <tr>
