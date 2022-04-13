@@ -30,8 +30,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        $apartments = Apartment::all();
-        return view('admin.apartments.create', compact("apartments"));
+        return view('admin.apartments.create');
     }
 
     /**
@@ -42,7 +41,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
