@@ -66,7 +66,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Squaremeters</label>
   
-            <input placeholder="Insert the number of squaremeters of your apartment" type="number" value="{{ old('squaremeters') }}" name="squaremeters" class="form-control">
+            <input placeholder="Insert the number of squaremeters of your apartment" type="text" value="{{ old('squaremeters') }}" name="squaremeters" class="form-control">
               @error('squaremeters')
                   {{ $message }}
               @enderror
@@ -84,7 +84,6 @@
 
           </div>
 
-        {{-- DA FINIRE :  --}}
         
         {{-- IMAGE UPLOAD SECTION --}}
    
@@ -97,6 +96,17 @@
             @enderror
             
 
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Additional services</label>
+            <br>
+            @foreach ($services as $service )
+              <div class="form-check form-check-inline">
+                <label for="service_{{$service->id}}">{{$service->name}}</label>
+                <input id="service_{{$service->id}}" type="checkbox" class="form-check-input" name="services[]">
+              </div>
+            @endforeach
         </div>
         {{-- SUBMIT BUTTON TO STORE --}}
         <button type="submit" class="btn btn-primary">Submit</button>

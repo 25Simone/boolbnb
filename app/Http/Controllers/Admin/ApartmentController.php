@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AdditionalService;
 use App\Apartment;
 use App\Http\Controllers\Controller;
+use App\Traits\SlugGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
+    use SlugGenerator;
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +34,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        //import additional services 
+        $services = AdditionalService::all();
+        return view('admin.apartments.create',compact("services"));
     }
 
     /**
@@ -41,7 +47,32 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate(
+            [
+                "title"=>"string|required|min:10",
+                "rooms_number"=>"numeric|required",
+                "beds_number"=>"numeric|required",
+                "baths_number"=>"numeric|required",
+                "guests"=>"numeric|required",
+                "squaremeters"=>"nullable|numeric|min:2|max:7",
+                "address"=>"required|min:5",
+                "photo"=>"required|max:1000",
+            ]
+            );
+        //instance a new line
+        $newApartment = new Apartment();
+
+        //fill line
+        $newApartment->fill($data);
+        $newApartment->slug = $this->generateUniqueSlug($newApartment->title);  //generazione slug
+        $newApartment->user_id = Auth::user()->id;
+        if(key_exists("photo",$data)){
+            $newApartment->photo = Storage::put("apartmentImages",$data["photo"]);
+        }
+
+        $newApartment->save();
         
+
     }
 
     /**
