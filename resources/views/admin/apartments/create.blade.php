@@ -88,6 +88,16 @@
         
         {{-- IMAGE UPLOAD SECTION --}}
    
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Add photo</label>
+
+          <input  type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" required>
+            @error('photo')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+            
+
+        </div>
         {{-- SUBMIT BUTTON TO STORE --}}
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
