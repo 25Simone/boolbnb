@@ -97,33 +97,6 @@
   
           </div>
 
-        {{-- LONGITUDE & LATITUDE SECTION --}}
-        <div class="mb-3 d-flex">
-            <span class="w-50">
-                <label for="exampleInputEmail1" class="form-label w-100 text-center">Apartment Longitude</label>
-    
-                <input type="text" value="{{ old('longitude') }}" name="longitude" class="form-control" >
-                    @error('longitude')
-                        {{ $message }}
-                    @enderror
-    
-                <span id="emailHelp" class="form-text">Insert the longitude cords</span>
-            </span>
-
-           <span class="w-50">
-                <label for="exampleInputEmail1" class="form-label w-100 text-center">Apartment Longitude</label>
-        
-                <input type="text" value="{{ old('latitude') }}" name="latitude" class="form-control" >
-                    @error('latitude')
-                        {{ $message }}
-                    @enderror
-        
-                    <span id="emailHelp" class="form-text">Insert the latitude cords</span>
-           </span>
-
-        </div>
-
-
         {{-- DA FINIRE :  --}}
         {{-- VISIBLE SECTION --}}
 
