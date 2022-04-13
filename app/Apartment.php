@@ -21,11 +21,11 @@ class Apartment extends Model
         'address',
         'user_id',
     ];
+
     // USER TO APARTMENT 
     public function user () {
     return $this->belongsTo('App\User');
     }
-
     //APARTMENT TO ADDITIONAL SERVICE
     public function services(){
         return $this->belongsToMany('App\AdditionalService');

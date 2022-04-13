@@ -20,7 +20,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        // $apartments = Apartment::all();
+        // Get the apatments where user_id is equal to the id of the logged in user
         $apartments = Apartment::where("user_id", Auth::user()->id)
         ->get();
 
@@ -34,7 +34,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //import additional services 
+        // Import additional services 
         $services = AdditionalService::all();
         return view('admin.apartments.create',compact("services"));
     }
@@ -47,7 +47,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-
+        // Validation rules
         $data = $request->validate(
             [
                 "title"=>"required|string|min:10",
@@ -61,27 +61,29 @@ class ApartmentController extends Controller
                 "services"=>"nullable"
             ]
             );
-        //instance a new line
+        // Instance a new line
         $newApartment = new Apartment();
-
-        //fill line
+        // Fill the line
         $newApartment->fill($data);
-        $newApartment->slug = $this->generateUniqueSlug($newApartment->title);  //generazione slug
+
+        // Define the slug value
+        $newApartment->slug = $this->generateUniqueSlug($newApartment->title);
+        // Define the user_id value as the id of the logged in user
         $newApartment->user_id = Auth::user()->id;
+        // If photo key exists in data, equals it to newApartment->photo
         if(key_exists("photo",$data)){
             $newApartment->photo = Storage::put("apartmentImages",$data["photo"]);
         }
 
+        // Save the line
         $newApartment->save();
+
+        // Adds the relations with the services taken from the form
         if(key_exists('services',$data)){
             $newApartment->services()->attach($data['services']);
         }
 
         return redirect()->route('admin.apartments.index');
-
-
-
-
     }
 
     /**
