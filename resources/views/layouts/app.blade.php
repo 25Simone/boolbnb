@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a href="{{route('admin.apartments.index')}}" class="nav-link">Apartments</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.apartments.create')}}" class="nav-link">Publish your apartment</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
