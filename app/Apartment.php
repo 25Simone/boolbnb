@@ -24,7 +24,12 @@ class Apartment extends Model
     // USER TO APARTMENT 
     public function user () {
     return $this->belongsTo('App\User');
-}
+    }
+
+    //APARTMENT TO ADDITIONAL SERVICE
+    public function services(){
+        return $this->belongsToMany('App\AdditionalService');
+    }
 }
 
 // 'title' => 'Casa Ristrutturata In Centro Milano',

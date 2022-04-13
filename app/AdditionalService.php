@@ -10,6 +10,7 @@ class AdditionalService extends Model
         'name',
         'description'
     ];
+    
     // Relation  apartments - additional services
     public function apartments() {
         return $this->belongsToMany('App\Apartment');
