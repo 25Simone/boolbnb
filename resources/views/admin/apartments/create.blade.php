@@ -11,8 +11,8 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Apartment Title</label>
 
-          <input placeholder="Insert your title apartment" type="text" value="{{ old('title') }}" name="title" class="form-control @error('title') is-invalid @enderror" required>
-            @error('title')
+          <input placeholder="Insert your title apartment" type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
+            @error("title")
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
             
@@ -22,8 +22,8 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Rooms</label>
   
-            <input placeholder="Insert the number of your rooms" type="number" value="{{ old('rooms_number') }}" name="rooms_number" class="form-control  @error('rooms_number') is-invalid @enderror" required>
-              @error('rooms_number')
+            <input placeholder="Insert the number of your rooms" type="number" value="{{ old('rooms_number') }}" name="rooms_number" class="form-control  @error('rooms_number') is-invalid @enderror" required min='0'>
+              @error("rooms_number")
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
 
@@ -33,7 +33,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Beds</label>
   
-            <input placeholder="Insert the number of your beds" type="number" value="{{ old('beds_number') }}" name="beds_number" class="form-control  @error('beds_number') is-invalid @enderror" required>
+            <input placeholder="Insert the number of your beds" type="number" value="{{ old('beds_number') }}" name="beds_number" class="form-control  @error('beds_number') is-invalid @enderror" required min='0'>
               @error('beds_number')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -44,7 +44,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Baths</label>
   
-            <input placeholder="Insert the number of your baths" type="number" value="{{ old('baths_number') }}" name="baths_number" class="form-control  @error('baths_number') is-invalid @enderror" required>
+            <input placeholder="Insert the number of your baths" type="number" value="{{ old('baths_number') }}" name="baths_number" class="form-control  @error('baths_number') is-invalid @enderror" required min='0'>
               @error('baths_number')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -66,9 +66,9 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Squaremeters</label>
   
-            <input placeholder="Insert the number of squaremeters of your apartment" type="text" value="{{ old('squaremeters') }}" name="squaremeters" class="form-control">
+            <input placeholder="Insert the number of squaremeters of your apartment" type="text" value="{{ old('squaremeters') }}" name="squaremeters" class="form-control  @error('squaremeters') is-invalid @enderror">
               @error('squaremeters')
-                  {{ $message }}
+                <div class="invalid-feedback">{{ $message }}</div>
               @enderror
   
         </div>
@@ -82,7 +82,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
 
-          </div>
+        </div>
 
         
         {{-- IMAGE UPLOAD SECTION --}}

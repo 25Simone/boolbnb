@@ -47,16 +47,18 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate(
             [
-                "title"=>"string|required|min:10",
+                "title"=>"required|string|min:10",
                 "rooms_number"=>"numeric|required",
                 "beds_number"=>"numeric|required",
                 "baths_number"=>"numeric|required",
                 "guests"=>"numeric|required",
-                "squaremeters"=>"nullable|numeric|min:2|max:7",
+                "squaremeters"=>"nullable|numeric|min:2|",
                 "address"=>"required|min:5",
                 "photo"=>"required|max:1000",
+                "services"=>"nullable"
             ]
             );
         //instance a new line
@@ -71,7 +73,14 @@ class ApartmentController extends Controller
         }
 
         $newApartment->save();
-        
+        if(key_exists('services',$data)){
+            $newApartment->services()->attach($data['services']);
+        }
+
+        return redirect()->route('admin.apartments.index');
+
+
+
 
     }
 
