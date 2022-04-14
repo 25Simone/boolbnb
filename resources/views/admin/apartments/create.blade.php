@@ -81,9 +81,7 @@
               @error('address')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-
         </div>
-
         
         {{-- IMAGE UPLOAD SECTION --}}
    

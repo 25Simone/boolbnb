@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Http;
 use App\AdditionalService;
 use App\Apartment;
 use App\Http\Controllers\Controller;
@@ -61,6 +62,10 @@ class ApartmentController extends Controller
                 "services"=>"nullable"
             ]
             );
+
+        $position = Http::get('https://api.tomtom.com/search/2/search/Via%20Roma%203.json?lat=37.337&lon=-121.89&minFuzzyLevel=1&maxFuzzyLevel=2&view=Unified&relatedPois=off&key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ');
+        dd($position);
+
         // Instance a new line
         $newApartment = new Apartment();
         // Fill the line
