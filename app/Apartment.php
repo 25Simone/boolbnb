@@ -32,16 +32,3 @@ class Apartment extends Model
     }
 }
 
-// 'title' => 'Casa Ristrutturata In Centro Milano',
-// 'rooms_number' => 2.99,
-// 'beds_number' => 4,
-// 'baths_number' => 2,
-// 'guests' => 5,
-// 'squaremeters' => 132,
-// 'longitude' => '64.325482',
-// 'latitude' => '5.423339',
-// 'visible' => true,
-// 'slug' => 'casa-ristrutturata-in-centro-milano',
-// 'photo' => 'https://cdn.dove.it/properties/2069/medium/IMG_4499.jpg',
-// 'address' => 'Via XVII Settembre 52B/3',
-// 'user_id' => 1, 

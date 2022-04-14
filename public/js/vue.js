@@ -14969,7 +14969,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/benedettagenise/Desktop/progetto finale/boolbnb/resources/js/vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! E:\FinalProject\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

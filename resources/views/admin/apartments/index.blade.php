@@ -17,12 +17,13 @@
                     <th class="col">MQ</th>
                     <th class="col">Adress</th>
                     <th class="col">Apartment Owner</th>
+                    <th class="col">Show</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($apartments as $apartment)
                     <tr>
-                        <th class="row">{{ $apartment->title }}</th>
+                        <td>{{ $apartment->title }}</td>
                         <td>{{ $apartment->rooms_number }}</td>
                         <td>{{ $apartment->beds_number }}</td>
                         <td>{{ $apartment->baths_number }}</td>
@@ -30,6 +31,7 @@
                         <td>{{ $apartment->squaremeters }}</td>
                         <td>{{ $apartment->address }}</td>
                         <td>{{ $apartment->user->name }}</td>
+                        <td><a class="btn btn-primary" href="{{route('admin.apartments.show', $apartment->id)}}">Show</a></td>
                     </tr>
                 @endforeach
             </tbody>
