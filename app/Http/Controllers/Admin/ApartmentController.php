@@ -63,14 +63,16 @@ class ApartmentController extends Controller
             ]
             );
 
-        $position = Http::get('https://api.tomtom.com/search/2/search/Via%20Roma%203.json?lat=37.337&lon=-121.89&minFuzzyLevel=1&maxFuzzyLevel=2&view=Unified&relatedPois=off&key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ');
-        dd($position);
 
         // Instance a new line
         $newApartment = new Apartment();
-        // Fill the line
-        $newApartment->fill($data);
 
+        $position = Http::get('https://api.tomtom.com/search/2/search/.json?key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ&query=' . $data["address"] . 'Milano');
+        
+        $newApartment->latitude = $position["results"][0]["position"]["lat"];
+        $newApartment->longitude= $position["results"][0]["position"]["lon"];
+        
+        $newApartment->fill($data);
         // Define the slug value
         $newApartment->slug = $this->generateUniqueSlug($newApartment->title);
         // Define the user_id value as the id of the logged in user
@@ -81,12 +83,14 @@ class ApartmentController extends Controller
         }
 
         // Save the line
+  
         $newApartment->save();
 
         // Adds the relations with the services taken from the form
         if(key_exists('services',$data)){
-            $newApartment->services()->attach($data['services']);
+            $newApartment->additional_services()->attach($data['services']);
         }
+        // dd($newApartment);
 
         return redirect()->route('admin.apartments.index');
     }

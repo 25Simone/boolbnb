@@ -77,7 +77,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
   
-            <input placeholder="Insert your apartment address" type="text" value="{{ old('address') }}" name="address" class="form-control  @error('address') is-invalid @enderror" required>
+            <input placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address') }}" name="address" class="form-control  @error('address') is-invalid @enderror" required>
               @error('address')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -102,7 +102,7 @@
             @foreach ($services as $service )
               <div class="form-check form-check-inline">
                 <label for="service_{{$service->id}}">{{$service->name}}</label>
-                <input id="service_{{$service->id}}" type="checkbox" class="form-check-input" name="services[]">
+                <input id="service_{{$service->id}}" type="checkbox" class="form-check-input" name="services[]" value="{{$service->id}}">
               </div>
             @endforeach
         </div>
