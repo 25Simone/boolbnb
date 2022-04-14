@@ -21,12 +21,9 @@ Route::middleware("auth")
   ->name("admin.")
   ->group(function () {
     // GROUP LOGGED ROUTE
-
+    Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');  
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 // VUE CONNECTION WEB.php:
 

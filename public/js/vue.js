@@ -1955,6 +1955,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1966,7 +1967,6 @@ __webpack_require__.r(__webpack_exports__);
     fetchUser: function fetchUser() {
       var _this = this;
 
-      console.log('Genoveffa è entrata nella funzione');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/user').then(function (res) {
         console.log(res.data);
         _this.user = res.data;
@@ -2512,15 +2512,19 @@ var render = function () {
             _c("ul", { staticClass: "navbar-nav ms-auto" }),
             _vm._v(" "),
             _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-              !_vm.user
-                ? _c("li", { staticClass: "nav-item" }, [
-                    _c(
+              _c("li", { staticClass: "nav-item" }, [
+                !_vm.user
+                  ? _c(
                       "a",
                       { staticClass: "nav-link", attrs: { href: "/login" } },
                       [_vm._v("Login")]
+                    )
+                  : _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/admin" } },
+                      [_vm._v(" " + _vm._s(_vm.user.name) + " ")]
                     ),
-                  ])
-                : _vm._e(),
+              ]),
               _vm._v(" "),
               !_vm.user
                 ? _c("li", { staticClass: "nav-item" }, [
@@ -14965,7 +14969,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! /Users/benedettagenise/Desktop/progetto finale/boolbnb/resources/js/vue.js */"./resources/js/vue.js");
 
 
 /***/ })

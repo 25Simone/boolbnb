@@ -13,8 +13,9 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                    <li class="nav-item" v-if="!user">
-                        <a class="nav-link" href="/login">Login</a>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="/login" v-if="!user">Login</a>
+                        <a class="nav-link" href="/admin" v-else> {{ user.name }} </a>
                     </li>
                     <li class="nav-item" v-if="!user">
                         <a class="nav-link" href="/register">Register</a>
@@ -53,7 +54,6 @@ export default {
     },
     methods: {
         fetchUser() {
-            console.log('Genoveffa è entrata nella funzione')
             axios.get('/api/user').then(res=>{
                 console.log(res.data)
                 this.user = res.data;
