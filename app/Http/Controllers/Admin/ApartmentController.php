@@ -19,11 +19,9 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         // Get the apatments where user_id is equal to the id of the logged in user
-        $apartments = Apartment::where("user_id", Auth::user()->id)
-        ->get();
+        $apartments = Apartment::where("user_id", Auth::user()->id)->get();
 
         return view('admin.apartments.index', compact("apartments"));
     }
@@ -33,8 +31,7 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         // Import additional services 
         $services = AdditionalService::all();
         return view('admin.apartments.create',compact("services"));
@@ -46,8 +43,7 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         // Validation rules
         $data = $request->validate(
             [
@@ -101,8 +97,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
-    {
+    public function show($slug) {
+        $apartment = Apartment::where("slug", $slug)->first();
+
         return view('admin.apartments.show', compact('apartment'));
     }
 
@@ -168,8 +165,16 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Apartment $apartment) {
+        // Additional services detach
+        $apartment->additional_services()->detach();
+
+        // Delete apartment's photo from the storage
+        Storage::delete($apartment->photo);
+
+        // Delete apartment
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index');
     }
 }

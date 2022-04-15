@@ -6,36 +6,77 @@
 
 @section('content')
 <div class="container">
-    <h1 class="display-3 text-center">Apartment Number #{{ $apartment->id }}</h1>
-        <div class="show-info">
-            <h2 class="info mb-3"> {{ $apartment->title }} </h2>
-            <h6>Rooms Number:</h6>
-            <h4 class="info mb-3"> {{ $apartment->rooms_number }} </h4>
-            <h6>Beds Number:</h6>
-            <h4 class="info mb-3"> {{ $apartment->beds_number }} </h4>
-            <h6>Baths Number:</h6>
-            <h4 class="info mb-3"> {{ $apartment->baths_number }} </h4>
-            <h6>Guest:</h6>
-            <h4 class="info mb-3"> {{ $apartment->guests }} </h4>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+                    <div>
+                        Dettagli appartamento
+                    </div>
+                </div>
+                
+      
+                <div class="card-body">
+                    <div class="post-image">
+                        <img class="img-fluid rounded" src="{{asset("storage/" . $apartment->photo)}}" alt="post image">
+                    </div>
+                    <strong class="fs-4">{{ $apartment->title }}</strong>
+                    <div class="row row-cols-2">
+                        <div class="col d-flex flex-column">
+                            <div>
+                                <strong>Rooms: </strong>{{ $apartment->rooms_number }}
+                            </div>
+                            <div>
+                                <strong>Beds: </strong>{{ $apartment->beds_number }}
+                            </div>
+                            <div>
+                                <strong>Baths: </strong>{{ $apartment->baths_number }}
+                            </div>
+                            <div>
+                                <strong>Guests: </strong>{{ $apartment->guests }}
+                            </div>
+                            <div>
+                                <strong>Address: </strong>{{ $apartment->address }}
+                            </div>
+                            <div>
+                                <strong>Mq: </strong>{{ $apartment->squaremeters }}
+                            </div>
+                        </div>
 
-            <h6>Address:</h6>
-            <h4 class="info mb-3"> {{ $apartment->address }} </h4>
-            <h6>Squaremeters:</h6>
-            <h4 class="info mb-3"> {{ $apartment->squaremeters }}mq </h4>
+                        <div class="col d-flex flex-column">
+                            <div>
+                                <strong>Host: </strong>{{ $apartment->user->name }}
+                            </div>
+                            <div>
+                                <strong>Email: </strong>{{ $apartment->user->email }}
+                            </div>
+                            <div>
+                                <strong>Data di creazione: </strong>{{ $apartment->created_at->format("d-m-Y") }}
+                            </div>
+                            <div>
+                                <strong>Ultima modifica: </strong>{{ $apartment->updated_at }} ({{ $apartment->updated_at->diffForHumans(date(0)) }})
+                            </div>
+                            <div>
+                                <strong>Servizi: </strong>
+                                @forelse ($apartment->additional_services as $service)
+                                    <span> {{$service->name}}, </span>
+                                @empty
+                                    <span>Nessun Servizio Inserito</span>              
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center p-3">
+                    <a class="btn btn-outline-secondary mx-2" href="{{ route('admin.apartments.edit', $apartment->id) }}">Modifica</a>   
 
-
-            <h5 class="info mb-3">
-                 -{{ $apartment->user->name }}
-            </h5>
-            <h5 class="info mb-3">Announce Online From:     {{ $apartment->created_at->format('  d/m/Y H:i') }}
-
-
-            <br> Last Update:  {{ $apartment->updated_at->diffForHumans(Carbon::now()) }} 
-
-            </h5>
-
-            {{-- To fix image --}}
-            <img src="{{asset('storage/' . $apartment->photo)}}" alt="">
+                    @include('partials.deleteButton', [
+                        "route"=>"admin.apartments.destroy",
+                        "id"=>$apartment->id,
+                    ])
+                </div>
+            </div>
         </div>
+    </div>
 </div>
 @endsection
