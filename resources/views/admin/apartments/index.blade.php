@@ -31,7 +31,7 @@
                         <td>{{ $apartment->squaremeters }}</td>
                         <td>{{ $apartment->address }}</td>
                         <td>{{ $apartment->user->name }}</td>
-                        <td><a class="btn btn-primary" href="{{route('admin.apartments.show', $apartment->id)}}">Show</a></td>
+                        <td><a class="btn btn-primary" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a></td>
                     </tr>
                 @endforeach
             </tbody>

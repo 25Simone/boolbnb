@@ -35,6 +35,10 @@
 
             </h5>
             <img src="{{asset('storage/' . $apartment->photo)}}" alt="">
+            @include('partials.deleteButton', [
+                "route"=>"admin.apartments.destroy",
+                "id"=>$apartment->id,
+            ])
         </div>
 </div>
 @endsection

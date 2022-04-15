@@ -22,6 +22,7 @@ class ApartmentController extends Controller
     public function index() {
         // Get the apatments where user_id is equal to the id of the logged in user
         $apartments = Apartment::where("user_id", Auth::user()->id)->get();
+
         return view('admin.apartments.index', compact("apartments"));
     }
 
@@ -98,6 +99,7 @@ class ApartmentController extends Controller
      */
     public function show($slug) {
         $apartment = Apartment::where("slug", $slug)->first();
+
         return view('admin.apartments.show', compact('apartment'));
     }
 
@@ -136,6 +138,9 @@ class ApartmentController extends Controller
 
         // Delete apartment's photo from the storage
         Storage::delete($apartment->photo);
+
+        // Delete apartment
+        $apartment->delete();
 
         return redirect()->route('admin.apartments.index');
     }
