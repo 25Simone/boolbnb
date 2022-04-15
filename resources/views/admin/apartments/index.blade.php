@@ -18,6 +18,7 @@
                     <th class="col">Adress</th>
                     <th class="col">Apartment Owner</th>
                     <th class="col">Show</th>
+                    <th class="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                         <td>{{ $apartment->address }}</td>
                         <td>{{ $apartment->user->name }}</td>
                         <td><a class="btn btn-primary" href="{{route('admin.apartments.show', $apartment->id)}}">Show</a></td>
+                        <td><a class="btn btn-primary" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>

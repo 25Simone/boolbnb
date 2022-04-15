@@ -112,9 +112,11 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+        $services = AdditionalService::all();
+
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -126,7 +128,38 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Request Validate: 
+        $data = $request->validate(
+            [
+                "title"=>"required|string|min:10",
+                "rooms_number"=>"numeric|required",
+                "beds_number"=>"numeric|required",
+                "baths_number"=>"numeric|required",
+                "guests"=>"numeric|required",
+                "squaremeters"=>"nullable|numeric|min:2|",
+                "address"=>"required|min:5",
+                "photo"=>"required|image|max:1000",
+                "services"=>"nullable"
+            ]);
+            $apartment = Apartment::findOrFail($id);
+
+
+            // generate new slug if the title change
+            if ($data["title"] !== $apartment->title) {
+
+                $data["slug"] = $this->generateUniqueSlug($data["title"]);
+            }
+
+            $apartment->update($data);
+
+            // If photo exist in DB delete image from db and from storage and replace new image in the request
+            if (key_exists("photo", $data)) {
+                Storage::delete($apartment->photo);
+
+                Storage::put("apartmentImages", $data["photo"]);
+            }
+
+            // DA FINIRE STORAGE IMAGE / LATITUDE E LONGITUDE / SYNC SERVIZI
     }
 
     /**

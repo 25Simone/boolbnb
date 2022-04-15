@@ -7,7 +7,6 @@
 @section('content')
 <div class="container">
     <h1 class="display-3 text-center">Apartment Number #{{ $apartment->id }}</h1>
-        {{-- border: 1px solid #ced4da; --}}
         <div class="show-info">
             <h2 class="info mb-3"> {{ $apartment->title }} </h2>
             <h6>Rooms Number:</h6>
@@ -34,6 +33,8 @@
             <br> Last Update:  {{ $apartment->updated_at->diffForHumans(Carbon::now()) }} 
 
             </h5>
+
+            {{-- To fix image --}}
             <img src="{{asset('storage/' . $apartment->photo)}}" alt="">
         </div>
 </div>

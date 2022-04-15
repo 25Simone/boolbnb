@@ -15,9 +15,8 @@
             @error("title")
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            
-
         </div>
+
         {{-- ROOMS NUMBER SECTION --}}
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Rooms</label>
@@ -26,7 +25,6 @@
               @error("rooms_number")
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-
         </div>
 
         {{-- BEDS NUMBER SECTION --}}
@@ -37,7 +35,6 @@
               @error('beds_number')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-
         </div>
 
         {{-- BATHS NUMBER SECTION --}}
@@ -48,7 +45,6 @@
               @error('baths_number')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-  
         </div>
 
         {{-- GUESTS SECTION  --}}
@@ -59,7 +55,6 @@
               @error('guests')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-  
         </div>
 
         {{-- SQUAREMETERES SECTION --}}
@@ -70,7 +65,6 @@
               @error('squaremeters')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
-  
         </div>
 
         {{-- ADRESS SECTION --}}
@@ -84,7 +78,6 @@
         </div>
         
         {{-- IMAGE UPLOAD SECTION --}}
-   
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Add photo</label>
 
@@ -92,10 +85,9 @@
             @error('photo')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            
-
         </div>
 
+        {{-- ADDITIONAL SERVICES SECTION --}}
         <div class="mb-3">
             <label class="form-label">Additional services</label>
             <br>
@@ -106,6 +98,7 @@
               </div>
             @endforeach
         </div>
+        
         {{-- SUBMIT BUTTON TO STORE --}}
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
