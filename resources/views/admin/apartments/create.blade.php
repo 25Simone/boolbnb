@@ -110,7 +110,7 @@
   const suggestedAddresses = document.getElementById('suggestedAddresses');
 
   // Input listner
-  address.addEventListener('change',function(e){
+  address.addEventListener('keypress',function(e){
     // Reset
     suggestedAddresses.innerHTML = '';
     // Define the input value variable
@@ -119,7 +119,7 @@
     if(searchedAddress !== ''){
         delete axios.defaults.headers.common['X-Requested-With']; 
         // Axios call to TomTom
-        axios.get('https://api.tomtom.com/search/2/search/.json?key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ&query=' + searchedAddress + ' Milano')
+        axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + searchedAddress + ' Milano' + '&countrySet=IT')
         .then(res=>{
           const results = res.data.results;
           results.forEach((element,i) => {
