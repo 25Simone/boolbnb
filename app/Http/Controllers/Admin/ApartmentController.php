@@ -54,20 +54,16 @@ class ApartmentController extends Controller
                 "guests"=>"numeric|required",
                 "squaremeters"=>"nullable|numeric|min:2|",
                 "address"=>"required|min:5",
+                "latitude" => "numeric",
+                "longitude" => "numeric",
                 "photo"=>"required|max:1000",
                 "services"=>"nullable"
             ]
             );
 
-
         // Instance a new line
         $newApartment = new Apartment();
 
-        $position = Http::get('https://api.tomtom.com/search/2/search/.json?key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ&query=' . $data["address"] . 'Milano');
-        
-        $newApartment->latitude = $position["results"][0]["position"]["lat"];
-        $newApartment->longitude= $position["results"][0]["position"]["lon"];
-        
         $newApartment->fill($data);
         // Define the slug value
         $newApartment->slug = $this->generateUniqueSlug($newApartment->title);
