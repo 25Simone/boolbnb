@@ -106,41 +106,35 @@
 </div>
 
 <script>
- 
   const address = document.getElementById('address_input');
   const suggestedAddresses = document.getElementById('suggestedAddresses');
-  // const addressData = []; 
-  address.addEventListener('change',function(e){
-    
-    suggestedAddresses.innerHTML = '';
-    const searchedAddress = e.target.value.toLowerCase();
 
+  // Input listner
+  address.addEventListener('change',function(e){
+    // Reset
+    suggestedAddresses.innerHTML = '';
+    // Define the input value variable
+    const searchedAddress = e.target.value.toLowerCase();
 
     if(searchedAddress !== ''){
         delete axios.defaults.headers.common['X-Requested-With']; 
+        // Axios call to TomTom
         axios.get('https://api.tomtom.com/search/2/search/.json?key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ&query=' + searchedAddress + ' Milano')
         .then(res=>{
-
           const results = res.data.results;
           results.forEach((element,i) => {
-            // addressData.push(element.address);
-            const newDiv = document.createElement('div');
-            newDiv.innerHTML += `${element.address.freeformAddress}`;
-            suggestedAddresses.append(newDiv);
-            newDiv.addEventListener('click',function(){
+            // Create in DOM the suggestedAddress element
+            const suggestedAddress = document.createElement('div');
+            suggestedAddress.innerHTML += `${element.address.freeformAddress}`;
+            // Append the suggestedAddress element in suggestedAddresses container
+            suggestedAddresses.append(suggestedAddress);
+            // Add click listener on each suggestedAddress element
+            suggestedAddress.addEventListener('click',function(){
               address.value = this.textContent;
+              // Reset
               suggestedAddresses.innerHTML = '';
             })
-
           });
-          // console.log(addressData);
-        //   addressData.forEach((element,i) =>{
-          
-        //     const div = document.getElementById(`suggestedAddress_${i}`);
-        //     div.addEventListener('click',function(){
-        //       console.log('ciao');
-        //     })
-        // })
         })
   }
   })
