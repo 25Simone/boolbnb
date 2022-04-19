@@ -71,7 +71,8 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
   
-            <input placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address') }}" name="address" class="form-control  @error('address') is-invalid @enderror" required>
+            <input id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address') }}" name="address" class="form-control  @error('address') is-invalid @enderror" required>
+              <div id="suggestedAddresses"></div>
               @error('address')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -103,4 +104,48 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>
+
+<script>
+ 
+  const address = document.getElementById('address_input');
+  const suggestedAddresses = document.getElementById('suggestedAddresses');
+  // const addressData = []; 
+  address.addEventListener('change',function(e){
+    
+    suggestedAddresses.innerHTML = '';
+    const searchedAddress = e.target.value.toLowerCase();
+
+
+    if(searchedAddress !== ''){
+        delete axios.defaults.headers.common['X-Requested-With']; 
+        axios.get('https://api.tomtom.com/search/2/search/.json?key=rieyuUwGbZpAjpbaadpLvg96kkVnIHNJ&query=' + searchedAddress + ' Milano')
+        .then(res=>{
+
+          const results = res.data.results;
+          results.forEach((element,i) => {
+            // addressData.push(element.address);
+            const newDiv = document.createElement('div');
+            newDiv.innerHTML += `${element.address.freeformAddress}`;
+            suggestedAddresses.append(newDiv);
+            newDiv.addEventListener('click',function(){
+              address.value = this.textContent;
+              suggestedAddresses.innerHTML = '';
+            })
+
+          });
+          // console.log(addressData);
+        //   addressData.forEach((element,i) =>{
+          
+        //     const div = document.getElementById(`suggestedAddress_${i}`);
+        //     div.addEventListener('click',function(){
+        //       console.log('ciao');
+        //     })
+        // })
+        })
+  }
+  })
+
+  
+
+</script>
 @endsection
