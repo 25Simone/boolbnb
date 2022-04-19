@@ -99,6 +99,11 @@
               </div>
             @endforeach
         </div>
+
+        <div class="d-none">
+          <input type="text" id="latitudeInput" name="latitude">
+          <input type="text" id="longitudeInput" name="longitude">
+        </div>
         
         {{-- SUBMIT BUTTON TO STORE --}}
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -108,7 +113,8 @@
 <script>
   const address = document.getElementById('address_input');
   const suggestedAddresses = document.getElementById('suggestedAddresses');
-
+  const latitude = document.getElementById('latitudeInput');
+  const longitude = document.getElementById('longitudeInput');
   // Input listner
   address.addEventListener('keypress',function(e){
     // Reset
@@ -131,6 +137,9 @@
             // Add click listener on each suggestedAddress element
             suggestedAddress.addEventListener('click',function(){
               address.value = this.textContent;
+              latitude.value = element.position.lat;
+              longitude.value = element.position.lon;
+              
               // Reset
               suggestedAddresses.innerHTML = '';
             })
