@@ -119,40 +119,49 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        // Request Validate: 
+    public function update(Request $request, Apartment $apartment) {
+        // Save and validate the form's data
         $data = $request->validate(
-            [
-                "title"=>"required|string|min:10",
-                "rooms_number"=>"numeric|required",
-                "beds_number"=>"numeric|required",
-                "baths_number"=>"numeric|required",
-                "guests"=>"numeric|required",
-                "squaremeters"=>"nullable|numeric|min:2|",
-                "address"=>"required|min:5",
-                "photo"=>"required|image|max:1000",
-                "services"=>"nullable"
-            ]);
-            $apartment = Apartment::findOrFail($id);
+        // Validation rules
+        [
+            "title"=>"required|string|min:10",
+            "rooms_number"=>"numeric|required",
+            "beds_number"=>"numeric|required",
+            "baths_number"=>"numeric|required",
+            "guests"=>"numeric|required",
+            "squaremeters"=>"nullable|numeric|min:2|",
+            "address"=>"required|min:5",
+            "latitude" => "numeric",
+            "longitude" => "numeric",
+            "photo"=>"required|image|max:1000",
+            "services"=>"nullable"
+        ]);
+        // dd($data);
 
+        // Generate new slug if the title change
+        if ($data["title"] !== $apartment->title) {
+            $data["slug"] = $this->generateUniqueSlug($data["title"]);
+        }
 
-            // generate new slug if the title change
-            if ($data["title"] !== $apartment->title) {
+        //Update apartment
+        $apartment->update($data);
 
-                $data["slug"] = $this->generateUniqueSlug($data["title"]);
-            }
-
-            $apartment->update($data);
-
-            // If photo exist in DB delete image from db and from storage and replace new image in the request
-            if (key_exists("photo", $data)) {
+        // If photo exist in DB delete image from db and from storage and replace new image in the request
+        if (key_exists("photo", $data)) {
+            if($apartment->photo) {
                 Storage::delete($apartment->photo);
-
-                Storage::put("apartmentImages", $data["photo"]);
             }
+            
+            $apartment->photo = Storage::put("apartmentImages", $data["photo"]);
+            $apartment->save();
+        }
 
-            // DA FINIRE STORAGE IMAGE / LATITUDE E LONGITUDE / SYNC SERVIZI
+        if (key_exists("services", $data)) {
+            // Sync the changes
+            $apartment->additional_services()->sync($data["services"]);
+        }
+
+        return redirect()->route("admin.apartments.show", $apartment->slug);
     }
 
     /**

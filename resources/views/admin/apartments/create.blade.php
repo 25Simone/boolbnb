@@ -84,7 +84,7 @@
 
           <input  type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" required>
             @error('photo')
-                <div class="invalid-feedback">{{ $message }}</div>
+              <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
@@ -100,6 +100,7 @@
             @endforeach
         </div>
 
+        {{-- LATITUDE AND LONGITUDE SECTION --}}
         <div class="d-none">
           <input type="text" id="latitudeInput" name="latitude">
           <input type="text" id="longitudeInput" name="longitude">
@@ -123,32 +124,29 @@
     const searchedAddress = e.target.value.toLowerCase();
 
     if(searchedAddress !== ''){
-        delete axios.defaults.headers.common['X-Requested-With']; 
-        // Axios call to TomTom
-        axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + searchedAddress + ' Milano' + '&countrySet=IT')
-        .then(res=>{
-          const results = res.data.results;
-          results.forEach((element,i) => {
-            // Create in DOM the suggestedAddress element
-            const suggestedAddress = document.createElement('div');
-            suggestedAddress.innerHTML += `${element.address.freeformAddress}`;
-            // Append the suggestedAddress element in suggestedAddresses container
-            suggestedAddresses.append(suggestedAddress);
-            // Add click listener on each suggestedAddress element
-            suggestedAddress.addEventListener('click',function(){
-              address.value = this.textContent;
-              latitude.value = element.position.lat;
-              longitude.value = element.position.lon;
-              
-              // Reset
-              suggestedAddresses.innerHTML = '';
-            })
-          });
-        })
-  }
+      delete axios.defaults.headers.common['X-Requested-With']; 
+      // Axios call to TomTom
+      axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + searchedAddress + ' Milano' + '&countrySet=IT')
+      .then(res=>{
+        const results = res.data.results;
+        results.forEach((element,i) => {
+          // Create in DOM the suggestedAddress element
+          const suggestedAddress = document.createElement('div');
+          suggestedAddress.innerHTML += `${element.address.freeformAddress}`;
+          // Append the suggestedAddress element in suggestedAddresses container
+          suggestedAddresses.append(suggestedAddress);
+          // Add click listener on each suggestedAddress element
+          suggestedAddress.addEventListener('click',function(){
+            address.value = this.textContent;
+            latitude.value = element.position.lat;
+            longitude.value = element.position.lon;
+            
+            // Reset
+            suggestedAddresses.innerHTML = '';
+          })
+        });
+      })
+    }
   })
-
-  
-
 </script>
 @endsection
