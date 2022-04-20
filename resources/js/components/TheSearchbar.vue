@@ -6,7 +6,7 @@
                     <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
         
                     <input autocomplete=off @keyup="getAddress" v-model="searchedText" id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="" name="address" class="form-control mb-3" required>
-                    <button class="btn btn-primary" @click="searchApartments()">submit</button>
+                    <button class="btn btn-primary" @click="$emit('search',searchedText)">submit</button>
                     <div id="suggestedAddresses">
                         <div v-for="(result,i) in results" :key="i">
                             <span @click="setAddress(i)">
@@ -20,9 +20,9 @@
                   
                 </div>
                     
-                <div v-for="apartment in apartments" :key="apartment.id">
+                <!-- <div v-for="apartment in apartments" :key="apartment.id">
                     {{apartment.title}}
-                </div>
+                </div> -->
             
      </div>
    
@@ -36,8 +36,7 @@ export default {
         return{
             searchedText: '',
             results: [],
-            pagination: {},
-            apartments: [],
+            
         }
     },
     methods: {
@@ -58,35 +57,8 @@ export default {
         this.searchedText = this.results[i].address.freeformAddress;
         this.results = [];
     },
-    async fetchApartments(page=1,searchedText=null){
-       
-        if(page < 1 ){
-            page = 1;
-        }
-        if(page > this.pagination.last_page){
-            page = this.pagination.last_page;
-        }
-
-        try{
-            const resp = await axios.get('/api/apartments',{
-                params: {
-                    page,
-                    filter: searchedText
-                }
-            })
-            
-            this.pagination = resp.data;
-            this.apartments = resp.data.data;
-            console.log(this.apartments);
-        }catch(e){
-            console.log('error in axios call' + e.message);
-        }
-    },
-    searchApartments(){
-       
-        this.fetchApartments(1,this.searchedText);
-
-    }
+    
+    
 
  }
 } 
