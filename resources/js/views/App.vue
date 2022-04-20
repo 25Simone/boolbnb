@@ -52,7 +52,6 @@ export default {
     searchApartments(text){
         this.searchedText = text;
         this.fetchApartments(1,this.searchedText);
-
     }
   }
 }

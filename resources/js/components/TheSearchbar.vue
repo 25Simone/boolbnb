@@ -101,10 +101,12 @@ export default {
             if(this.searchedText !== ''){
                 delete axios.defaults.headers.common['X-Requested-With']; 
                  // Axios call to TomTom
-                    axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + this.searchedText + ' Milano' + '&countrySet=IT')
+                    axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + this.searchedText + '&countrySet=IT')
                     .then(res=>{
-                        this.results = res.data.results;
-                       
+                        this.results = res.data.results.filter(element => {
+                            return element.address.countrySecondarySubdivision === 'Milano';
+                        });
+                        // this.results = res.data.results;
                     })
             }else{
                 this.results = [];
@@ -117,11 +119,11 @@ export default {
         },
 
         saveCheckInDate(e) {
-            console.log(e.target.value); // Debug
+            // console.log(e.target.value);
             this.checkInDate = e.target.value;
         },
         saveCheckOutDate(e) {
-            console.log(e.target.value); // Debug
+            // console.log(e.target.value);
             this.checkOutDate = e.target.value;
         }
     

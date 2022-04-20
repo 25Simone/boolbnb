@@ -2113,8 +2113,10 @@ __webpack_require__.r(__webpack_exports__);
       if (this.searchedText !== '') {
         delete axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.headers.common['X-Requested-With']; // Axios call to TomTom
 
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + this.searchedText + ' Milano' + '&countrySet=IT').then(function (res) {
-          _this.results = res.data.results;
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + this.searchedText + '&countrySet=IT').then(function (res) {
+          _this.results = res.data.results.filter(function (element) {
+            return element.address.countrySecondarySubdivision === 'Milano';
+          }); // this.results = res.data.results;
         });
       } else {
         this.results = [];
@@ -2125,13 +2127,11 @@ __webpack_require__.r(__webpack_exports__);
       this.results = [];
     },
     saveCheckInDate: function saveCheckInDate(e) {
-      console.log(e.target.value); // Debug
-
+      // console.log(e.target.value);
       this.checkInDate = e.target.value;
     },
     saveCheckOutDate: function saveCheckOutDate(e) {
-      console.log(e.target.value); // Debug
-
+      // console.log(e.target.value);
       this.checkOutDate = e.target.value;
     }
   }
