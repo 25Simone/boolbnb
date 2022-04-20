@@ -71,7 +71,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
   
-            <input id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address', $apartment->address) }}" name="address" class="form-control  @error('address') is-invalid @enderror">
+            <input autocomplete=off id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address', $apartment->address) }}" name="address" class="form-control  @error('address') is-invalid @enderror">
             <div id="suggestedAddresses"></div>
             @error('address')
               <div class="invalid-feedback">{{ $message }}</div>
@@ -132,9 +132,11 @@
     if(searchedAddress !== ''){
       delete axios.defaults.headers.common['X-Requested-With']; 
       // Axios call to TomTom
-      axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + searchedAddress + ' Milano' + '&countrySet=IT')
+      axios.get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query=' + searchedAddress + '&countrySet=IT')
       .then(res=>{
-        const results = res.data.results;
+        const results = res.data.results.filter(element => {
+          return element.address.countrySecondarySubdivision === 'Milano';
+        });
         results.forEach((element,i) => {
           // Create in DOM the suggestedAddress element
           const suggestedAddress = document.createElement('div');

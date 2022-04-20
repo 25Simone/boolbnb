@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="/">BoolBnB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -76,5 +76,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.navbar{
+    .navbar-brand{
+        color: #ff385c;
+        font-size: 25px;
+    }
+}
 </style>

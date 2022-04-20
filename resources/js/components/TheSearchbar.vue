@@ -1,6 +1,6 @@
 <template>
     <!-- address section -->
-    <div class="container-fluid mt-3 py-3">
+    <div class="container-fluid py-3">
         <div class="container">
             <!-- <div class="mb-3">
                 <input autocomplete=off @keyup="getAddress" v-model="searchedText" id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="" name="address" class="form-control mb-3" required>
@@ -133,7 +133,7 @@ export default {
 
 <style lang="scss" scoped>
     .container-fluid{
-        background: #333;
+        background: #000;
     }
     .searchbar {
         background: #fff;

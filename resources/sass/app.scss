@@ -13,3 +13,19 @@
 // Apartments create
 @import './apartments/create';
 
+// Suggested address section
+#suggestedAddresses{
+    width: 30%;
+    margin-top: 8px;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    >div{
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            background: #ccc;
+        }
+    }
+}
