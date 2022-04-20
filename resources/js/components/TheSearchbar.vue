@@ -1,6 +1,6 @@
 <template>
      <!-- address section -->
-     <div>
+     <div class="container mt-3">
            <form action="">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
@@ -56,7 +56,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .container{
+        width: 60%;
+    }
 </style>
 
  
