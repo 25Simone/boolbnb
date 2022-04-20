@@ -2040,12 +2040,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       searchedText: '',
-      results: []
+      results: [],
+      checkInDate: "",
+      checkOutDate: ""
     };
   },
   methods: {
@@ -2065,6 +2123,16 @@ __webpack_require__.r(__webpack_exports__);
     setAddress: function setAddress(i) {
       this.searchedText = this.results[i].address.freeformAddress;
       this.results = [];
+    },
+    saveCheckInDate: function saveCheckInDate(e) {
+      console.log(e.target.value); // Debug
+
+      this.checkInDate = e.target.value;
+    },
+    saveCheckOutDate: function saveCheckOutDate(e) {
+      console.log(e.target.value); // Debug
+
+      this.checkOutDate = e.target.value;
     }
   }
 });
@@ -2310,7 +2378,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-457d8ae5] {\n  width: 60%;\n}", ""]);
+exports.push([module.i, ".container-fluid[data-v-457d8ae5] {\n  background: #333;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 100%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > span[data-v-457d8ae5] {\n  display: flex;\n  align-items: center;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 12px;\n  position: relative;\n}\n.searchbar > span .form-section label span[data-v-457d8ae5] {\n  font-weight: 400;\n  font-size: 14px;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: none;\n  border: none;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5]:focus-visible {\n  outline: 0;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] ::-webkit-calendar-picker-indicator {\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n.searchbar > span .form-section .button[data-v-457d8ae5] {\n  position: absolute;\n  right: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > span #place-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n}\n.searchbar > span #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n}\n.searchbar > span .date-range-wrapper[data-v-457d8ae5] {\n  width: 21%;\n}\n.searchbar > span #guest-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n  position: relative;\n}\n.searchbar #place-input[data-v-457d8ae5] {\n  font-size: 14px;\n}", ""]);
 
 // exports
 
@@ -4349,61 +4417,139 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3" }, [
-    _c("div", { staticClass: "mb-3" }, [
-      _c(
-        "label",
-        { staticClass: "form-label", attrs: { for: "exampleInputEmail1" } },
-        [_vm._v("Apartment Address")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.searchedText,
-            expression: "searchedText",
-          },
-        ],
-        staticClass: "form-control mb-3",
-        attrs: {
-          autocomplete: "off",
-          id: "address_input",
-          placeholder: "Via Roma 1, 20099 ",
-          type: "text",
-          value: "",
-          name: "address",
-          required: "",
-        },
-        domProps: { value: _vm.searchedText },
-        on: {
-          keyup: _vm.getAddress,
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.searchedText = $event.target.value
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          on: {
-            click: function ($event) {
-              return _vm.$emit("search", _vm.searchedText)
+  return _c("div", { staticClass: "container-fluid mt-3 py-3" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "searchbar" }, [
+        _c("span", [
+          _c(
+            "div",
+            {
+              staticClass: "form-section d-flex flex-column",
+              attrs: { id: "place-input-wrapper" },
             },
-          },
-        },
-        [_vm._v("submit")]
-      ),
+            [
+              _c("label", { attrs: { for: "place-input" } }, [_vm._v("Dove")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchedText,
+                    expression: "searchedText",
+                  },
+                ],
+                attrs: {
+                  autocomplete: "off",
+                  id: "place-input",
+                  type: "text",
+                  placeholder: "Dove vuoi andare?",
+                  name: "address",
+                },
+                domProps: { value: _vm.searchedText },
+                on: {
+                  keyup: _vm.getAddress,
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.searchedText = $event.target.value
+                  },
+                },
+              }),
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-section date-range-wrapper" }, [
+            _c(
+              "label",
+              { staticClass: "px-3 border-start", attrs: { for: "date" } },
+              [
+                _c("div", [
+                  _vm._v(
+                    "\n                            Check-in\n                            "
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm.checkInDate
+                    ? _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v(_vm._s(_vm.checkInDate)),
+                      ])
+                    : _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v("Aggiungi date"),
+                      ]),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "date-input",
+                  attrs: { type: "date", id: "date" },
+                  on: { change: _vm.saveCheckInDate },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-section date-range-wrapper" }, [
+            _c(
+              "label",
+              {
+                staticClass: "px-3 border-start border-end",
+                attrs: { for: "date" },
+              },
+              [
+                _c("div", [
+                  _vm._v(
+                    "\n                            Check-out\n                            "
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm.checkOutDate
+                    ? _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v(_vm._s(_vm.checkOutDate)),
+                      ])
+                    : _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v("Aggiungi date"),
+                      ]),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "date-input",
+                  attrs: { type: "date", id: "date" },
+                  on: { change: _vm.saveCheckOutDate },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "form-section d-flex justify-content-between",
+              attrs: { id: "guest-input-wrapper" },
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button",
+                  on: {
+                    click: function ($event) {
+                      return _vm.$emit("search", _vm.searchedText)
+                    },
+                  },
+                },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]
+          ),
+        ]),
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { attrs: { id: "suggestedAddresses" } },
+        { staticClass: "bg-light", attrs: { id: "suggestedAddresses" } },
         _vm._l(_vm.results, function (result, i) {
           return _c("div", { key: i }, [
             _c(
@@ -4417,9 +4563,9 @@ var render = function () {
               },
               [
                 _vm._v(
-                  "\n                           " +
+                  "\n                    " +
                     _vm._s(result.address.freeformAddress) +
-                    "\n                       "
+                    "\n                "
                 ),
               ]
             ),
@@ -4430,7 +4576,21 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "ps-3", attrs: { for: "guest" } }, [
+      _vm._v("\n                        Ospiti\n                        "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-secondary" }, [
+        _vm._v("Aggiungi ospiti"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -20375,7 +20535,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\Simone\Desktop\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
