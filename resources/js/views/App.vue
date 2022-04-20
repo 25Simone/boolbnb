@@ -2,6 +2,7 @@
     <div>
         <the-navbar></the-navbar>
         <the-searchbar></the-searchbar> 
+        
     </div>
 </template>
 

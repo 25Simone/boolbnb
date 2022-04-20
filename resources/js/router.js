@@ -7,11 +7,11 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode : 'history',
-    routers : [
+    routes : [
         {
             path: '/advancedResearch',
             component : advancedResearch,
-            name : "advancedResearch.index",
+            name : "apartments.index",
             meta : {title: "search", linkText: "advanced research"}
         }
     ]
