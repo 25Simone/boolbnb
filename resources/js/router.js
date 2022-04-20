@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import advancedResearch from './pages/advancedResearch';
+import AdvancedSearch from './pages/AdvancedSearch';
 
 
 Vue.use(VueRouter);
@@ -9,8 +9,8 @@ const router = new VueRouter({
     mode : 'history',
     routes : [
         {
-            path: '/advancedResearch',
-            component : advancedResearch,
+            path: '/advancedSearch',
+            component : AdvancedSearch,
             name : "apartments.index",
             meta : {title: "search", linkText: "advanced research"}
         }

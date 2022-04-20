@@ -1,18 +1,21 @@
 <template>
     <div>
         <the-navbar></the-navbar>
+       
         <the-searchbar @search=searchApartments></the-searchbar> 
-        <advanced-research :apartments="apartments"></advanced-research>
+        <!-- <advanced-search :apartments="apartments"></advanced-search> -->
+         <main>
+            <router-view :apartments="apartments"></router-view>
+        </main>
     </div>
 </template>
 
 <script>
 import TheNavbar from '../components/TheNavbar.vue'
 import TheSearchbar from '../components/TheSearchbar.vue'
-import AdvancedResearch from '../pages/AdvancedResearch.vue'
-
+import AdvancedSearch from '../pages/AdvancedSearch.vue'
 export default {
-  components: { TheNavbar,TheSearchbar,AdvancedResearch},
+  components: { TheNavbar,TheSearchbar,AdvancedSearch},
   data(){
     return{
       pagination: {},
@@ -41,6 +44,7 @@ export default {
             this.pagination = resp.data;
             this.apartments = resp.data.data;
             console.log(this.apartments);
+            this.$router.replace({path: '/advancedSearch'});
         }catch(e){
             console.log('error in axios call' + e.message);
         }
