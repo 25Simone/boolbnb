@@ -94,6 +94,7 @@ export default {
             results: [],
             checkInDate: "",
             checkOutDate: "", 
+           
         }
     },
     methods: {

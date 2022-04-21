@@ -2201,6 +2201,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     apartments: Array
@@ -4709,27 +4710,34 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "mb-3 form-control" },
-                  _vm._l(_vm.additionalServices, function (service) {
-                    return _c(
-                      "div",
-                      {
-                        key: service.id,
-                        staticClass: "form-check form-check-inline",
-                      },
-                      [
-                        _c("label", { staticClass: "form-label" }, [
-                          _vm._v(_vm._s(service.name)),
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox" },
-                        }),
-                      ]
-                    )
-                  }),
-                  0
+                  { staticClass: "mb-3 form-check" },
+                  [
+                    _c("label", { staticClass: "mb-2" }, [
+                      _vm._v("Additional services"),
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._l(_vm.additionalServices, function (service) {
+                      return _c(
+                        "div",
+                        {
+                          key: service.id,
+                          staticClass: "form-check form-check-inline",
+                        },
+                        [
+                          _c("input", {
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-label" }, [
+                            _vm._v(_vm._s(service.name)),
+                          ]),
+                        ]
+                      )
+                    }),
+                  ],
+                  2
                 ),
               ]),
               _vm._v(" "),
@@ -4751,7 +4759,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "staticBackdropLabel" } },
-        [_vm._v("Modal title")]
+        [_vm._v("Add filter")]
       ),
       _vm._v(" "),
       _c("button", {
@@ -20602,7 +20610,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Simone\Desktop\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

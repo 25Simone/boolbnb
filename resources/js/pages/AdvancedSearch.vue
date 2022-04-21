@@ -12,7 +12,7 @@
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Add filter</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -20,16 +20,17 @@
                             <label class="form-label">Rooms number</label>
                             <input type="number" class="form-control">
                         </div>
-            <div class="form-check  mb-3">
-                <label class="form-label">beds number</label>
-                <input type="number" class="form-control">
-            </div>
-            <div class="mb-3 form-control">
-                <div class="form-check form-check-inline" v-for="service in additionalServices" :key="service.id">
-                    <label class="form-label">{{service.name}}</label>
-                    <input type="checkbox" class="form-check-input">
-                </div>
-                </div>
+                        <div class="form-check  mb-3">
+                            <label class="form-label">beds number</label>
+                            <input type="number" class="form-control">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <label class="mb-2">Additional services</label><br>
+                            <div class="form-check form-check-inline" v-for="service in additionalServices" :key="service.id">      
+                                <input type="checkbox" class="form-check-input">
+                                <label class="form-label">{{service.name}}</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
