@@ -18,32 +18,32 @@ export default {
   components: { TheNavbar,TheSearchbar,AdvancedSearch},
   data(){
     return{
-      pagination: {},
+    //   pagination: {},
       apartments: [],
       searchedText: '',
     }
   },
   methods: {
-    async fetchApartments(page=1,searchedText=null){
+    async fetchApartments(searchedText=null){
        
-        if(page < 1 ){
-            page = 1;
-        }
-        if(page > this.pagination.last_page){
-            page = this.pagination.last_page;
-        }
+        // if(page < 1 ){
+        //     page = 1;
+        // }
+        // if(page > this.pagination.last_page){
+        //     page = this.pagination.last_page;
+        // }
 
         try{
             const resp = await axios.get('/api/apartments',{
                 params: {
-                    page,
+                    // page,
                     filter: searchedText
                 }
             })
-            
-            this.pagination = resp.data;
-            this.apartments = resp.data.data;
-            console.log(this.apartments);
+            console.log(resp);
+            // this.pagination = resp.data;
+            this.apartments = resp.data;
+            // console.log(this.apartments);
             this.$router.replace({path: '/advancedSearch'});
         }catch(e){
             console.log('error in axios call' + e.message);
@@ -51,7 +51,7 @@ export default {
     },
     searchApartments(text){
         this.searchedText = text;
-        this.fetchApartments(1,this.searchedText);
+        this.fetchApartments(this.searchedText);
     }
   }
 }

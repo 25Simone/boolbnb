@@ -11,13 +11,13 @@ class ApartmentsController extends Controller
 {
     public function index(Request $request){
         
-        // $filter = $request->input('filter');
-        $filter = 'via Marina,20121, Milano';
+        $filter = $request->input('filter');
+        
         
          $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query='. $filter . '&countrySet=IT' . '&limit=1');
          $lat = $coordinate["results"][0]["position"]["lat"];
          $lon = $coordinate["results"][0]["position"]["lon"];
-         dump($lat,$lon);
+        //  dump($lat,$lon);
         $apartments = Apartment::all();
         $apartments->load('user');
         $apartments->load('additional_services');
@@ -30,7 +30,7 @@ class ApartmentsController extends Controller
                 $apartmentsInRadius[] = $apartment;
             }
         }
-        dump($apartmentsInRadius);
+        // dump($apartmentsInRadius);
        
         return response()->json($apartmentsInRadius);
 
