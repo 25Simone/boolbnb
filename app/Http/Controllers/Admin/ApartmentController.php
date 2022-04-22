@@ -57,11 +57,13 @@ class ApartmentController extends Controller
                 "latitude" => "numeric",
                 "longitude" => "numeric",
                 "photo"=>"required|max:1000",
-                "services"=>"nullable",
+                "services"=>"required|array|min:1",
                 "visible" => "nullable|boolean",
             ]
             );
             // dd($data);
+
+
 
         // Instance a new line
         $newApartment = new Apartment();
@@ -142,7 +144,7 @@ class ApartmentController extends Controller
             "latitude" => "numeric",
             "longitude" => "numeric",
             "photo"=>"nullable|image|max:1000",
-            "services"=>"nullable",
+            "services"=>"required|array|min:1",
             "visible" => "nullable|boolean"
         ]);
         // dd($data);

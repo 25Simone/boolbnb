@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- Catch the possible errors --}}
+@if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
 <div>
   <div class="row row-cols-2 m-0 align-items-stretch" id="create-form-wrapper">
     <div class="col create-section-left">
@@ -58,7 +68,7 @@
             <div class="mb-3 col">
                 <label for="exampleInputEmail1" class="form-label">Apartment Guests</label>
       
-                <input placeholder="Insert the number that the apartment can accommodate" type="number" value="{{ old('guests') }}" name="guests" class="form-control  @error('guests') is-invalid @enderror" required>
+                <input placeholder="Insert the number that the apartment can accommodate" type="number" value="{{ old('guests') }}" name="guests" class="form-control  @error('guests') is-invalid @enderror" required  min='0'>
                   @error('guests')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -116,8 +126,8 @@
 
           {{-- LATITUDE AND LONGITUDE SECTION --}}
           <div class="d-none">
-            <input type="text" id="latitudeInput" name="latitude">
-            <input type="text" id="longitudeInput" name="longitude">
+            <input type="text" id="latitudeInput" name="latitude" value="{{old('latitude')}}">
+            <input type="text" id="longitudeInput" name="longitude" value="{{old('longitude')}}">
           </div>
           
           {{-- SUBMIT BUTTON TO STORE --}}
@@ -133,6 +143,8 @@
   const suggestedAddresses = document.getElementById('suggestedAddresses');
   const latitude = document.getElementById('latitudeInput');
   const longitude = document.getElementById('longitudeInput');
+ 
+  
   // Input listner
   address.addEventListener('keypress',function(e){
     // Reset
