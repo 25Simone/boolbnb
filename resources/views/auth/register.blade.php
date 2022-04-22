@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }} *</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -42,7 +42,7 @@
                         <div class="form-group row mb-3">
                             <label class="col-md-4 col-form-label text-md-right" for="birthDate">Birth date</label>
                             <div class="col-md-6">
-                                <input id="birt_date" type="date" class="form-control @error('birthDate') is-invalid @enderror" name="birthDate" value="{{ old('birthDate') }}" required autocomplete="birthDate">
+                                <input id="birth_date" type="date" class="form-control @error('birthDate') is-invalid @enderror" name="birthDate" value="{{ old('birthDate') }}" autocomplete="birthDate">
 
                                 @error('birthDate')
                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}*</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -88,3 +88,22 @@
     </div>
 </div>
 @endsection
+
+<script>
+     function checkDate(){
+        let dtToday = new Date();
+        let month = dtToday.getMonth() + 1;// jan=0; feb=1 .......
+        let day = dtToday.getDate();
+        let year = dtToday.getFullYear() - 18;
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+    	let minDate = year + '-' + month + '-' + day;
+        let maxDate = year + '-' + month + '-' + day;
+    	document.getElementById('birth_date').setAttribute('max', maxDate);
+    };
+    document.addEventListener("DOMContentLoaded", function() {
+        checkDate();
+    });
+</script>

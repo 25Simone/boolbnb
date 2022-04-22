@@ -8,7 +8,7 @@
 
        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Filter</button>
 
-       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -35,14 +35,13 @@
                       
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button @click="fetchFilterApartments" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
                     </div>
                 </div>
             </div>
         </div>
-            
-       
-
+    
+   
   </div>
 </template>
 
@@ -55,8 +54,8 @@ export default {
         return{
             additionalServices: [],
             checkedService: [],
-            roomsNumber: 0,
-            bedsNumber: 0,
+            roomsNumber ,
+            bedsNumber ,
             
         }
     },
@@ -71,20 +70,28 @@ export default {
                 error.log(e.message)
             }
         },
-     
+             async fetchFilterApartments(){
+            try{
+                const resp = axios.get('/api/apartments',{
+                    params: {
+                        roomsNumber: this.roomsNumber,
+                        bedsNumber: this.bedsNumber,
+                        checkedService: this.checkedService,
+
+                    }
+                    
+                });
+                console.log(resp);
+            }catch(e){
+                console.log('error in call api' + e.message);
+            }
+        }
+  
+   
     },
     mounted(){
       this.fetchAdditionalServices();
     },
-    // computed:{
-    //     async fetchFilterApartments(){
-    //         try{
-    //             const resp = axios.get('');
-    //         }catch(e){
-
-    //         }
-    //     }
-    // }
 }
 </script>
 

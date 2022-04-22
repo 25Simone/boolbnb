@@ -9,7 +9,7 @@
 
         {{-- TITLE SECTION  --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Title</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Title *</label>
   
             <input placeholder="Insert your title apartment" type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $apartment->title) }}">
             @error("title")
@@ -19,7 +19,7 @@
 
         {{-- ROOMS NUMBER SECTION --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Rooms</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Rooms *</label>
   
             <input placeholder="Insert the number of your rooms" type="number" value="{{ old('rooms_number', $apartment->rooms_number) }}" name="rooms_number" class="form-control  @error('rooms_number') is-invalid @enderror" min='0'>
               @error("rooms_number")
@@ -29,7 +29,7 @@
 
         {{-- BEDS NUMBER SECTION --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Beds</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Beds *</label>
   
             <input placeholder="Insert the number of your beds" type="number" value="{{ old('beds_number', $apartment->beds_number) }}" name="beds_number" class="form-control  @error('beds_number') is-invalid @enderror" min='0'>
             @error('beds_number')
@@ -39,7 +39,7 @@
 
         {{-- BATHS NUMBER SECTION --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Baths</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Baths *</label>
   
             <input placeholder="Insert the number of your baths" type="number" value="{{ old('baths_number', $apartment->baths_number) }}" name="baths_number" class="form-control  @error('baths_number') is-invalid @enderror" min='0'>
             @error('baths_number')
@@ -49,7 +49,7 @@
         
         {{-- GUESTS SECTION  --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Guests</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Guests *</label>
   
             <input placeholder="Insert the number that the apartment can accommodate" type="number" value="{{ old('guests', $apartment->guests) }}" name="guests" class="form-control  @error('guests') is-invalid @enderror" >
               @error('guests')
@@ -69,7 +69,7 @@
 
         {{-- ADRESS SECTION --}}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Apartment Address</label>
+            <label for="exampleInputEmail1" class="form-label">Apartment Address *</label>
   
             <input autocomplete=off id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="{{ old('address', $apartment->address) }}" name="address" class="form-control  @error('address') is-invalid @enderror">
             <div id="suggestedAddresses"></div>
@@ -94,7 +94,7 @@
 
         {{-- ADDITIONAL SERVICES SECTION --}}
         <div class="mb-3">
-            <label class="form-label">Additional services</label>
+            <label class="form-label">Additional services *</label>
             <br>
             @foreach ($services as $service )
               <div class="form-check form-check-inline">

@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\Http;
 class ApartmentsController extends Controller
 {
     public function index(Request $request){
+
         
         $filter = $request->input('filter');
-        
+        // if($request->input('roomsNumber')){
+        //     $roomsNumber = $request->input('roomsNumber');
+            
+        // }
         
          $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query='. $filter . '&countrySet=IT' . '&limit=1');
          $lat = $coordinate["results"][0]["position"]["lat"];
          $lon = $coordinate["results"][0]["position"]["lon"];
-        //  dump($lat,$lon);
         $apartments = Apartment::all()->where('visible',1);
         $apartments->load('user');
         $apartments->load('additional_services');
@@ -30,6 +33,10 @@ class ApartmentsController extends Controller
                 $apartmentsInRadius[] = $apartment;
             }
         }
+
+        // $fileteredApartments = array_filter($apartmentsInRadius,function($apartment){
+        //     return $apartment["rooms_number"] >= 2; 
+        // });
         // dump($apartmentsInRadius);
        
         return response()->json($apartmentsInRadius);
