@@ -73,8 +73,8 @@
             </div>
             
             <div id="suggestedAddresses" class="bg-light">
-                <div v-for="(result,i) in results" :key="i">
-                    <span @click="setAddress(i)">
+                <div v-for="(result,i) in results" :key="i" @click="setAddress(i)">
+                    <span>
                         {{ result.address.freeformAddress }}
                     </span>
                 </div>

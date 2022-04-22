@@ -108,6 +108,12 @@
               @endforeach
           </div>
 
+            {{-- VISIBLE SECTION --}}
+          <div class="mb-3">
+            <label for="visibleCheckBox">Visible</label>
+            <input type="checkbox" class="form-check-input" name="visible" value=1>
+          </div>
+
           {{-- LATITUDE AND LONGITUDE SECTION --}}
           <div class="d-none">
             <input type="text" id="latitudeInput" name="latitude">

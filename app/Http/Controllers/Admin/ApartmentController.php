@@ -57,14 +57,22 @@ class ApartmentController extends Controller
                 "latitude" => "numeric",
                 "longitude" => "numeric",
                 "photo"=>"required|max:1000",
-                "services"=>"nullable"
+                "services"=>"nullable",
+                "visible" => "nullable|boolean",
             ]
             );
+            // dd($data);
 
         // Instance a new line
         $newApartment = new Apartment();
+            //check if apartemnt is visible
+            if(!key_exists("visible",$data)){
+                $newApartment->visible = 0;
+            }
 
         $newApartment->fill($data);
+
+    
         // Define the slug value
         $newApartment->slug = $this->generateUniqueSlug($newApartment->title);
         // Define the user_id value as the id of the logged in user
@@ -133,8 +141,9 @@ class ApartmentController extends Controller
             "address"=>"required|min:5",
             "latitude" => "numeric",
             "longitude" => "numeric",
-            "photo"=>"required|image|max:1000",
-            "services"=>"nullable"
+            "photo"=>"nullable|image|max:1000",
+            "services"=>"nullable",
+            "visible" => "nullable|boolean"
         ]);
         // dd($data);
 
@@ -143,15 +152,18 @@ class ApartmentController extends Controller
             $data["slug"] = $this->generateUniqueSlug($data["title"]);
         }
 
+         //check if apartemnt is visible
+         if(!key_exists("visible",$data)){
+            $apartment->visible = 0;
+        }
+
         //Update apartment
         $apartment->update($data);
 
         // If photo exist in DB delete image from db and from storage and replace new image in the request
         if (key_exists("photo", $data)) {
-            if($apartment->photo) {
-                Storage::delete($apartment->photo);
-            }
-            
+    
+            Storage::delete($apartment->photo);          
             $apartment->photo = Storage::put("apartmentImages", $data["photo"]);
             $apartment->save();
         }

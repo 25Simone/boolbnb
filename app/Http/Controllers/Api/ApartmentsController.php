@@ -18,7 +18,7 @@ class ApartmentsController extends Controller
          $lat = $coordinate["results"][0]["position"]["lat"];
          $lon = $coordinate["results"][0]["position"]["lon"];
         //  dump($lat,$lon);
-        $apartments = Apartment::all();
+        $apartments = Apartment::all()->where('visible',1);
         $apartments->load('user');
         $apartments->load('additional_services');
         $apartments->each(function($apartment){
