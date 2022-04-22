@@ -16,21 +16,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-check mb-3">
-                            <label class="form-label">Rooms number</label>
-                            <input type="number" class="form-control">
-                        </div>
-                        <div class="form-check  mb-3">
-                            <label class="form-label">beds number</label>
-                            <input type="number" class="form-control">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <label class="mb-2">Additional services</label><br>
-                            <div class="form-check form-check-inline" v-for="service in additionalServices" :key="service.id">      
-                                <input type="checkbox" class="form-check-input">
-                                <label class="form-label">{{service.name}}</label>
+                       
+                            <div class="form-check mb-3">
+                                <label class="form-label">Min. Rooms number</label>
+                                <input type="number" class="form-control" v-model="roomsNumber">
                             </div>
-                        </div>
+                            <div class="form-check  mb-3">
+                                <label class="form-label">Min. beds number</label>
+                                <input type="number" class="form-control" v-model="bedsNumber">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <label class="mb-2">Additional services</label><br>
+                                <div class="form-check form-check-inline" v-for="service in additionalServices" :key="service.id">      
+                                    <input type="checkbox" class="form-check-input" :value="service.id" v-model="checkedService">
+                                    <label class="form-label">{{service.name}}</label>
+                                </div>
+                            </div>
+                      
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -52,6 +54,10 @@ export default {
     data(){
         return{
             additionalServices: [],
+            checkedService: [],
+            roomsNumber: 0,
+            bedsNumber: 0,
+            
         }
     },
     methods:{
@@ -65,10 +71,20 @@ export default {
                 error.log(e.message)
             }
         },
+     
     },
     mounted(){
       this.fetchAdditionalServices();
-    }
+    },
+    // computed:{
+    //     async fetchFilterApartments(){
+    //         try{
+    //             const resp = axios.get('');
+    //         }catch(e){
+
+    //         }
+    //     }
+    // }
 }
 </script>
 
