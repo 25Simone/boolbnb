@@ -11,7 +11,7 @@ const router = new VueRouter({
         {
             path: '/advancedSearch',
             component : AdvancedSearch,
-            name : "apartments.index",
+            name : "advancedSearch",
             meta : {title: "search", linkText: "advanced research"}
         }
     ]

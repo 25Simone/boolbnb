@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="py-4">
       <div v-for="apartment in apartments" :key="apartment.id">
           <the-card :apartment="apartment"></the-card>
       </div>
@@ -53,8 +53,8 @@ export default {
         return{
             additionalServices: [],
             checkedService: [],
-            roomsNumber ,
-            bedsNumber ,
+            roomsNumber: null,
+            bedsNumber: null,
             
         }
     },
@@ -63,20 +63,19 @@ export default {
             try{
                 const resp = await axios.get('/api/additionalServices');
                 this.additionalServices = resp.data;
-                console.log(this.additionalServices);
+                console.log(this.additionalServices); // Debug
             
             }catch(e){
                 error.log(e.message)
             }
         },
-             async fetchFilterApartments(){
+        async fetchFilterApartments(){
             try{
                 const resp = axios.get('/api/apartments',{
                     params: {
                         roomsNumber: this.roomsNumber,
                         bedsNumber: this.bedsNumber,
                         checkedService: this.checkedService,
-
                     }
                     
                 });
