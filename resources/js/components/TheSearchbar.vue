@@ -1,6 +1,6 @@
 <template>
     <!-- address section -->
-    <div class="container-fluid py-3">
+    <div class="py-3" :class="$route.name !== 'advancedSearch' ? 'bg-dark' : ''">
         <div class="container">
             <!-- <div class="mb-3">
                 <input autocomplete=off @keyup="getAddress" v-model="searchedText" id="address_input" placeholder="Via Roma 1, 20099 " type="text" value="" name="address" class="form-control mb-3" required>
@@ -15,7 +15,7 @@
             </div> -->
 
             <!-- NEW SEARCH -->
-            <div class="searchbar">
+            <div class="searchbar shadow-sm">
                 <span>
 
                     <!-- Place -->
@@ -133,8 +133,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .container-fluid{
-        background: #000;
+    .bg-dark{
+        background: #000 !important;
     }
     .searchbar {
         background: #fff;
