@@ -101,6 +101,15 @@ class ApartmentsController extends Controller
         );
 
     }
+    public function show($slug){
+        $apartment = Apartment::where('slug',$slug)->first();
+        dump($apartment);
+        if(!$apartment){
+            abort(404);
+        }
+
+        return response()->json($apartment);
+    }
 }
 
 

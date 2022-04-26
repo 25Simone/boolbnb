@@ -21039,7 +21039,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       linkText: "advanced research"
     }
   }, {
-    path: '/showApartment',
+    path: '/apartments/:apartment',
     component: _pages_ShowApartment__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: "showApartment",
     meta: {
