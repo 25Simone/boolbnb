@@ -31,6 +31,8 @@ class ApartmentsController extends Controller
                 $apartmentsInRadius[] = $apartment;
             }
         }
+
+        $filteredResults = $apartmentsInRadius;
         
         if($request["roomsNumber"]){
             $roomsNumber = $request->input('roomsNumber');
@@ -38,20 +40,38 @@ class ApartmentsController extends Controller
             // $apartmentsInRadius = array_filter($apartmentsInRadius,function($apartment){
             //     return $apartment["rooms_number"] >= 2; 
             // });
-            foreach($apartmentsInRadius as $apartment){
+            $filteredApartments = [];
+            foreach($filteredResults as $apartment){
                if($apartment["rooms_number"] >= $roomsNumber){
                     $filteredApartments[] = $apartment;
                 }
             };
-            $apartmentsInRadius = $filteredApartments;
+            $filteredResults = $filteredApartments;
         };
 
+        if($request["bedsNumber"]){
+            $bedsNumber = $request->input('bedsNumber');
+            
+            // $apartmentsInRadius = array_filter($apartmentsInRadius,function($apartment){
+            //     return $apartment["rooms_number"] >= 2; 
+            // });
+            $filteredApartments = [];
+            foreach($filteredResults as $apartment){
+               if($apartment["beds_number"] >= $bedsNumber){
+                    $filteredApartments[] = $apartment;
+                }
+            };
+            $filteredResults = $filteredApartments;
+        };
+
+
+     
         
 
         
        
         return response()->json(
-         $apartmentsInRadius,
+         $filteredResults,
         );
 
     }

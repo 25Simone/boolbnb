@@ -53,13 +53,13 @@ export default {
             console.log('error in axios call' + e.message);
         }
     },
-    async fetchFilterApartments(roomsNumber){
+    async fetchFilterApartments(roomsNumber,bedsNumber){
         try{
             const resp = await axios.get('/api/apartments',{
                 params: {
                     roomsNumber: roomsNumber,
                     filter: this.searchedText,
-                    // bedsNumber: this.bedsNumber,
+                    bedsNumber: bedsNumber,
                     // checkedService: this.checkedService,
                 }
                     

@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button @click="$emit('filteredApartments',roomsNumber)" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
+                        <button @click="$emit('filteredApartments',roomsNumber,bedsNumber)" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
                     </div>
                 </div>
             </div>
