@@ -19,6 +19,11 @@
                             <label class="form-label">Min. beds number</label>
                             <input type="number" class="form-control" v-model="bedsNumber">
                         </div>
+                        <div class="form-check mb-3">
+                            <label class="form-label">Radius</label>
+                            <input name="radius" type="range" class="form-range" min="0" max="40" step="5" v-model="radius">
+                            <span>{{radius}}km</span>
+                        </div>
                         <div class="mb-3 form-check">
                             <label class="mb-2">Additional services</label><br>
                             <div class="form-check form-check-inline" v-for="service in additionalServices" :key="service.id">      
@@ -28,7 +33,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button @click="$emit('filteredApartments',roomsNumber,bedsNumber)" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
+                        <button @click="$emit('filteredApartments',roomsNumber,bedsNumber,radius,checkedService)" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
                     </div>
                 </div>
             </div>
@@ -61,6 +66,7 @@ export default {
             checkedService: [],
             roomsNumber: null,
             bedsNumber: null,
+            radius: null
             
         }
     },
@@ -75,6 +81,7 @@ export default {
                 error.log(e.message)
             }
         },
+
    
   
    

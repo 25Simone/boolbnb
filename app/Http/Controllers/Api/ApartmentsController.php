@@ -12,8 +12,9 @@ class ApartmentsController extends Controller
     public function index(Request $request){
 
         
-        $filter = $request->input('filter');
-        // $filter = 'via Marina,20121,Milano';
+        // $filter = $request->input('filter');
+        $radius = $request->input('radius');
+        $filter = 'via Marina,20121,Milano';
     
         
          $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query='. $filter . '&countrySet=IT' . '&limit=1');
@@ -25,15 +26,24 @@ class ApartmentsController extends Controller
         $apartments->each(function($apartment){
             $apartment->photo = asset('storage/' . $apartment->photo);
         });
+      
         foreach ($apartments as $apartment) {
             $distance = sqrt(pow($lat - $apartment['latitude'],2) + pow($lon - $apartment['longitude'],2)) * 100;
-            if ($distance <= 20) {
-                $apartmentsInRadius[] = $apartment;
+            if($request["radius"]){
+                if($distance <= $radius){
+                    $apartmentsInRadius[] = $apartment;
+                }
+            }else{
+                if($distance <= 20) {
+                    $apartmentsInRadius[] = $apartment;
+                }
             }
+           
         }
 
         $filteredResults = $apartmentsInRadius;
         
+        //filtro per il numero di camere
         if($request["roomsNumber"]){
             $roomsNumber = $request->input('roomsNumber');
             
@@ -49,6 +59,7 @@ class ApartmentsController extends Controller
             $filteredResults = $filteredApartments;
         };
 
+        //filtro per il numero di letti
         if($request["bedsNumber"]){
             $bedsNumber = $request->input('bedsNumber');
             
@@ -64,12 +75,27 @@ class ApartmentsController extends Controller
             $filteredResults = $filteredApartments;
         };
 
-
+        //filtro per i servizi aggiuntivi
+        // if($request["checkedService"]){
+        //     $checkedServices[] = $request->input('checkedService');
+            
      
-        
+        //     $filteredApartments = [];
+        //     foreach($filteredResults as $apartment){
+        //        $test=  $apartment->additional_services->getId();
 
-        
-       
+        //         // $test = Apartment::where('id',$apartment->id)->with('additional_services')->first();
+        //         dd($test);
+
+        //     // dd($apartment->additional_services());
+         
+        //     //    $filteredApartments = array_intersect($checkedServices,$serviceId);
+                
+        //     };
+        //     $filteredResults = $filteredApartments;
+        // };
+
+
         return response()->json(
          $filteredResults,
         );

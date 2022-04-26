@@ -14,8 +14,9 @@
 import TheNavbar from '../components/TheNavbar.vue'
 import TheSearchbar from '../components/TheSearchbar.vue'
 import AdvancedSearch from '../pages/AdvancedSearch.vue'
+import ShowApartment from '../pages/ShowApartment.vue'
 export default {
-  components: { TheNavbar,TheSearchbar,AdvancedSearch},
+  components: { TheNavbar,TheSearchbar,AdvancedSearch,ShowApartment},
   data(){
     return{
     //   pagination: {},
@@ -53,14 +54,16 @@ export default {
             console.log('error in axios call' + e.message);
         }
     },
-    async fetchFilterApartments(roomsNumber,bedsNumber){
+    async fetchFilterApartments(roomsNumber,bedsNumber,radius,checkedService){
         try{
             const resp = await axios.get('/api/apartments',{
                 params: {
                     roomsNumber: roomsNumber,
                     filter: this.searchedText,
                     bedsNumber: bedsNumber,
-                    // checkedService: this.checkedService,
+                    radius: radius,
+                    checkedService: checkedService,
+                    
                 }
                     
             });

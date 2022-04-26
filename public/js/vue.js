@@ -1939,6 +1939,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     apartment: Object
@@ -2237,6 +2249,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2250,7 +2273,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       additionalServices: [],
       checkedService: [],
       roomsNumber: null,
-      bedsNumber: null
+      bedsNumber: null,
+      radius: null
     };
   },
   methods: {
@@ -2270,52 +2294,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 resp = _context.sent;
                 _this.additionalServices = resp.data;
-                console.log(_this.additionalServices); // Debug
-
-                _context.next = 11;
+                _context.next = 10;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](0);
                 error.log(_context.t0.message);
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
-      }))();
-    },
-    fetchFilterApartments: function fetchFilterApartments() {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var resp;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                try {
-                  resp = axios.get('/api/apartments', {
-                    params: {
-                      roomsNumber: _this2.roomsNumber,
-                      bedsNumber: _this2.bedsNumber,
-                      checkedService: _this2.checkedService
-                    }
-                  });
-                  console.log(resp);
-                } catch (e) {
-                  console.log('error in call api' + e.message);
-                }
-
-              case 1:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
+        }, _callee, null, [[0, 7]]);
       }))();
     }
   },
@@ -2323,6 +2315,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.fetchAdditionalServices();
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2340,6 +2351,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TheNavbar.vue */ "./resources/js/components/TheNavbar.vue");
 /* harmony import */ var _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TheSearchbar.vue */ "./resources/js/components/TheSearchbar.vue");
 /* harmony import */ var _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/AdvancedSearch.vue */ "./resources/js/pages/AdvancedSearch.vue");
+/* harmony import */ var _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/ShowApartment.vue */ "./resources/js/pages/ShowApartment.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2361,11 +2373,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     TheNavbar: _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     TheSearchbar: _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    AdvancedSearch: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    AdvancedSearch: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    ShowApartment: _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -2397,8 +2411,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 resp = _context.sent;
-                console.log(resp); // this.pagination = resp.data;
-
+                // this.pagination = resp.data;
+                console.log(resp);
                 _this.apartments = resp.data; // console.log(this.apartments);
 
                 if (_this.$route.name !== 'advancedSearch') {
@@ -2423,6 +2437,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[1, 10]]);
       }))();
     },
+    fetchFilterApartments: function fetchFilterApartments(roomsNumber, bedsNumber, radius, checkedService) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var resp;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios.get('/api/apartments', {
+                  params: {
+                    roomsNumber: roomsNumber,
+                    filter: _this2.searchedText,
+                    bedsNumber: bedsNumber,
+                    radius: radius,
+                    checkedService: checkedService
+                  }
+                });
+
+              case 3:
+                resp = _context2.sent;
+                _this2.apartments = resp.data;
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log('error in call api' + _context2.t0.message);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
     searchApartments: function searchApartments(text) {
       this.searchedText = text;
       this.fetchApartments(this.searchedText);
@@ -2444,7 +2498,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container-fluid .row[data-v-0f50c006] {\n  height: 23vh;\n}\n.container-fluid .row .image-container[data-v-0f50c006] {\n  width: 20%;\n  height: 100%;\n}\n.container-fluid .row .image-container img[data-v-0f50c006] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n.container-fluid .row .ad-content[data-v-0f50c006] {\n  margin-left: 30px;\n  width: 70%;\n}\n.container-fluid .row .ad-content i[data-v-0f50c006] {\n  color: #ff385c;\n}", ""]);
+exports.push([module.i, ".container-fluid .row[data-v-0f50c006] {\n  height: 23vh;\n}\n.container-fluid .row .image-container[data-v-0f50c006] {\n  height: 100%;\n}\n.container-fluid .row .image-container img[data-v-0f50c006] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 15px;\n}\n.container-fluid .row .ad-content[data-v-0f50c006] {\n  margin-left: 30px;\n}\n.container-fluid .row .ad-content i[data-v-0f50c006] {\n  color: #ff385c;\n}", ""]);
 
 // exports
 
@@ -4475,7 +4529,7 @@ var render = function () {
   return _c("div", { staticClass: "px-4" }, [
     _c("div", { staticClass: "container-fluid py-3 border-top" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "image-container" }, [
+        _c("div", { staticClass: "image-container col-2" }, [
           _c("img", {
             attrs: {
               src: _vm.apartment.photo,
@@ -4484,7 +4538,7 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ad-content px-5" }, [
+        _c("div", { staticClass: "ad-content px-5 col-7" }, [
           _c("h2", [_vm._v(_vm._s(_vm.apartment.title))]),
           _vm._v(" "),
           _c("div", [
@@ -4492,20 +4546,42 @@ var render = function () {
             _vm._v(" " + _vm._s(_vm.apartment.address) + " "),
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "me-3" }, [
-            _c("i", { staticClass: "fas fa-home" }),
-            _vm._v(" " + _vm._s(_vm.apartment.rooms_number) + " rooms "),
+          _c("div", [
+            _c("span", { staticClass: "me-3" }, [
+              _c("i", { staticClass: "fas fa-home" }),
+              _vm._v(" " + _vm._s(_vm.apartment.rooms_number) + " rooms "),
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "me-3" }, [
+              _c("i", { staticClass: "fas fa-bed" }),
+              _vm._v(" " + _vm._s(_vm.apartment.beds_number) + " beds "),
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "me-3" }, [
+              _c("i", { staticClass: "fas fa-bath" }),
+              _vm._v(" " + _vm._s(_vm.apartment.baths_number) + " baths "),
+            ]),
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "me-3" }, [
-            _c("i", { staticClass: "fas fa-bed" }),
-            _vm._v(" " + _vm._s(_vm.apartment.beds_number) + " beds "),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "me-3" }, [
-            _c("i", { staticClass: "fas fa-bath" }),
-            _vm._v(" " + _vm._s(_vm.apartment.baths_number) + " baths "),
-          ]),
+          _c(
+            "div",
+            [
+              _c("h5", { staticClass: "pt-3 pb-2" }, [
+                _vm._v("Additional Services"),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.apartment.additional_services, function (service, i) {
+                return _c("span", { key: i, staticClass: "mx-2" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(service.name) +
+                      "\n                    "
+                  ),
+                ])
+              }),
+            ],
+            2
+          ),
         ]),
       ]),
     ]),
@@ -4837,194 +4913,238 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "py-4" },
-    [
-      _vm._l(_vm.apartments, function (apartment) {
-        return _c(
-          "div",
-          { key: apartment.id },
-          [_c("the-card", { attrs: { apartment: apartment } })],
-          1
-        )
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-dark",
-          attrs: {
-            type: "button",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#staticBackdrop",
-          },
+  return _c("div", { staticClass: "py-4" }, [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-dark",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "modal",
+          "data-bs-target": "#staticBackdrop",
         },
-        [_vm._v("Filter")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "staticBackdrop",
-            "data-bs-backdrop": "static",
-            "data-bs-keyboard": "false",
-            tabindex: "-1",
-            "aria-labelledby": "staticBackdropLabel",
-            "aria-hidden": "true",
-          },
+      },
+      [_vm._v("Filter")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "staticBackdrop",
+          "data-bs-backdrop": "static",
+          "data-bs-keyboard": "false",
+          tabindex: "-1",
+          "aria-labelledby": "staticBackdropLabel",
+          "aria-hidden": "true",
         },
-        [
-          _c("div", { staticClass: "modal-dialog modal-dialog-scrollable" }, [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("div", { staticClass: "form-check mb-3" }, [
-                  _c("label", { staticClass: "form-label" }, [
-                    _vm._v("Min. Rooms number"),
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.roomsNumber,
-                        expression: "roomsNumber",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: _vm.roomsNumber },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.roomsNumber = $event.target.value
-                      },
-                    },
-                  }),
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-scrollable" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-check mb-3" }, [
+                _c("label", { staticClass: "form-label" }, [
+                  _vm._v("Min. Rooms number"),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-check  mb-3" }, [
-                  _c("label", { staticClass: "form-label" }, [
-                    _vm._v("Min. beds number"),
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.bedsNumber,
-                        expression: "bedsNumber",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: _vm.bedsNumber },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.bedsNumber = $event.target.value
-                      },
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.roomsNumber,
+                      expression: "roomsNumber",
                     },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "mb-3 form-check" },
-                  [
-                    _c("label", { staticClass: "mb-2" }, [
-                      _vm._v("Additional services"),
-                    ]),
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm._l(_vm.additionalServices, function (service) {
-                      return _c(
-                        "div",
-                        {
-                          key: service.id,
-                          staticClass: "form-check form-check-inline",
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.checkedService,
-                                expression: "checkedService",
-                              },
-                            ],
-                            staticClass: "form-check-input",
-                            attrs: { type: "checkbox" },
-                            domProps: {
-                              value: service.id,
-                              checked: Array.isArray(_vm.checkedService)
-                                ? _vm._i(_vm.checkedService, service.id) > -1
-                                : _vm.checkedService,
-                            },
-                            on: {
-                              change: function ($event) {
-                                var $$a = _vm.checkedService,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = service.id,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.checkedService = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.checkedService = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.checkedService = $$c
-                                }
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("label", { staticClass: "form-label" }, [
-                            _vm._v(_vm._s(service.name)),
-                          ]),
-                        ]
-                      )
-                    }),
                   ],
-                  2
-                ),
+                  staticClass: "form-control",
+                  attrs: { type: "number" },
+                  domProps: { value: _vm.roomsNumber },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.roomsNumber = $event.target.value
+                    },
+                  },
+                }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "submit", "data-bs-dismiss": "modal" },
-                    on: { click: _vm.fetchFilterApartments },
+              _c("div", { staticClass: "form-check  mb-3" }, [
+                _c("label", { staticClass: "form-label" }, [
+                  _vm._v("Min. beds number"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.bedsNumber,
+                      expression: "bedsNumber",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number" },
+                  domProps: { value: _vm.bedsNumber },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.bedsNumber = $event.target.value
+                    },
                   },
-                  [_vm._v("Filter")]
-                ),
+                }),
               ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-check mb-3" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Radius")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.radius,
+                      expression: "radius",
+                    },
+                  ],
+                  staticClass: "form-range",
+                  attrs: {
+                    name: "radius",
+                    type: "range",
+                    min: "0",
+                    max: "40",
+                    step: "5",
+                  },
+                  domProps: { value: _vm.radius },
+                  on: {
+                    __r: function ($event) {
+                      _vm.radius = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.radius) + "km")]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mb-3 form-check" },
+                [
+                  _c("label", { staticClass: "mb-2" }, [
+                    _vm._v("Additional services"),
+                  ]),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._l(_vm.additionalServices, function (service) {
+                    return _c(
+                      "div",
+                      {
+                        key: service.id,
+                        staticClass: "form-check form-check-inline",
+                      },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.checkedService,
+                              expression: "checkedService",
+                            },
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            value: service.id,
+                            checked: Array.isArray(_vm.checkedService)
+                              ? _vm._i(_vm.checkedService, service.id) > -1
+                              : _vm.checkedService,
+                          },
+                          on: {
+                            change: function ($event) {
+                              var $$a = _vm.checkedService,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = service.id,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.checkedService = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.checkedService = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.checkedService = $$c
+                              }
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "form-label" }, [
+                          _vm._v(_vm._s(service.name)),
+                        ]),
+                      ]
+                    )
+                  }),
+                ],
+                2
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "submit", "data-bs-dismiss": "modal" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$emit(
+                        "filteredApartments",
+                        _vm.roomsNumber,
+                        _vm.bedsNumber,
+                        _vm.radius,
+                        _vm.checkedService
+                      )
+                    },
+                  },
+                },
+                [_vm._v("Filter")]
+              ),
             ]),
           ]),
-        ]
-      ),
-    ],
-    2
-  )
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.apartments.length >= 1
+      ? _c(
+          "div",
+          _vm._l(_vm.apartments, function (apartment) {
+            return _c(
+              "div",
+              { key: apartment.id },
+              [_c("the-card", { attrs: { apartment: apartment } })],
+              1
+            )
+          }),
+          0
+        )
+      : _c("h2", { staticClass: "py-5 text-center" }, [
+          _vm._v("Nessuno appartamento corrispondente alla tua ricerca"),
+        ]),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -5047,6 +5167,37 @@ var staticRenderFns = [
         },
       }),
     ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h1", [_vm._v("ciao")])])
   },
 ]
 render._withStripped = true
@@ -5079,7 +5230,12 @@ var render = function () {
       _vm._v(" "),
       _c(
         "main",
-        [_c("router-view", { attrs: { apartments: _vm.apartments } })],
+        [
+          _c("router-view", {
+            attrs: { apartments: _vm.apartments },
+            on: { filteredApartments: _vm.fetchFilterApartments },
+          }),
+        ],
         1
       ),
     ],
@@ -20784,6 +20940,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/ShowApartment.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/pages/ShowApartment.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowApartment.vue?vue&type=template&id=42e4ef7c& */ "./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c&");
+/* harmony import */ var _ShowApartment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowApartment.vue?vue&type=script&lang=js& */ "./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ShowApartment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/ShowApartment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowApartment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ShowApartment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShowApartment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowApartment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ShowApartment.vue?vue&type=template&id=42e4ef7c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShowApartment.vue?vue&type=template&id=42e4ef7c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowApartment_vue_vue_type_template_id_42e4ef7c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -20797,6 +21022,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_AdvancedSearch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/AdvancedSearch */ "./resources/js/pages/AdvancedSearch.vue");
+/* harmony import */ var _pages_ShowApartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/ShowApartment */ "./resources/js/pages/ShowApartment.vue");
+
 
 
 
@@ -20810,6 +21037,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     meta: {
       title: "search",
       linkText: "advanced research"
+    }
+  }, {
+    path: '/showApartment',
+    component: _pages_ShowApartment__WEBPACK_IMPORTED_MODULE_3__["default"],
+    name: "showApartment",
+    meta: {
+      title: "showApartment"
     }
   }]
 });
@@ -20938,7 +21172,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Simone\Desktop\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

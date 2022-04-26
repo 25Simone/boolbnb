@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AdvancedSearch from './pages/AdvancedSearch';
+import ShowApartment from './pages/ShowApartment';
 
 
 Vue.use(VueRouter);
@@ -13,6 +14,12 @@ const router = new VueRouter({
             component : AdvancedSearch,
             name : "advancedSearch",
             meta : {title: "search", linkText: "advanced research"}
+        },
+        {
+            path: '/showApartment',
+            component: ShowApartment,
+            name: "showApartment",
+            meta : {title: "showApartment"}
         }
     ]
 })
