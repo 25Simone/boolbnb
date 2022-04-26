@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button @click="fetchFilterApartments" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
+                        <button @click="$emit('filteredApartments',roomsNumber)" type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Filter</button>
                     </div>
                 </div>
             </div>
@@ -63,27 +63,13 @@ export default {
             try{
                 const resp = await axios.get('/api/additionalServices');
                 this.additionalServices = resp.data;
-                console.log(this.additionalServices); // Debug
+               
             
             }catch(e){
                 error.log(e.message)
             }
         },
-        async fetchFilterApartments(){
-            try{
-                const resp = axios.get('/api/apartments',{
-                    params: {
-                        roomsNumber: this.roomsNumber,
-                        bedsNumber: this.bedsNumber,
-                        checkedService: this.checkedService,
-                    }
-                    
-                });
-                console.log(resp);
-            }catch(e){
-                console.log('error in call api' + e.message);
-            }
-        }
+   
   
    
     },

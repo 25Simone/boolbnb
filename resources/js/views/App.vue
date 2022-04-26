@@ -5,7 +5,7 @@
         <the-searchbar @search=searchApartments></the-searchbar> 
         <!-- <advanced-search :apartments="apartments"></advanced-search> -->
          <main>
-            <router-view :apartments="apartments"></router-view>
+            <router-view :apartments="apartments" @filteredApartments=fetchFilterApartments></router-view>
         </main>
     </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     //   pagination: {},
       apartments: [],
       searchedText: '',
+     
     }
   },
   methods: {
@@ -40,8 +41,9 @@ export default {
                     filter: searchedText
                 }
             })
-            console.log(resp);
+            
             // this.pagination = resp.data;
+            console.log(resp);
             this.apartments = resp.data;
             // console.log(this.apartments);
             if(this.$route.name !== 'advancedSearch') {
@@ -51,10 +53,28 @@ export default {
             console.log('error in axios call' + e.message);
         }
     },
+    async fetchFilterApartments(roomsNumber){
+        try{
+            const resp = await axios.get('/api/apartments',{
+                params: {
+                    roomsNumber: roomsNumber,
+                    filter: this.searchedText,
+                    // bedsNumber: this.bedsNumber,
+                    // checkedService: this.checkedService,
+                }
+                    
+            });
+        
+            this.apartments = resp.data;
+                
+        }catch(e){
+            console.log('error in call api' + e.message);
+        }
+    },
     searchApartments(text){
         this.searchedText = text;
         this.fetchApartments(this.searchedText);
-    }
+    },
   }
 }
 </script>

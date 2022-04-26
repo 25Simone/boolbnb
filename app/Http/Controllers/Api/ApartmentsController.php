@@ -13,10 +13,8 @@ class ApartmentsController extends Controller
 
         
         $filter = $request->input('filter');
-        // if($request->input('roomsNumber')){
-        //     $roomsNumber = $request->input('roomsNumber');
-            
-        // }
+        // $filter = 'via Marina,20121,Milano';
+    
         
          $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query='. $filter . '&countrySet=IT' . '&limit=1');
          $lat = $coordinate["results"][0]["position"]["lat"];
@@ -33,13 +31,28 @@ class ApartmentsController extends Controller
                 $apartmentsInRadius[] = $apartment;
             }
         }
+        
+        if($request["roomsNumber"]){
+            $roomsNumber = $request->input('roomsNumber');
+            
+            // $apartmentsInRadius = array_filter($apartmentsInRadius,function($apartment){
+            //     return $apartment["rooms_number"] >= 2; 
+            // });
+            foreach($apartmentsInRadius as $apartment){
+               if($apartment["rooms_number"] >= $roomsNumber){
+                    $filteredApartments[] = $apartment;
+                }
+            };
+            $apartmentsInRadius = $filteredApartments;
+        };
 
-        // $fileteredApartments = array_filter($apartmentsInRadius,function($apartment){
-        //     return $apartment["rooms_number"] >= 2; 
-        // });
-        // dump($apartmentsInRadius);
+        
+
+        
        
-        return response()->json($apartmentsInRadius);
+        return response()->json(
+         $apartmentsInRadius,
+        );
 
     }
 }
