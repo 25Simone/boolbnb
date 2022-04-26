@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -40,11 +40,11 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label class="col-md-4 col-form-label text-md-right" for="birthDate">Birth date</label>
+                            <label class="col-md-4 col-form-label text-md-right" for="birth_date">Birth date</label>
                             <div class="col-md-6">
-                                <input id="birth_date" type="date" class="form-control @error('birthDate') is-invalid @enderror" name="birthDate" value="{{ old('birthDate') }}" autocomplete="birthDate">
+                                <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" autocomplete="birth_date">
 
-                                @error('birthDate')
+                                @error('birth_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
