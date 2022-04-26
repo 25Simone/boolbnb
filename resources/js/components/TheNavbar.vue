@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
+    <nav class="nav navbar navbar-expand-md shadow-sm" :class="$route.name === 'advancedSearch' ? 'navbar-light bg-light' : 'navbar-dark bg-dark'">
         <div class="container">
             <a class="navbar-brand" href="/">BoolBnB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -76,10 +76,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar{
+.nav{
     .navbar-brand{
         color: #ff385c;
         font-size: 25px;
     }
+}
+.nav.bg-dark {
+    background-color: #000 !important;
 }
 </style>
