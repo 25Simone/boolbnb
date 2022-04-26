@@ -1,11 +1,7 @@
 <template>
     <div class="py-4">
-      <div v-for="apartment in apartments" :key="apartment.id">
-          <the-card :apartment="apartment"></the-card>
-      </div>
-
-     
-       <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Filter</button>
+        <!-- Filter button -->
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Filter</button>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
@@ -37,6 +33,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Results -->
+        <div v-if="apartments.length >= 1">
+            <div v-for="apartment in apartments" :key="apartment.id">
+                <the-card :apartment="apartment"></the-card>
+            </div>
+        </div>
+        <h2 class="py-5 text-center" v-else>Nessuno appartamento corrispondente alla tua ricerca</h2>
+
+     
     
    
   </div>
