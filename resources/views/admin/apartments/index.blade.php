@@ -5,7 +5,7 @@
         <div class="header-container">
             <h2>MyAPARTMENTS</h2>
             <div class="flex">
-                <button class="btn btn-light">
+                <button class="btn btn-light butt">
                     <a class="btn-create" href="{{route('admin.apartments.create')}}">Create</a>
                 </button>
             </div>
@@ -14,7 +14,7 @@
 
         <div class="card-group">
             @foreach ($apartments as $apartment)
-                <div class="card" style="width: 18rem;">
+                <div class="card">
 
                     <div class="card-body">
                         <h4 class="card-title">{{ $apartment->title }}</h4>
@@ -31,8 +31,8 @@
                         <p>Host:{{ $apartment->user->name }}</p>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-light" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
-                        <a class="btn btn-light" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
+                        <a class="btn btn-light butt" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
+                        <a class="btn btn-light butt" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
                     </div>
                 </div>
             @endforeach
