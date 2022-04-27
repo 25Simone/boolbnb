@@ -102,11 +102,13 @@ class ApartmentsController extends Controller
 
     }
     public function show($slug){
-        $apartment = Apartment::where('slug',$slug)->first();
-        dump($apartment);
+        $apartment = Apartment::where('slug',$slug)->with('additional_services')->first();
         if(!$apartment){
             abort(404);
         }
+        
+            $apartment->photo = asset('storage/' . $apartment->photo);
+        
 
         return response()->json($apartment);
     }

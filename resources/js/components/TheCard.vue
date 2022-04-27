@@ -24,6 +24,7 @@
                         </span>
                     </div>
                 </div>
+                <a :href="'/apartments/' + apartment.slug">Show</a>
             </div>
         </div>
     </div>

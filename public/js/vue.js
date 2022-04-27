@@ -1951,6 +1951,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     apartment: Object
@@ -2327,13 +2328,92 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      apartment: {}
+    };
+  },
+  methods: {
+    fetchApartments: function fetchApartments() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var resp;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/apartments/' + _this.$route.params.apartment);
+
+              case 3:
+                resp = _context.sent;
+                _this.apartment = resp.data;
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log('error in call api ' + _context.t0.message);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchApartments();
+    console.log(this.apartment.photo);
+    var tomtomScript = document.createElement('script');
+    tomtomScript.setAttribute('src', 'https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps-web.min.js');
+    document.head.appendChild(tomtomScript);
+  },
+  updated: function updated() {
+    var center = [this.apartment.longitude, this.apartment.latitude];
+    var map = tt.map({
+      key: "hjLTHv68YTVsWXnlRPRvPwUUjOQSCt7n",
+      container: "map",
+      center: center,
+      zoom: 12
+    });
+    map.on('load', function () {
+      new tt.Marker().setLngLat(center).addTo(map);
+    });
+  }
+});
 
 /***/ }),
 
@@ -4583,6 +4663,10 @@ var render = function () {
             2
           ),
         ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "/apartments/" + _vm.apartment.slug } }, [
+          _vm._v("Show"),
+        ]),
       ]),
     ]),
   ])
@@ -5190,14 +5274,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("h1", [_vm._v(_vm._s(_vm.apartment.title))]),
+      _vm._v(" "),
+      _c("div", [_c("img", { attrs: { src: _vm.apartment.photo } })]),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "40vw", height: "350px" },
+        attrs: { id: "map" },
+      }),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("ciao")])])
+    return _c("head", [
+      _c("link", {
+        attrs: {
+          rel: "stylesheet",
+          href: "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css",
+          type: "text/css",
+        },
+      }),
+    ])
   },
 ]
 render._withStripped = true
@@ -21041,7 +21146,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/apartments/:apartment',
     component: _pages_ShowApartment__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: "showApartment",
+    name: "apartment.show",
     meta: {
       title: "showApartment"
     }
