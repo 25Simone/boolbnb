@@ -14,8 +14,7 @@
             }
         }
     }
-    
-    .btn {
+    .butt {
         color: #ff385c;
         border-radius: 10px;
         &:hover {
@@ -28,11 +27,12 @@
     }
 
     .card-group{
-        align-items: stretch;
+        
         .card{
             border-radius: 30px;
             border: rgb(143, 143, 143) 1px solid;
             margin: 10px;
+            overflow: hidden;
             .card-footer {
                 background-color: white;
             }
