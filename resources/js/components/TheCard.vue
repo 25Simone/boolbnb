@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .container-fluid{
     .row {
-        // height: 23vh;
+        height: 23vh;
         .image-container {
             // width: 20%;
             height: 100%;

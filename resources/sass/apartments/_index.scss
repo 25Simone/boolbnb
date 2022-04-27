@@ -22,6 +22,10 @@
             // border: rgb(143, 143, 143) 1px solid;
             height: 100%;
             overflow: hidden;
+            img {
+                height: 40%;
+                object-fit: cover;
+            }
             .card-footer {
                 background-color: white;
             }
