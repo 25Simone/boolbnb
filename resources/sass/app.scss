@@ -8,8 +8,9 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
-@import'~@fortawesome/fontawesome-free/css/all.css';
+// @import'~@fortawesome/fontawesome-free/css/all.css';
 
+@import './apartments/index';
 // Apartments create
 @import './apartments/create';
 

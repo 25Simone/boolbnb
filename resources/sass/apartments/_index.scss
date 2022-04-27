@@ -1,0 +1,42 @@
+.container-fluid {
+    background-color: white;
+
+    .header-container {
+        h2 {
+            padding:20px ;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: end;
+            button {
+                width:200px;
+            }
+        }
+    }
+    
+    .btn {
+        color: #ff385c;
+        border-radius: 10px;
+        &:hover {
+            background-color: rgb(192, 192, 192);
+        }
+    }
+    .btn-create {
+        color: #ff385c;
+        text-decoration: none;
+    }
+
+    .card-group{
+        align-items: stretch;
+        .card{
+            border-radius: 30px;
+            border: rgb(143, 143, 143) 1px solid;
+            margin: 10px;
+            .card-footer {
+                background-color: white;
+            }
+        }
+    }
+}
+
