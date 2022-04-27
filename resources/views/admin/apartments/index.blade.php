@@ -4,9 +4,9 @@
     <div class="container-fluid">
         <div class="header-container">
             <h2>MyAPARTMENTS</h2>
-            <div class="flex">
+            <div class="d-flex justify-content-end">
                 <button class="btn btn-light butt">
-                    <a class="btn-create" href="{{route('admin.apartments.create')}}">Create</a>
+                    <a role="button" class="btn-create fw-bold fs-5 mx-3" href="{{route('admin.apartments.create')}}">Create</a>
                 </button>
             </div>
             
