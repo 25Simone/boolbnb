@@ -20007,17 +20007,26 @@ fieldset:disabled .btn {
 .container-xl .row .card,
 .container-xxl .row .card {
   border-radius: 30px;
-  height: 100%;
+  height: 60vh;
   overflow: hidden;
 }
 
-.container-fluid .row .card img,
-.container-sm .row .card img,
-.container-md .row .card img,
-.container-lg .row .card img,
-.container-xl .row .card img,
-.container-xxl .row .card img {
+.container-fluid .row .card .img-container,
+.container-sm .row .card .img-container,
+.container-md .row .card .img-container,
+.container-lg .row .card .img-container,
+.container-xl .row .card .img-container,
+.container-xxl .row .card .img-container {
   height: 40%;
+}
+
+.container-fluid .row .card .img-container img,
+.container-sm .row .card .img-container img,
+.container-md .row .card .img-container img,
+.container-lg .row .card .img-container img,
+.container-xl .row .card .img-container img,
+.container-xxl .row .card .img-container img {
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }

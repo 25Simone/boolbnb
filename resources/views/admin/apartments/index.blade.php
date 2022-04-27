@@ -12,11 +12,13 @@
             
         </div>
 
-        <div class="row row-cols-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
             @foreach ($apartments as $apartment)
-                <div class="col p-3">
+                <div class="col p-4">
                     <div class="card shadow">
-                        <img src="{{asset("storage/" . $apartment->photo)}}" class="card-img-top" alt="...">
+                        <div class="img-container">
+                            <img src="{{asset("storage/" . $apartment->photo)}}" class="card-img-top" alt="...">
+                        </div>
                         <div class="card-body apartment-preview">
                             <h4 class="card-title">{{ $apartment->title }}</h4>
                             <div class="d-flex">
