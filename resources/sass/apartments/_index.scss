@@ -1,6 +1,4 @@
 .container-fluid {
-    background-color: white;
-
     .header-container {
         h2 {
             padding:20px ;
@@ -26,16 +24,22 @@
         text-decoration: none;
     }
 
-    .card-group{
-        
+    .row{
         .card{
             border-radius: 30px;
-            border: rgb(143, 143, 143) 1px solid;
-            margin: 10px;
+            // border: rgb(143, 143, 143) 1px solid;
+            height: 100%;
             overflow: hidden;
             .card-footer {
                 background-color: white;
             }
+        }
+    }
+    .apartment-preview{
+        span {
+            color: #ff385c;
+            padding-left: 8px;
+            font-weight: bold;
         }
     }
 }

@@ -12,27 +12,29 @@
             
         </div>
 
-        <div class="card-group">
+        <div class="row row-cols-5">
             @foreach ($apartments as $apartment)
-                <div class="card">
-
-                    <div class="card-body">
-                        <h4 class="card-title">{{ $apartment->title }}</h4>
-                        <div>
-                            <span>Rooms:{{ $apartment->rooms_number }}</span>
-                            <span>Beds:{{ $apartment->beds_number }}</span>
-                            <span>Bath:{{ $apartment->baths_number }}</span>
+                <div class="col p-3">
+                    <div class="card shadow">
+                        <img src="{{asset("storage/" . $apartment->photo)}}" class="card-img-top" alt="...">
+                        <div class="card-body apartment-preview">
+                            <h4 class="card-title">{{ $apartment->title }}</h4>
+                            <div class="d-flex">
+                                <div> <span>Rooms: </span>{{ $apartment->rooms_number }}</div>
+                                <div> <span>Beds: </span>{{ $apartment->beds_number }}</div>
+                                <div> <span>Bath: </span>{{ $apartment->baths_number }}</div>
+                            </div>
+                            <div class="d-flex">
+                                <div> <span>Guest: </span>{{ $apartment->guests }}</div>
+                                <div> <span>MQ: </span>{{ $apartment->squaremeters }}</div>
+                            </div>
+                            <p> <span>Address: </span>{{ $apartment->address }}</p>
+                            <p> <span>Host: </span>{{ $apartment->user->name }}</p>
                         </div>
-                        <div>
-                            <span>Guest:{{ $apartment->guests }}</span>
-                            <span>MQ:{{ $apartment->squaremeters }}</span>
+                        <div class="card-footer">
+                            <a class="btn btn-light butt" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
+                            <a class="btn btn-light butt" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
                         </div>
-                        <p>Address:{{ $apartment->address }}</p>
-                        <p>Host:{{ $apartment->user->name }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a class="btn btn-light butt" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
-                        <a class="btn btn-light butt" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
                     </div>
                 </div>
             @endforeach
