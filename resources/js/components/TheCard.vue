@@ -5,26 +5,30 @@
                 <div class="image-container col-2">
                     <img :src="apartment.photo" :alt="apartment.title + 'image'">
                 </div>
-                <div class="ad-content px-5 col-7">
-                    <h2>{{ apartment.title }}</h2>
-                    <div> <i class="fas fa-map-marker-alt my-3"></i> {{ apartment.address }} </div>
-                    <div>
-                        <span class="me-3"> <i class="fas fa-home"></i> {{ apartment.rooms_number }} rooms </span>
-                        <span class="me-3"> <i class="fas fa-bed"></i> {{ apartment.beds_number }} beds </span>
-                        <span class="me-3"> <i class="fas fa-bath"></i> {{ apartment.baths_number }} baths </span>
+                <div class="d-flex align-items-center justify-content-between px-5 col-8">
+                    <div class="ad-content">
+                        <h2>{{ apartment.title }}</h2>
+                        <div> <i class="fas fa-map-marker-alt my-3"></i> {{ apartment.address }} </div>
+                        <div>
+                            <span class="me-3"> <i class="fas fa-home"></i> {{ apartment.rooms_number }} rooms </span>
+                            <span class="me-3"> <i class="fas fa-bed"></i> {{ apartment.beds_number }} beds </span>
+                            <span class="me-3"> <i class="fas fa-bath"></i> {{ apartment.baths_number }} baths </span>
+                        </div>
                     </div>
                     <div>
                         <h5 class="pt-3 pb-2">Additional Services</h5>
-                        <span
-                        class="mx-2"
-                        v-for="(service, i) in apartment.additional_services"
-                        :key="i"
-                        >
-                            {{ service.name }}
-                        </span>
+                        <ul>
+                            <li
+                            class="mx-2"
+                            v-for="(service, i) in apartment.additional_services"
+                            :key="i"
+                            >
+                                {{ service.name }}
+                            </li>
+                        </ul>
                     </div>
+                    <a :href="'/apartments/' + apartment.slug" role="button" class="btn">Show</a>
                 </div>
-                <a :href="'/apartments/' + apartment.slug">Show</a>
             </div>
         </div>
     </div>
@@ -41,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 .container-fluid{
     .row {
-        height: 23vh;
+        // height: 23vh;
         .image-container {
             // width: 20%;
             height: 100%;
@@ -58,6 +62,10 @@ export default {
             i {
                 color: #ff385c;
             }
+        }
+        .btn {
+            background: #ff385c;
+            color: #fff;
         }
     }
 }
