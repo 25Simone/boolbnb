@@ -19956,6 +19956,17 @@ fieldset:disabled .btn {
   }
 }
 
+.container-fluid.my-apartments-section .header-container,
+.my-apartments-section.container-sm .header-container,
+.my-apartments-section.container-md .header-container,
+.my-apartments-section.container-lg .header-container,
+.my-apartments-section.container-xl .header-container,
+.my-apartments-section.container-xxl .header-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .container-fluid.my-apartments-section .header-container h2,
 .my-apartments-section.container-sm .header-container h2,
 .my-apartments-section.container-md .header-container h2,
@@ -19968,7 +19979,18 @@ fieldset:disabled .btn {
 .my-apartments-section.container-lg .header-container .h2,
 .my-apartments-section.container-xl .header-container .h2,
 .my-apartments-section.container-xxl .header-container .h2 {
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid.my-apartments-section .create-btn,
+.my-apartments-section.container-sm .create-btn,
+.my-apartments-section.container-md .create-btn,
+.my-apartments-section.container-lg .create-btn,
+.my-apartments-section.container-xl .create-btn,
+.my-apartments-section.container-xxl .create-btn {
+  position: absolute;
+  right: 10px;
 }
 
 .container-fluid.my-apartments-section .butt,
@@ -19979,6 +20001,7 @@ fieldset:disabled .btn {
 .my-apartments-section.container-xxl .butt {
   color: #ff385c;
   border-radius: 10px;
+  right: 10px;
 }
 
 .container-fluid.my-apartments-section .butt:hover,
@@ -20012,12 +20035,12 @@ fieldset:disabled .btn {
   position: relative;
 }
 
-.container-fluid .row .card .badge,
-.container-sm .row .card .badge,
-.container-md .row .card .badge,
-.container-lg .row .card .badge,
-.container-xl .row .card .badge,
-.container-xxl .row .card .badge {
+.container-fluid.my-apartments-section .row .card .badge,
+.my-apartments-section.container-sm .row .card .badge,
+.my-apartments-section.container-md .row .card .badge,
+.my-apartments-section.container-lg .row .card .badge,
+.my-apartments-section.container-xl .row .card .badge,
+.my-apartments-section.container-xxl .row .card .badge {
   position: absolute;
   top: 0px;
   right: 15px;

@@ -2,14 +2,11 @@
 
 @section('content')
     <div class="container-fluid my-apartments-section">
-        <div class="header-container">
-            <h2>MyAPARTMENTS</h2>
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-light butt">
-                    <a role="button" class="btn-create fw-bold fs-5 mx-3" href="{{route('admin.apartments.create')}}">Create</a>
-                </button>
-            </div>
-            
+        <div class="header-container mt-5 p-2">
+            <h2>My Apartments</h2>
+            <button class="btn btn-light butt create-btn">
+                <a role="button" class="btn-create fw-bold fs-5 mx-3" href="{{route('admin.apartments.create')}}">Create</a>
+            </button>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">

@@ -2265,6 +2265,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2386,6 +2388,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2396,7 +2408,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         lastname: '',
         email: '',
         message: ''
-      }
+      },
+      showedMap: false,
+      contactSubmitted: false,
+      formSubmittedError: false,
+      errorMessage: null,
+      formValidationErrors: null
     };
   },
   methods: {
@@ -2442,31 +2459,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                formDataInstance = new FormData();
+                // Reset formValidationErrors
+                _this2.formValidationErrors = null; // Create an instance of FormData class
+
+                formDataInstance = new FormData(); // Pass manually the keys and the values to the instance
+
                 formDataInstance.append("name", _this2.formData.name);
                 formDataInstance.append("lastname", _this2.formData.lastname);
                 formDataInstance.append("email", _this2.formData.email);
                 formDataInstance.append("message", _this2.formData.message);
-                formDataInstance.append("apartment_id", _this2.apartment.id);
-                _context2.next = 9;
+                formDataInstance.append("apartment_id", _this2.apartment.id); // Axios post call
+
+                _context2.next = 10;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/contacts', formDataInstance);
 
-              case 9:
+              case 10:
                 resp = _context2.sent;
-                _context2.next = 15;
+                // Alert show
+                _this2.contactSubmitted = true;
+                _this2.formSubmittedError = false;
+                _context2.next = 21;
                 break;
 
-              case 12:
-                _context2.prev = 12;
+              case 15:
+                _context2.prev = 15;
                 _context2.t0 = _context2["catch"](0);
+                _this2.errorMessage = _context2.t0.response.data.message;
+                _this2.formSubmittedError = true;
+
+                if (_context2.t0.response.status === 422) {
+                  _this2.formValidationErrors = _context2.t0.response.data.errors;
+                }
+
                 console.log('error in call api' + _context2.t0.message);
 
-              case 15:
+              case 21:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 12]]);
+        }, _callee2, null, [[0, 15]]);
       }))();
     }
   },
@@ -2478,16 +2510,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     document.head.appendChild(tomtomScript);
   },
   updated: function updated() {
-    var center = [this.apartment.longitude, this.apartment.latitude];
-    var map = tt.map({
-      key: "hjLTHv68YTVsWXnlRPRvPwUUjOQSCt7n",
-      container: "map",
-      center: center,
-      zoom: 17
-    });
-    map.on('load', function () {
-      new tt.Marker().setLngLat(center).addTo(map);
-    });
+    if (!this.showedMap) {
+      var center = [this.apartment.longitude, this.apartment.latitude];
+      var map = tt.map({
+        key: "hjLTHv68YTVsWXnlRPRvPwUUjOQSCt7n",
+        container: "map",
+        center: center,
+        zoom: 18
+      });
+      map.on('load', function () {
+        new tt.Marker().setLngLat(center).addTo(map);
+      });
+      this.showedMap = true;
+    }
   }
 });
 
@@ -2692,7 +2727,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 100%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > span[data-v-457d8ae5] {\n  display: flex;\n  align-items: center;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 12px;\n  position: relative;\n}\n.searchbar > span .form-section label span[data-v-457d8ae5] {\n  font-weight: 400;\n  font-size: 14px;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: none;\n  border: none;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5]:focus-visible {\n  outline: 0;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] ::-webkit-calendar-picker-indicator {\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n.searchbar > span .form-section .button[data-v-457d8ae5] {\n  position: absolute;\n  right: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > span #place-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n}\n.searchbar > span #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n}\n.searchbar > span .date-range-wrapper[data-v-457d8ae5] {\n  width: 21%;\n}\n.searchbar > span #guest-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n  position: relative;\n}\n.searchbar #place-input[data-v-457d8ae5] {\n  font-size: 14px;\n}", ""]);
+exports.push([module.i, "#suggestedAddresses[data-v-457d8ae5] {\n  z-index: 2;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 100%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > span[data-v-457d8ae5] {\n  display: flex;\n  align-items: center;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 12px;\n  position: relative;\n}\n.searchbar > span .form-section label span[data-v-457d8ae5] {\n  font-weight: 400;\n  font-size: 14px;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: none;\n  border: none;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5]:focus-visible {\n  outline: 0;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] ::-webkit-calendar-picker-indicator {\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n.searchbar > span .form-section .button[data-v-457d8ae5] {\n  position: absolute;\n  right: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > span #place-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n}\n.searchbar > span #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n}\n.searchbar > span .date-range-wrapper[data-v-457d8ae5] {\n  width: 21%;\n}\n.searchbar > span #guest-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n  position: relative;\n}\n.searchbar #place-input[data-v-457d8ae5] {\n  font-size: 14px;\n}", ""]);
 
 // exports
 
@@ -2711,7 +2746,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-0312e533] {\n  width: 50%;\n}", ""]);
+exports.push([module.i, ".container[data-v-0312e533] {\n  width: 50%;\n}\n.advanced-container[data-v-0312e533] {\n  position: relative;\n}\n.advanced-container .filter-button[data-v-0312e533] {\n  position: absolute;\n  right: 25px;\n  top: -15px;\n  background-color: #ff385c;\n  border-color: #ff385c;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.filter-container[data-v-0312e533] {\n  padding: 15px;\n  padding-right: 30px;\n  display: flex;\n  justify-content: flex-end;\n}\n.filter-container .filter-icon[data-v-0312e533] {\n  font-size: 18px;\n  color: white;\n}", ""]);
 
 // exports
 
@@ -2730,7 +2765,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}", ""]);
+exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}", ""]);
 
 // exports
 
@@ -5142,19 +5177,8 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "py-4" }, [
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-dark",
-        attrs: {
-          type: "button",
-          "data-bs-toggle": "modal",
-          "data-bs-target": "#staticBackdrop",
-        },
-      },
-      [_vm._v("Filter")]
-    ),
+  return _c("div", { staticClass: "py-4 advanced-container" }, [
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
@@ -5172,7 +5196,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-scrollable" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("div", { staticClass: "form-check mb-3" }, [
@@ -5190,7 +5214,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "number" },
+                  attrs: { type: "number", min: "0" },
                   domProps: { value: _vm.roomsNumber },
                   on: {
                     input: function ($event) {
@@ -5218,7 +5242,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "number" },
+                  attrs: { type: "number", min: "0" },
                   domProps: { value: _vm.bedsNumber },
                   on: {
                     input: function ($event) {
@@ -5380,6 +5404,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "filter-container" }, [
+      _c(
+        "button",
+        { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
+        [
+          _c("i", {
+            staticClass: "fas fa-filter filter-icon",
+            attrs: {
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#staticBackdrop",
+            },
+          }),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
@@ -5439,7 +5483,7 @@ var render = function () {
           _vm._m(1),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "contact-form" }, [
+        _c("div", { staticClass: "contact-form card p-3 mt-3" }, [
           _c("div", { staticClass: "mb-3" }, [
             _c("label", { staticClass: "form-label" }, [_vm._v("Name *")]),
             _vm._v(" "),
@@ -5469,6 +5513,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.name
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.name) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5500,6 +5550,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.lastname
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.lastname) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5531,6 +5587,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.email
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.email) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5557,18 +5619,36 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.message
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.message) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-danger", on: { click: _vm.submitForm } },
-            [_vm._v("Submit")]
-          ),
+          _c("button", { staticClass: "btn", on: { click: _vm.submitForm } }, [
+            _vm._v("Submit"),
+          ]),
+          _vm._v(" "),
+          _vm.contactSubmitted
+            ? _c("div", { staticClass: "alert alert-success my-4 py-5" }, [
+                _c("h5", [_vm._v("Grazie per averci contattato!")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "lead" }, [
+                  _vm._v(
+                    "Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile."
+                  ),
+                ]),
+              ])
+            : _vm._e(),
         ]),
       ]),
       _vm._v(" "),
+      _c("h3", { staticClass: "px-3 mt-3" }, [_vm._v("Where")]),
+      _vm._v(" "),
       _c("div", {
-        staticStyle: { width: "40vw", height: "350px" },
+        staticStyle: { width: "100%", height: "45vh" },
         attrs: { id: "map" },
       }),
     ]),
