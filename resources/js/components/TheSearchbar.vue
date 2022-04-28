@@ -133,6 +133,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+#suggestedAddresses{
+    z-index: 2;
+}
     .bg-dark{
         background: #000 !important;
     }

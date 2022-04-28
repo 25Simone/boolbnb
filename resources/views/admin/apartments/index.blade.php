@@ -16,6 +16,7 @@
             @foreach ($apartments as $apartment)
                 <div class="col p-4">
                     <div class="card shadow">
+                        @if (!$apartment->visible)<span class="badge bg-danger">Not visible</span> @endif
                         <div class="img-container">
                             <img src="{{asset("storage/" . $apartment->photo)}}" class="card-img-top" alt="...">
                         </div>
@@ -34,8 +35,8 @@
                             <p> <span>Host: </span>{{ $apartment->user->name }}</p>
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-light butt" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
-                            <a class="btn btn-light butt" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
+                            <a class="btn btn-light butt fw-bold" href="{{route('admin.apartments.show', $apartment->slug)}}">Show</a>
+                            <a class="btn btn-light butt fw-bold" href="{{route('admin.apartments.edit', $apartment->id)}}">Edit</a>
                         </div>
                     </div>
                 </div>

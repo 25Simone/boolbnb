@@ -20009,6 +20009,18 @@ fieldset:disabled .btn {
   border-radius: 30px;
   height: 60vh;
   overflow: hidden;
+  position: relative;
+}
+
+.container-fluid .row .card .badge,
+.container-sm .row .card .badge,
+.container-md .row .card .badge,
+.container-lg .row .card .badge,
+.container-xl .row .card .badge,
+.container-xxl .row .card .badge {
+  position: absolute;
+  top: 0px;
+  right: 15px;
 }
 
 .container-fluid.my-apartments-section .row .card .img-container,
