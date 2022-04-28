@@ -1,7 +1,9 @@
 <template>
-    <div class="py-4">
-        <!-- Filter button -->
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Filter</button>
+    <div class="py-4 advanced-container">
+        <!-- Filter icon -->
+       <div class="filter-container">
+           <button class="btn filter-button"  title="Add filter"><i class="fas fa-filter filter-icon" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
+       </div>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
@@ -95,5 +97,30 @@ export default {
 <style lang="scss" scoped>
     .container{
         width: 50%;
+    }
+
+    .advanced-container{
+        position: relative;
+        .filter-button{
+            position: absolute;
+            right: 25px;
+            top: -15px;
+            background-color:  #ff385c;
+            border-color:  #ff385c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .filter-container{
+        padding: 15px;
+        padding-right: 30px;
+        display: flex;
+        justify-content: flex-end;
+        .filter-icon{
+            font-size: 18px;
+            color: white;
+        }
     }
 </style>

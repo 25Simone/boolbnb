@@ -22,6 +22,13 @@
             // border: rgb(143, 143, 143) 1px solid;
             height: 60vh;
             overflow: hidden;
+            position: relative;
+
+            .badge{
+                position: absolute;
+                top: 0px;
+                right: 15px;
+            }
             .img-container {
                 height: 40%;
                 img {
