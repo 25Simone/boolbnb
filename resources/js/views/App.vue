@@ -7,16 +7,18 @@
          <main>
             <router-view :apartments="apartments" @filteredApartments=fetchFilterApartments></router-view>
         </main>
+        <the-footer></the-footer>
     </div>
 </template>
 
 <script>
+import TheFooter from '../components/TheFooter.vue'
 import TheNavbar from '../components/TheNavbar.vue'
 import TheSearchbar from '../components/TheSearchbar.vue'
 import AdvancedSearch from '../pages/AdvancedSearch.vue'
 import ShowApartment from '../pages/ShowApartment.vue'
 export default {
-  components: { TheNavbar,TheSearchbar,AdvancedSearch,ShowApartment},
+  components: { TheNavbar,TheSearchbar,AdvancedSearch,ShowApartment, TheFooter},
   data(){
     return{
     //   pagination: {},

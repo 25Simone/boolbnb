@@ -63,9 +63,6 @@ class ApartmentsController extends Controller
         if($request["bedsNumber"]){
             $bedsNumber = $request->input('bedsNumber');
             
-            // $apartmentsInRadius = array_filter($apartmentsInRadius,function($apartment){
-            //     return $apartment["rooms_number"] >= 2; 
-            // });
             $filteredApartments = [];
             foreach($filteredResults as $apartment){
                if($apartment["beds_number"] >= $bedsNumber){
@@ -76,24 +73,30 @@ class ApartmentsController extends Controller
         };
 
         //filtro per i servizi aggiuntivi
-        // if($request["checkedService"]){
-        //     $checkedServices[] = $request->input('checkedService');
+        if($request["checkedService"]){
+            $checkedServices = $request->input('checkedService');
             
-     
-        //     $filteredApartments = [];
-        //     foreach($filteredResults as $apartment){
-        //        $test=  $apartment->additional_services->getId();
-
-        //         // $test = Apartment::where('id',$apartment->id)->with('additional_services')->first();
-        //         dd($test);
-
-        //     // dd($apartment->additional_services());
-         
-        //     //    $filteredApartments = array_intersect($checkedServices,$serviceId);
-                
-        //     };
-        //     $filteredResults = $filteredApartments;
-        // };
+            $filteredApartments = [];
+            
+            foreach($filteredResults as $apartment){
+                $commonValues = [];
+                $servicesIdList = [];
+                $apartmentServices =  $apartment->additional_services;
+                foreach($apartmentServices as $apartmentService) {
+                    $servicesIdList[] = $apartmentService->id;
+                }
+                // foreach ($servicesIdList as $serviceId) {
+                //     if (in_array($serviceId, $checkedServices)) {
+                //         $commonValues[] = $serviceId;
+                //     }
+                // }
+                $commonValues = array_intersect($checkedServices,$servicesIdList);
+                if (count($commonValues) === count($checkedServices) ){
+                    $filteredApartments[] = $apartment;
+                }
+            };
+            $filteredResults = $filteredApartments;
+        };
 
 
         return response()->json(
