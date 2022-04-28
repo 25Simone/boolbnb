@@ -1,0 +1,15 @@
+#edit-form-wrapper {
+    height: calc(100vh - 55px);
+    .edit-section-left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: rgb(65,42,157);
+        background: linear-gradient(0deg, rgba(65,42,157,1) 15%, rgba(208,35,119,1) 80%);
+    }
+    .form {
+        display: flex;
+        align-items: center;
+    }
+}
