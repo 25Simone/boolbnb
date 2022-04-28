@@ -1,6 +1,6 @@
 <template>
-    <footer>
-        <div class="container">
+    <footer class="">
+        <div class="container ">
             <div class="d-flex justify-content-between pt-5">
                 <div>
                     <h5>Assistenza</h5>
@@ -36,15 +36,15 @@
                 </div>
             </div>
 
-            <div class="info-box mt-5 pt-3 pb-3">
-                <div class="copy-box">
+            <div class="info-box d-flex mb-3">
+                <div class="p-2">
                     <span>© 2022 BoolBnB, Inc.</span>
                     <span>Privacy</span>
                     <span>Termini</span>
                     <span>Mappa del sito</span>
                     <span>Dettagli dell'azienda</span> 
                 </div>
-                <div class="logo-box">
+                <div class="ms-auto p-2">
                     <span>Italiano(IT)</span>
                     <span>€ EUR</span>
                 </div>
@@ -76,14 +76,6 @@ footer {
 
     .info-box {
         border-top: 1px rgb(182, 182, 182) solid ;
-
-        .copy-box {
-            float: left;
-        }
-        
-        .logo-box {
-            float: right;
-        }
 
         span {
             padding-left: 10px;
