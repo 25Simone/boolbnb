@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\InboxController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::middleware("auth")
     // GROUP LOGGED ROUTE
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');  
+    Route::get('/inbox','InboxController@index')->name('inbox');
 });
 
 // VUE CONNECTION WEB.php:

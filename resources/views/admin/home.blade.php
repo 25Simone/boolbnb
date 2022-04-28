@@ -51,6 +51,18 @@
                                     <div class="col-6 dash-right">
                                         <a href="{{route('admin.apartments.create')}}"><button class="btn dash-button">Publish</button></a>
                                     </div>
+                                    
+                                </div>
+                            </li>
+                            <li class="mt-3">
+                                <div class="row">
+                                    <div class="col-6 dash-left">
+                                        Check messages
+                                    </div>
+                                    <div class="col-6 dash-right">
+                                        <a href="{{route('admin.inbox')}}"><button class="btn dash-button">Inbox messages</button></a>
+                                    </div>
+                                    
                                 </div>
                             </li>
                         </ul>
