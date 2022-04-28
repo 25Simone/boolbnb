@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid my-apartments-section">
         <div class="header-container">
             <h2>MyAPARTMENTS</h2>
             <div class="d-flex justify-content-end">

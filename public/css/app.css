@@ -19956,96 +19956,96 @@ fieldset:disabled .btn {
   }
 }
 
-.container-fluid .header-container h2,
-.container-sm .header-container h2,
-.container-md .header-container h2,
-.container-lg .header-container h2,
-.container-xl .header-container h2,
-.container-xxl .header-container h2,
-.container-fluid .header-container .h2,
-.container-sm .header-container .h2,
-.container-md .header-container .h2,
-.container-lg .header-container .h2,
-.container-xl .header-container .h2,
-.container-xxl .header-container .h2 {
+.container-fluid.my-apartments-section .header-container h2,
+.my-apartments-section.container-sm .header-container h2,
+.my-apartments-section.container-md .header-container h2,
+.my-apartments-section.container-lg .header-container h2,
+.my-apartments-section.container-xl .header-container h2,
+.my-apartments-section.container-xxl .header-container h2,
+.container-fluid.my-apartments-section .header-container .h2,
+.my-apartments-section.container-sm .header-container .h2,
+.my-apartments-section.container-md .header-container .h2,
+.my-apartments-section.container-lg .header-container .h2,
+.my-apartments-section.container-xl .header-container .h2,
+.my-apartments-section.container-xxl .header-container .h2 {
   padding: 20px;
 }
 
-.container-fluid .butt,
-.container-sm .butt,
-.container-md .butt,
-.container-lg .butt,
-.container-xl .butt,
-.container-xxl .butt {
+.container-fluid.my-apartments-section .butt,
+.my-apartments-section.container-sm .butt,
+.my-apartments-section.container-md .butt,
+.my-apartments-section.container-lg .butt,
+.my-apartments-section.container-xl .butt,
+.my-apartments-section.container-xxl .butt {
   color: #ff385c;
   border-radius: 10px;
 }
 
-.container-fluid .butt:hover,
-.container-sm .butt:hover,
-.container-md .butt:hover,
-.container-lg .butt:hover,
-.container-xl .butt:hover,
-.container-xxl .butt:hover {
+.container-fluid.my-apartments-section .butt:hover,
+.my-apartments-section.container-sm .butt:hover,
+.my-apartments-section.container-md .butt:hover,
+.my-apartments-section.container-lg .butt:hover,
+.my-apartments-section.container-xl .butt:hover,
+.my-apartments-section.container-xxl .butt:hover {
   background-color: rgb(192, 192, 192);
 }
 
-.container-fluid .btn-create,
-.container-sm .btn-create,
-.container-md .btn-create,
-.container-lg .btn-create,
-.container-xl .btn-create,
-.container-xxl .btn-create {
+.container-fluid.my-apartments-section .btn-create,
+.my-apartments-section.container-sm .btn-create,
+.my-apartments-section.container-md .btn-create,
+.my-apartments-section.container-lg .btn-create,
+.my-apartments-section.container-xl .btn-create,
+.my-apartments-section.container-xxl .btn-create {
   color: #ff385c;
   text-decoration: none;
 }
 
-.container-fluid .row .card,
-.container-sm .row .card,
-.container-md .row .card,
-.container-lg .row .card,
-.container-xl .row .card,
-.container-xxl .row .card {
+.container-fluid.my-apartments-section .row .card,
+.my-apartments-section.container-sm .row .card,
+.my-apartments-section.container-md .row .card,
+.my-apartments-section.container-lg .row .card,
+.my-apartments-section.container-xl .row .card,
+.my-apartments-section.container-xxl .row .card {
   border-radius: 30px;
   height: 60vh;
   overflow: hidden;
 }
 
-.container-fluid .row .card .img-container,
-.container-sm .row .card .img-container,
-.container-md .row .card .img-container,
-.container-lg .row .card .img-container,
-.container-xl .row .card .img-container,
-.container-xxl .row .card .img-container {
+.container-fluid.my-apartments-section .row .card .img-container,
+.my-apartments-section.container-sm .row .card .img-container,
+.my-apartments-section.container-md .row .card .img-container,
+.my-apartments-section.container-lg .row .card .img-container,
+.my-apartments-section.container-xl .row .card .img-container,
+.my-apartments-section.container-xxl .row .card .img-container {
   height: 40%;
 }
 
-.container-fluid .row .card .img-container img,
-.container-sm .row .card .img-container img,
-.container-md .row .card .img-container img,
-.container-lg .row .card .img-container img,
-.container-xl .row .card .img-container img,
-.container-xxl .row .card .img-container img {
+.container-fluid.my-apartments-section .row .card .img-container img,
+.my-apartments-section.container-sm .row .card .img-container img,
+.my-apartments-section.container-md .row .card .img-container img,
+.my-apartments-section.container-lg .row .card .img-container img,
+.my-apartments-section.container-xl .row .card .img-container img,
+.my-apartments-section.container-xxl .row .card .img-container img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.container-fluid .row .card .card-footer,
-.container-sm .row .card .card-footer,
-.container-md .row .card .card-footer,
-.container-lg .row .card .card-footer,
-.container-xl .row .card .card-footer,
-.container-xxl .row .card .card-footer {
+.container-fluid.my-apartments-section .row .card .card-footer,
+.my-apartments-section.container-sm .row .card .card-footer,
+.my-apartments-section.container-md .row .card .card-footer,
+.my-apartments-section.container-lg .row .card .card-footer,
+.my-apartments-section.container-xl .row .card .card-footer,
+.my-apartments-section.container-xxl .row .card .card-footer {
   background-color: white;
 }
 
-.container-fluid .apartment-preview span,
-.container-sm .apartment-preview span,
-.container-md .apartment-preview span,
-.container-lg .apartment-preview span,
-.container-xl .apartment-preview span,
-.container-xxl .apartment-preview span {
+.container-fluid.my-apartments-section .apartment-preview span,
+.my-apartments-section.container-sm .apartment-preview span,
+.my-apartments-section.container-md .apartment-preview span,
+.my-apartments-section.container-lg .apartment-preview span,
+.my-apartments-section.container-xl .apartment-preview span,
+.my-apartments-section.container-xxl .apartment-preview span {
   color: #ff385c;
   padding-left: 8px;
   font-weight: bold;
