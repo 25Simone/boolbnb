@@ -11,11 +11,17 @@
 @import'~@fortawesome/fontawesome-free/css/all.css';
 
 @import './apartments/index';
+
 // Apartments create
 @import './apartments/create';
 
+// Apartments edit
+@import './apartments/edit';
+
 //dashboard
 @import './admin/dashboard.scss';
+
+
 
 // Suggested address section
 #suggestedAddresses{

@@ -20062,11 +20062,29 @@ fieldset:disabled .btn {
   color: #fff;
   background: rgb(65, 42, 157);
   background: linear-gradient(0deg, rgb(65, 42, 157) 15%, rgb(208, 35, 119) 80%);
+  border-right: 3px solid #ff385c;
 }
 
 #create-form-wrapper .form {
   display: flex;
   align-items: center;
+}
+
+.bord-red {
+  border-bottom: 2px solid #ff385c;
+}
+
+.imageedit {
+  margin-top: 10px;
+  height: 150px;
+  width: 300px;
+}
+
+.imageedit img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .dash_card {

@@ -2386,6 +2386,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2396,7 +2406,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         lastname: '',
         email: '',
         message: ''
-      }
+      },
+      showedMap: false,
+      contactSubmitted: false,
+      formSubmittedError: false,
+      errorMessage: null,
+      formValidationErrors: null
     };
   },
   methods: {
@@ -2442,31 +2457,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                formDataInstance = new FormData();
+                // Reset formValidationErrors
+                _this2.formValidationErrors = null; // Create an instance of FormData class
+
+                formDataInstance = new FormData(); // Pass manually the keys and the values to the instance
+
                 formDataInstance.append("name", _this2.formData.name);
                 formDataInstance.append("lastname", _this2.formData.lastname);
                 formDataInstance.append("email", _this2.formData.email);
                 formDataInstance.append("message", _this2.formData.message);
-                formDataInstance.append("apartment_id", _this2.apartment.id);
-                _context2.next = 9;
+                formDataInstance.append("apartment_id", _this2.apartment.id); // Axios post call
+
+                _context2.next = 10;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/contacts', formDataInstance);
 
-              case 9:
+              case 10:
                 resp = _context2.sent;
-                _context2.next = 15;
+                // Alert show
+                _this2.contactSubmitted = true;
+                _this2.formSubmittedError = false;
+                _context2.next = 21;
                 break;
 
-              case 12:
-                _context2.prev = 12;
+              case 15:
+                _context2.prev = 15;
                 _context2.t0 = _context2["catch"](0);
+                _this2.errorMessage = _context2.t0.response.data.message;
+                _this2.formSubmittedError = true;
+
+                if (_context2.t0.response.status === 422) {
+                  _this2.formValidationErrors = _context2.t0.response.data.errors;
+                }
+
                 console.log('error in call api' + _context2.t0.message);
 
-              case 15:
+              case 21:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 12]]);
+        }, _callee2, null, [[0, 15]]);
       }))();
     }
   },
@@ -2478,16 +2508,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     document.head.appendChild(tomtomScript);
   },
   updated: function updated() {
-    var center = [this.apartment.longitude, this.apartment.latitude];
-    var map = tt.map({
-      key: "hjLTHv68YTVsWXnlRPRvPwUUjOQSCt7n",
-      container: "map",
-      center: center,
-      zoom: 17
-    });
-    map.on('load', function () {
-      new tt.Marker().setLngLat(center).addTo(map);
-    });
+    if (!this.showedMap) {
+      var center = [this.apartment.longitude, this.apartment.latitude];
+      var map = tt.map({
+        key: "hjLTHv68YTVsWXnlRPRvPwUUjOQSCt7n",
+        container: "map",
+        center: center,
+        zoom: 18
+      });
+      map.on('load', function () {
+        new tt.Marker().setLngLat(center).addTo(map);
+      });
+      this.showedMap = true;
+    }
   }
 });
 
@@ -2730,7 +2763,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}", ""]);
+exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}", ""]);
 
 // exports
 
@@ -5190,7 +5223,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "number" },
+                  attrs: { type: "number", min: "0" },
                   domProps: { value: _vm.roomsNumber },
                   on: {
                     input: function ($event) {
@@ -5218,7 +5251,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "number" },
+                  attrs: { type: "number", min: "0" },
                   domProps: { value: _vm.bedsNumber },
                   on: {
                     input: function ($event) {
@@ -5439,7 +5472,7 @@ var render = function () {
           _vm._m(1),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "contact-form" }, [
+        _c("div", { staticClass: "contact-form card p-3 mt-3" }, [
           _c("div", { staticClass: "mb-3" }, [
             _c("label", { staticClass: "form-label" }, [_vm._v("Name *")]),
             _vm._v(" "),
@@ -5469,6 +5502,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.name
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.name) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5500,6 +5539,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.lastname
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.lastname) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5531,6 +5576,12 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.email
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.email) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
@@ -5557,18 +5608,36 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.formValidationErrors && _vm.formValidationErrors.message
+              ? _c("span", { staticClass: "text-danger" }, [
+                  _vm._v(" " + _vm._s(_vm.formValidationErrors.message) + " "),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-danger", on: { click: _vm.submitForm } },
-            [_vm._v("Submit")]
-          ),
+          _c("button", { staticClass: "btn", on: { click: _vm.submitForm } }, [
+            _vm._v("Submit"),
+          ]),
+          _vm._v(" "),
+          _vm.contactSubmitted
+            ? _c("div", { staticClass: "alert alert-success my-4 py-5" }, [
+                _c("h5", [_vm._v("Grazie per averci contattato!")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "lead" }, [
+                  _vm._v(
+                    "Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile."
+                  ),
+                ]),
+              ])
+            : _vm._e(),
         ]),
       ]),
       _vm._v(" "),
+      _c("h3", { staticClass: "px-3 mt-3" }, [_vm._v("Where")]),
+      _vm._v(" "),
       _c("div", {
-        staticStyle: { width: "40vw", height: "350px" },
+        staticStyle: { width: "100%", height: "45vh" },
         attrs: { id: "map" },
       }),
     ]),
@@ -21586,7 +21655,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! E:\Project\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
