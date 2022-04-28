@@ -13,11 +13,11 @@
                     <div class="modal-body">
                         <div class="form-check mb-3">
                             <label class="form-label">Min. Rooms number</label>
-                            <input type="number" class="form-control" v-model="roomsNumber">
+                            <input type="number" class="form-control" min="0" v-model="roomsNumber">
                         </div>
                         <div class="form-check  mb-3">
                             <label class="form-label">Min. beds number</label>
-                            <input type="number" class="form-control" v-model="bedsNumber">
+                            <input type="number" class="form-control" min="0" v-model="bedsNumber">
                         </div>
                         <div class="form-check mb-3">
                             <label class="form-label">Radius</label>
