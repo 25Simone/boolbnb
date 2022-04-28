@@ -20012,12 +20012,12 @@ fieldset:disabled .btn {
   position: relative;
 }
 
-.container-fluid .row .card .badge,
-.container-sm .row .card .badge,
-.container-md .row .card .badge,
-.container-lg .row .card .badge,
-.container-xl .row .card .badge,
-.container-xxl .row .card .badge {
+.container-fluid.my-apartments-section .row .card .badge,
+.my-apartments-section.container-sm .row .card .badge,
+.my-apartments-section.container-md .row .card .badge,
+.my-apartments-section.container-lg .row .card .badge,
+.my-apartments-section.container-xl .row .card .badge,
+.my-apartments-section.container-xxl .row .card .badge {
   position: absolute;
   top: 0px;
   right: 15px;
@@ -20097,6 +20097,15 @@ fieldset:disabled .btn {
 #edit-form-wrapper .form {
   display: flex;
   align-items: center;
+}
+
+#edit-form-wrapper .edit-image-preview {
+  margin-top: 20px;
+  width: 20%;
+}
+
+#edit-form-wrapper .edit-image-preview img {
+  width: 100%;
 }
 
 .dash_card {

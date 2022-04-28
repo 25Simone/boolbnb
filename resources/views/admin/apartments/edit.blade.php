@@ -17,7 +17,7 @@
       <h1 class="display-3 text-center">Edit Your Apartment!</h1>
     </div>
     {{-- FORM --}}
-    <div class="container">
+    <div class="col form">
         <form action="{{ route('admin.apartments.update', $apartment) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("put")
@@ -30,46 +30,50 @@
                 @error("title")
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-              </div>
-    
-            {{-- ROOMS NUMBER SECTION --}}
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apartment Rooms *</label>
-      
-                <input placeholder="Insert the number of your rooms" type="number" value="{{ old('rooms_number', $apartment->rooms_number) }}" name="rooms_number" class="form-control  @error('rooms_number') is-invalid @enderror" min='0'>
-                  @error("rooms_number")
-                    <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-            </div>
-    
-            {{-- BEDS NUMBER SECTION --}}
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apartment Beds *</label>
-      
-                <input placeholder="Insert the number of your beds" type="number" value="{{ old('beds_number', $apartment->beds_number) }}" name="beds_number" class="form-control  @error('beds_number') is-invalid @enderror" min='0'>
-                @error('beds_number')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-    
-            {{-- BATHS NUMBER SECTION --}}
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apartment Baths *</label>
-      
-                <input placeholder="Insert the number of your baths" type="number" value="{{ old('baths_number', $apartment->baths_number) }}" name="baths_number" class="form-control  @error('baths_number') is-invalid @enderror" min='0'>
-                @error('baths_number')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
             </div>
             
-            {{-- GUESTS SECTION  --}}
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apartment Guests *</label>
+            <div class="row row-cols-2">
+              {{-- ROOMS NUMBER SECTION --}}
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Apartment Rooms *</label>
+        
+                  <input placeholder="Insert the number of your rooms" type="number" value="{{ old('rooms_number', $apartment->rooms_number) }}" name="rooms_number" class="form-control  @error('rooms_number') is-invalid @enderror" min='0'>
+                    @error("rooms_number")
+                      <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+              </div>
       
-                <input placeholder="Insert the number that the apartment can accommodate" type="number" value="{{ old('guests', $apartment->guests) }}" name="guests" class="form-control  @error('guests') is-invalid @enderror" >
-                  @error('guests')
+              {{-- BEDS NUMBER SECTION --}}
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Apartment Beds *</label>
+        
+                  <input placeholder="Insert the number of your beds" type="number" value="{{ old('beds_number', $apartment->beds_number) }}" name="beds_number" class="form-control  @error('beds_number') is-invalid @enderror" min='0'>
+                  @error('beds_number')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
+              </div>
+            </div>
+            
+            <div class="row row-cols-2">
+              {{-- BATHS NUMBER SECTION --}}
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Apartment Baths *</label>
+        
+                  <input placeholder="Insert the number of your baths" type="number" value="{{ old('baths_number', $apartment->baths_number) }}" name="baths_number" class="form-control  @error('baths_number') is-invalid @enderror" min='0'>
+                  @error('baths_number')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+              </div>
+              
+              {{-- GUESTS SECTION  --}}
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Apartment Guests *</label>
+        
+                  <input placeholder="Insert the number that the apartment can accommodate" type="number" value="{{ old('guests', $apartment->guests) }}" name="guests" class="form-control  @error('guests') is-invalid @enderror" >
+                    @error('guests')
+                      <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+              </div>
             </div>
     
             {{-- SQUAREMETERES SECTION --}}
@@ -102,7 +106,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                   {{-- To fix --}}
-                  <div class="image-custom">
+                  <div class="edit-image-preview">
                     <img src="{{asset('storage/' . $apartment->photo)}}" alt="">
                   </div>
               </div>
