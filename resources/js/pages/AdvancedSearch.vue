@@ -1,7 +1,7 @@
 <template>
     <div class="py-4 advanced-container">
         <!-- Filter icon -->
-       <div class="filter-container">
+       <div class="filter-container" v-if="apartments.length >= 2">
            <button class="btn filter-button"  title="Add filter"><i class="fas fa-filter filter-icon" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
        </div>
         <!-- Modal -->
@@ -77,8 +77,7 @@ export default {
             try{
                 const resp = await axios.get('/api/additionalServices');
                 this.additionalServices = resp.data;
-               
-            
+
             }catch(e){
                 error.log(e.message)
             }
@@ -91,6 +90,9 @@ export default {
     mounted(){
       this.fetchAdditionalServices();
     },
+    updated(){
+        this.fetchAdditionalServices();
+    }
 }
 </script>
 
