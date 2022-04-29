@@ -1,30 +1,29 @@
 <template>
-    <main class="container-fluid bg">
-        <div class="container">
-            <div class="d-flex justify-content-center">
-                <div class="jumbotron">
-                    <h1>Affitta casa dei tuoi sogni</h1>
+    <main class="container-fluid p-0">
+        <div class="container-fluid bg">
+            <div class="container pt-5">
+                <div class="jumbotron ">
+                    <p class="text-center">Affitta la casa dei tuoi sogni</p>
                 </div>
-            </div>
-
-            <div class="d-flex justify-content-center">
-                <div class="box-img">
-                    ciao
-                </div>
-            </div>
         
+                <div class="box-img">
+                    <img src="../img/casa-nel-bosco.webp" alt="">
+                </div>
+            </div>
+        </div>
 
-            <div class="ispirazione-container">
+        <div class="container-fluid bg-white">
+            <div class="ispirazione-container container">
                 <h2>Ispirazione per i tuoi viaggi</h2>
-                <div class="row d-flex">
+                <div class="row d-flex pt-3">
                     <div class="col card">
-                        <div class="white-box"></div>
+                        <img src="../img/giardino_verticale.jpeg" alt="">
                     </div>
                     <div class="col card">
-                        <div class="white-box"></div>
+                        <img src="../img/city-life.jpeg" alt="">
                     </div>
                     <div class="col card">
-                        <div class="white-box"></div>
+                        <img src="../img/img_milano_centro.jpeg" alt="">
                     </div>
                 </div>
             </div>
@@ -40,39 +39,52 @@ export default {
 
 <style lang="scss" scoped>
 main {
-
     .bg {
         background-color: black;
     }
 
     .jumbotron {
-        width: 1200px;
         height: 400px;
         background-color: #fa4f55;
-        margin-top: 60px ;
-        margin-bottom: 30px;
-        border-radius: 40px;
+        border-radius: 20px;
+        margin: 0 auto;
 
-        h1 {
+        p {
             color: white;
-            text-align: center;
-            padding-top: 150px;
             font-size: 60px;
+            padding-top:150px;
         }
     }
 
     .box-img {
-        width: 1200px;
-        height: 700px;
-        background-color: white;
-        border-radius: 40px;
-        margin-top: 70px ;
+        margin-top: 70px;
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
     }
 
     .ispirazione-container {
-        margin-top: 80px;
-        h2 {
-            color:white;
+        padding-top:50px;
+        
+        .card {
+            border: 0px;
+            padding-bottom: 50px;
+            
+            img {
+                height: 300px;
+                object-fit: cover;
+                border-radius: 15px;
+                opacity: 0.8;
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 7px 7px 10px rgb(145, 145, 145);
+                    opacity: 1;
+                }
+            }
         }
     }
 }
