@@ -5659,16 +5659,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
-      [
-        _c("i", {
-          staticClass: "fas fa-filter filter-icon",
-          attrs: {
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#staticBackdrop",
-          },
-        }),
-      ]
+      {
+        staticClass: "btn filter-button",
+        attrs: {
+          title: "Add filter",
+          "data-bs-toggle": "modal",
+          "data-bs-target": "#staticBackdrop",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-filter filter-icon" })]
     )
   },
   function () {
