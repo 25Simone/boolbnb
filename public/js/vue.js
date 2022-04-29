@@ -5643,16 +5643,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
-      [
-        _c("i", {
-          staticClass: "fas fa-filter filter-icon",
-          attrs: {
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#staticBackdrop",
-          },
-        }),
-      ]
+      {
+        staticClass: "btn filter-button",
+        attrs: {
+          title: "Add filter",
+          "data-bs-toggle": "modal",
+          "data-bs-target": "#staticBackdrop",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-filter filter-icon" })]
     )
   },
   function () {
@@ -22250,7 +22249,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/benedettagenise/Desktop/progetto finale/boolbnb/resources/js/vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\Simone\Desktop\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
