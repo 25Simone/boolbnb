@@ -1,12 +1,12 @@
 <template>
     <!-- address section -->
-    <div class="py-3" :class="$route.name !== 'advancedSearch' ? 'bg-dark' : ''">
+    <div class="py-3" :class="$route.name === 'home' ? 'bg-dark' : ''">
         <div class="container">
             <!-- NEW SEARCH -->
             <div class="searchbar shadow-sm">
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Place -->
-                    <div class="form-section d-flex flex-column" id="place-input-wrapper">
+                    <div class="col form-section d-flex flex-column" id="place-input-wrapper">
                         <label for="place-input">Dove</label>
                         <input
                         autocomplete=off
@@ -112,6 +112,7 @@ export default {
         }
         #place-input-wrapper {
             input {
+                width: 100%;
                 border: none;
                 font-size: 17px;
                 &:focus-visible {
