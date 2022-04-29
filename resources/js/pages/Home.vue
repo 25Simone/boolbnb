@@ -2,8 +2,8 @@
     <main class="container-fluid p-0">
         <div class="container-fluid bg">
             <div class="container pt-5">
-                <div class="jumbotron ">
-                    <p class="text-center">Affitta la casa dei tuoi sogni</p>
+                <div class="jumbotron d-flex align-items-center justify-content-center">
+                    <p>Affitta la casa dei tuoi sogni</p>
                 </div>
         
                 <div class="box-img">
@@ -46,13 +46,12 @@ main {
     .jumbotron {
         height: 400px;
         background-color: #fa4f55;
-        border-radius: 20px;
+        border-radius: 15px;
         margin: 0 auto;
 
         p {
             color: white;
             font-size: 60px;
-            padding-top:150px;
         }
     }
 
@@ -62,7 +61,7 @@ main {
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 20px;
+            border-radius: 15px;
             margin-bottom: 40px;
         }
     }
@@ -77,7 +76,7 @@ main {
             img {
                 height: 300px;
                 object-fit: cover;
-                border-radius: 15px;
+                border-radius: 10px;
                 opacity: 0.8;
                 &:hover {
                     cursor: pointer;
