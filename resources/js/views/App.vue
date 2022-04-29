@@ -51,7 +51,7 @@ export default {
             this.apartments = resp.data;
             // console.log(this.apartments);
             if(this.$route.name !== 'advancedSearch') {
-                this.$router.replace({path: '/advancedSearch'});
+                this.$router.push({path: '/advancedSearch'});
             }
         }catch(e){
             console.log('error in axios call' + e.message);

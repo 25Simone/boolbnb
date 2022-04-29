@@ -2713,7 +2713,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.apartments = resp.data; // console.log(this.apartments);
 
                 if (_this.$route.name !== 'advancedSearch') {
-                  _this.$router.replace({
+                  _this.$router.push({
                     path: '/advancedSearch'
                   });
                 }
