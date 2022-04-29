@@ -26,6 +26,10 @@ class Apartment extends Model
     public function user () {
     return $this->belongsTo('App\User');
     }
+    //CONTACT TO APARTMENT
+    public function contacts() {
+        return $this->belongsToMany('App\Contact');
+    }
     //APARTMENT TO ADDITIONAL SERVICE
     public function additional_services(){
         return $this->belongsToMany('App\AdditionalService');
