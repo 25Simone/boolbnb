@@ -1,8 +1,8 @@
 <template>
     <div class="py-4 advanced-container">
         <!-- Filter icon -->
-       <div class="filter-container">
-           <button class="btn filter-button"  title="Add filter" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-filter filter-icon" ></i></button>
+       <div class="filter-container" v-if="apartments.length >= 2">
+           <button class="btn filter-button"  title="Add filter"><i class="fas fa-filter filter-icon" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
        </div>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -77,8 +77,7 @@ export default {
             try{
                 const resp = await axios.get('/api/additionalServices');
                 this.additionalServices = resp.data;
-               
-            
+
             }catch(e){
                 error.log(e.message)
             }
@@ -91,6 +90,9 @@ export default {
     mounted(){
       this.fetchAdditionalServices();
     },
+    updated(){
+        this.fetchAdditionalServices();
+    }
 }
 </script>
 

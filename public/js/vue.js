@@ -2331,6 +2331,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.fetchAdditionalServices();
+  },
+  updated: function updated() {
+    this.fetchAdditionalServices();
   }
 });
 
@@ -2372,6 +2375,29 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2778,7 +2804,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#suggestedAddresses-wrapper[data-v-457d8ae5] {\n  margin: 0 auto;\n  width: 70%;\n}\n#suggestedAddresses-wrapper #suggestedAddresses[data-v-457d8ae5] {\n  width: 40%;\n  position: absolute;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.container[data-v-457d8ae5] {\n  position: relative;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 70%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > div .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 16px;\n}\n.searchbar > div .button[data-v-457d8ae5] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: 1px solid #f8393f;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n  font-size: 17px;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5]:focus-visible {\n  outline: none;\n}", ""]);
+exports.push([module.i, "#suggestedAddresses-wrapper[data-v-457d8ae5] {\n  margin: 0 auto;\n  width: 70%;\n}\n#suggestedAddresses-wrapper #suggestedAddresses[data-v-457d8ae5] {\n  width: 40%;\n  position: absolute;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.container[data-v-457d8ae5] {\n  position: relative;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 70%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > div .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 16px;\n}\n.searchbar > div .button[data-v-457d8ae5] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: 1px solid #f8393f;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5] {\n  width: 100%;\n  border: none;\n  font-size: 17px;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5]:focus-visible {\n  outline: none;\n}", ""]);
 
 // exports
 
@@ -2816,7 +2842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}", ""]);
+exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.apartment-details[data-v-42e4ef7c] {\n  border-top: 1px solid lightgrey;\n}", ""]);
 
 // exports
 
@@ -4916,17 +4942,20 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c(
-              "a",
+              "router-link",
               {
                 staticClass: "btn",
                 attrs: {
-                  href: "/apartments/" + _vm.apartment.slug,
-                  role: "button",
+                  to: {
+                    name: "apartment.show",
+                    params: { apartment: _vm.apartment.slug },
+                  },
                 },
               },
               [_vm._v("Show")]
             ),
-          ]
+          ],
+          1
         ),
       ]),
     ]),
@@ -4963,63 +4992,70 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("footer", {}, [
       _c("div", { staticClass: "container " }, [
-        _c("div", { staticClass: "d-flex justify-content-between pt-5" }, [
-          _c("div", [
-            _c("h5", [_vm._v("Assistenza")]),
+        _c(
+          "div",
+          {
+            staticClass:
+              "row row-cols-1 row-cols-sm-4 justify-content-between pt-5",
+          },
+          [
+            _c("div", { staticClass: "col" }, [
+              _c("h5", [_vm._v("Assistenza")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Centro Assistenza")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Informazioni di sicurezza")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Opzioni di cancellazione")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("La nostra risposta all'emergienza COVID-19")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Accessibilità per tutti")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Segnala problemi nel quartiere")]),
+            ]),
             _vm._v(" "),
-            _c("p", [_vm._v("Centro Assistenza")]),
+            _c("div", { staticClass: "col" }, [
+              _c("h5", [_vm._v("Community")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Airbnb.org: un rifugio sicuro")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Supporta i rifugiati afghani")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Contro la discriminazione")]),
+            ]),
             _vm._v(" "),
-            _c("p", [_vm._v("Informazioni di sicurezza")]),
+            _c("div", { staticClass: "col" }, [
+              _c("h5", [_vm._v("Ospitare")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Prova ad ospitare")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("AirCover per gli ospiti")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Esplora le risorse per host")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Vai al forum della community")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Come ospitare responsabilmente")]),
+            ]),
             _vm._v(" "),
-            _c("p", [_vm._v("Opzioni di cancellazione")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("La nostra risposta all'emergienza COVID-19")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Accessibilità per tutti")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Segnala problemi nel quartiere")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("h5", [_vm._v("Community")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Airbnb.org: un rifugio sicuro")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Supporta i rifugiati afghani")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Contro la discriminazione")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("h5", [_vm._v("Ospitare")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Prova ad ospitare")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("AirCover per gli ospiti")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Esplora le risorse per host")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Vai al forum della community")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Come ospitare responsabilmente")]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("h5", [_vm._v("Informazioni")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Newsroom")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Scopri le nuove funzionalità")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Lettera dai nostri fondatori")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Opportunità di lavoro")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Investitori")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("BoolBnB Luxe")]),
-          ]),
-        ]),
+            _c("div", { staticClass: "col" }, [
+              _c("h5", [_vm._v("Informazioni")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Newsroom")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Scopri le nuove funzionalità")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Lettera dai nostri fondatori")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Opportunità di lavoro")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Investitori")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("BoolBnB Luxe")]),
+            ]),
+          ]
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "info-box d-flex mb-3" }, [
           _c("div", { staticClass: "p-2" }, [
@@ -5166,10 +5202,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "py-3",
-      class: _vm.$route.name !== "advancedSearch" ? "bg-dark" : "",
-    },
+    { staticClass: "py-3", class: _vm.$route.name === "home" ? "bg-dark" : "" },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "searchbar shadow-sm" }, [
@@ -5182,7 +5215,7 @@ var render = function () {
               _c(
                 "div",
                 {
-                  staticClass: "form-section d-flex flex-column",
+                  staticClass: "col form-section d-flex flex-column",
                   attrs: { id: "place-input-wrapper" },
                 },
                 [
@@ -5299,7 +5332,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "py-4 advanced-container" }, [
-    _vm._m(0),
+    _vm.apartments.length >= 2
+      ? _c("div", { staticClass: "filter-container" }, [_vm._m(0)])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -5525,20 +5560,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "filter-container" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn filter-button",
+    return _c(
+      "button",
+      { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
+      [
+        _c("i", {
+          staticClass: "fas fa-filter filter-icon",
           attrs: {
-            title: "Add filter",
             "data-bs-toggle": "modal",
             "data-bs-target": "#staticBackdrop",
           },
-        },
-        [_c("i", { staticClass: "fas fa-filter filter-icon" })]
-      ),
-    ])
+        }),
+      ]
+    )
   },
   function () {
     var _vm = this
@@ -5629,12 +5663,49 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "d-flex" }, [
-        _c("div", { staticClass: "details" }, [
+        _c("div", { staticClass: "details mx-4" }, [
           _c("h1", { staticClass: "mt-3" }, [
             _vm._v(_vm._s(_vm.apartment.title)),
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", [
+            _c("h5", [_vm._v("Host: " + _vm._s(_vm.apartment.user.name))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "apartment-details mt-2" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-user" }),
+                _vm._v(
+                  " \n                 " +
+                    _vm._s(_vm.apartment.guests) +
+                    " ospiti\n               "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-bed" }),
+                _vm._v(
+                  "\n                  " +
+                    _vm._s(_vm.apartment.beds_number) +
+                    " posti letto\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-bed" }),
+                _vm._v(
+                  "\n                 " +
+                    _vm._s(_vm.apartment.beds_number) +
+                    " posti letto\n               "
+                ),
+              ]),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "contact-form card p-3 mt-3" }, [
@@ -5799,9 +5870,16 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "px-3 mt-3" }, [_vm._v("Where")]),
+      _c("h3", { staticClass: "px-3 mt-3 fw-bold" }, [
+        _vm._v("Dove ti troverai"),
+      ]),
+      _vm._v(" "),
+      _c("h5", { staticClass: "px-3" }, [
+        _vm._v(_vm._s(_vm.apartment.address)),
+      ]),
       _vm._v(" "),
       _c("div", {
+        staticClass: "mb-5",
         staticStyle: { width: "100%", height: "45vh" },
         attrs: { id: "map" },
       }),
@@ -5822,12 +5900,6 @@ var staticRenderFns = [
         },
       }),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("span")])
   },
 ]
 render._withStripped = true

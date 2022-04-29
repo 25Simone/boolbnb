@@ -1,8 +1,8 @@
 <template>
     <footer class="">
         <div class="container ">
-            <div class="d-flex justify-content-between pt-5">
-                <div>
+            <div class="row row-cols-1 row-cols-sm-4 justify-content-between pt-5">
+                <div class="col">
                     <h5>Assistenza</h5>
                     <p>Centro Assistenza</p>
                     <p>Informazioni di sicurezza</p>
@@ -11,13 +11,13 @@
                     <p>Accessibilità per tutti</p>
                     <p>Segnala problemi nel quartiere</p>
                 </div>
-                <div>
+                <div class="col">
                     <h5>Community</h5>
                     <p>Airbnb.org: un rifugio sicuro</p>
                     <p>Supporta i rifugiati afghani</p>
                     <p>Contro la discriminazione</p>
                 </div>
-                <div>
+                <div class="col">
                     <h5>Ospitare</h5>
                     <p>Prova ad ospitare</p>
                     <p>AirCover per gli ospiti</p>
@@ -25,7 +25,7 @@
                     <p>Vai al forum della community</p>
                     <p>Come ospitare responsabilmente</p>
                 </div>
-                <div>
+                <div class="col">
                     <h5>Informazioni</h5>
                     <p>Newsroom</p>
                     <p>Scopri le nuove funzionalità</p>

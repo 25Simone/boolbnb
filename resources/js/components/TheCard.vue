@@ -27,7 +27,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a :href="'/apartments/' + apartment.slug" role="button" class="btn">Show</a>
+                    <router-link :to="{name:'apartment.show',params: {apartment:apartment.slug}}" class="btn">Show</router-link>
                 </div>
             </div>
         </div>

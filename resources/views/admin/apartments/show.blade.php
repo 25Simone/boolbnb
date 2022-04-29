@@ -87,42 +87,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection
-
-
-
-
-
-
-
-
-{{-- <img class="img-fluid rounded" src="{{asset("storage/" . $apartment->photo)}}" alt="post image"> --}}
-
-{{-- <div class="d-flex justify-content-center p-3">
-    <a class="btn btn-outline-secondary mx-2" href="{{ route('admin.apartments.edit', $apartment->id) }}">Modifica</a>   
-
-    @include('partials.deleteButton', [
-        "route"=>"admin.apartments.destroy",
-        "id"=>$apartment->id,
-    ])
-</div> --}}
-
-{{-- <div>
-    <strong>Servizi: </strong>
-    @forelse ($apartment->additional_services as $service)
-        <span> {{$service->name}}, </span>
-    @empty
-        <span>Nessun Servizio Inserito</span>              
-    @endforelse
-</div> --}}
-
-{{-- <div>
-    <strong>Data di creazione: </strong>{{ $apartment->created_at->format("d-m-Y") }}
-</div>
-<div>
-    <strong>Ultima modifica: </strong>{{ $apartment->updated_at }} ({{ $apartment->updated_at->diffForHumans(date(0)) }})
-</div> --}}

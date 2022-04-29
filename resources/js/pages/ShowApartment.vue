@@ -9,10 +9,30 @@
         </div>  
         <div class="d-flex">
          
-          <div class="details">
+          <div class="details mx-4">
              <h1 class="mt-3">{{apartment.title}}</h1>
              <div>
-               <span></span>
+               <h5>Host: {{apartment.user.name}}</h5>
+             </div>
+             <div class="apartment-details mt-2">
+               <div class="mt-3">
+                 <span>
+                   <i class="fas fa-user"></i> 
+                   {{apartment.guests}} ospiti
+                 </span>
+               </div>
+                <div class="mt-3">
+                  <span>
+                    <i class="fas fa-bed"></i>
+                    {{apartment.beds_number}} posti letto
+                  </span>
+               </div>
+               <div class="mt-3">
+                 <span>
+                   <i class="fas fa-bed"></i>
+                   {{apartment.beds_number}} posti letto
+                 </span>
+               </div>
              </div>
           </div>
           <div class="contact-form card p-3 mt-3">
@@ -46,8 +66,11 @@
               </div>
           </div>
         </div>
-        <h3 class="px-3 mt-3">Where</h3>
-        <div id="map" style="width: 100%; height: 45vh"></div>
+        <h3 class="px-3 mt-3 fw-bold">Dove ti troverai</h3>
+        <h5 class="px-3">{{apartment.address}}</h5>
+
+        <!-- map container-->
+        <div id="map" style="width: 100%; height: 45vh" class="mb-5"></div>
       </div>
   </div>
 </template>
@@ -158,6 +181,10 @@ export default {
     .btn {
       background: #ff385c;
     }
+  }
+
+  .apartment-details{
+    border-top: 1px solid lightgrey;
   }
   
 </style>
