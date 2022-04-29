@@ -12,14 +12,21 @@
                                 <h4> <span>Message from: </span> {{ $contact->name }} {{ $contact->lastname }}</h4>
                                 <div>For: {{ $contact->apartment->title }}</div>
                             </div>
-                            <div>{{ $contact->email }}</div>
+                            <div class="d-flex flex-column align-items-end">
+                                {{ $contact->email }}
+                                <form action="{{ route('admin.inbox.destroy', $contact->id) }}" method="post" id="delete_button_{{$contact->id}}">
+                                    @csrf
+                                    @method('delete')
+                                
+                                    <button class="rounded text-light delete-button shadow mt-3" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
                         </div>
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
                             Details
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">{{ $contact->message }}</div>
                     </div>
-                    {{-- <div class="py-2 border-bottom">{{ $contact->message }}, {{$contact->apartment->title}}</div> --}}
                 @endforeach
             </div>
         </div>

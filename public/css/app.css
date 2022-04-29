@@ -20230,6 +20230,11 @@ fieldset:disabled .btn {
   border-radius: 15px;
 }
 
+.inbox-section .delete-button {
+  background: #FF385C;
+  border: none;
+}
+
 .message span {
   color: #FF385C;
 }
