@@ -2,7 +2,7 @@
     <div class="py-4 advanced-container">
         <!-- Filter icon -->
        <div class="filter-container">
-           <button class="btn filter-button"  title="Add filter"><i class="fas fa-filter filter-icon" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
+           <button class="btn filter-button"  title="Add filter" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-filter filter-icon" ></i></button>
        </div>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
