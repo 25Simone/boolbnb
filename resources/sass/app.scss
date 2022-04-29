@@ -28,8 +28,9 @@
     background-color: #fff;
     overflow: hidden;
     position: absolute;
+    box-shadow: $box-shadow-lg;
     >div{
-        padding: 10px;
+        padding: 8px 10px;
         cursor: pointer;
         &:hover {
             background: #ccc;
