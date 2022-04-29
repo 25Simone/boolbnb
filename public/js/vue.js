@@ -2388,6 +2388,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.fetchAdditionalServices();
+  },
+  updated: function updated() {
+    this.fetchAdditionalServices();
   }
 });
 
@@ -2412,6 +2415,29 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2856,7 +2882,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}", ""]);
+exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.apartment-details[data-v-42e4ef7c] {\n  border-top: 1px solid lightgrey;\n}", ""]);
 
 // exports
 
@@ -4956,17 +4982,20 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c(
-              "a",
+              "router-link",
               {
                 staticClass: "btn",
                 attrs: {
-                  href: "/apartments/" + _vm.apartment.slug,
-                  role: "button",
+                  to: {
+                    name: "apartment.show",
+                    params: { apartment: _vm.apartment.slug },
+                  },
                 },
               },
               [_vm._v("Show")]
             ),
-          ]
+          ],
+          1
         ),
       ]),
     ]),
@@ -5410,7 +5439,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "py-4 advanced-container" }, [
-    _vm._m(0),
+    _vm.apartments.length >= 2
+      ? _c("div", { staticClass: "filter-container" }, [_vm._m(0)])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -5636,21 +5667,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "filter-container" }, [
-      _c(
-        "button",
-        { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
-        [
-          _c("i", {
-            staticClass: "fas fa-filter filter-icon",
-            attrs: {
-              "data-bs-toggle": "modal",
-              "data-bs-target": "#staticBackdrop",
-            },
-          }),
-        ]
-      ),
-    ])
+    return _c(
+      "button",
+      { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
+      [
+        _c("i", {
+          staticClass: "fas fa-filter filter-icon",
+          attrs: {
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#staticBackdrop",
+          },
+        }),
+      ]
+    )
   },
   function () {
     var _vm = this
@@ -5707,12 +5736,49 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "d-flex" }, [
-        _c("div", { staticClass: "details" }, [
+        _c("div", { staticClass: "details mx-4" }, [
           _c("h1", { staticClass: "mt-3" }, [
             _vm._v(_vm._s(_vm.apartment.title)),
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", [
+            _c("h5", [_vm._v("Host: " + _vm._s(_vm.apartment.user.name))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "apartment-details mt-2" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-user" }),
+                _vm._v(
+                  " \n                 " +
+                    _vm._s(_vm.apartment.guests) +
+                    " ospiti\n               "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-bed" }),
+                _vm._v(
+                  "\n                  " +
+                    _vm._s(_vm.apartment.beds_number) +
+                    " posti letto\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-bed" }),
+                _vm._v(
+                  "\n                 " +
+                    _vm._s(_vm.apartment.beds_number) +
+                    " posti letto\n               "
+                ),
+              ]),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "contact-form card p-3 mt-3" }, [
@@ -5877,9 +5943,16 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "px-3 mt-3" }, [_vm._v("Where")]),
+      _c("h3", { staticClass: "px-3 mt-3 fw-bold" }, [
+        _vm._v("Dove ti troverai"),
+      ]),
+      _vm._v(" "),
+      _c("h5", { staticClass: "px-3" }, [
+        _vm._v(_vm._s(_vm.apartment.address)),
+      ]),
       _vm._v(" "),
       _c("div", {
+        staticClass: "mb-5",
         staticStyle: { width: "100%", height: "45vh" },
         attrs: { id: "map" },
       }),
@@ -5900,12 +5973,6 @@ var staticRenderFns = [
         },
       }),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("span")])
   },
 ]
 render._withStripped = true
