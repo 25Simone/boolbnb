@@ -10,6 +10,7 @@ class InboxController extends Controller
 {
     public function index(){
         $contacts= Contact::all();
+        $contacts->load('apartment');
         return view('admin.inbox',compact("contacts"));
     }
 }
