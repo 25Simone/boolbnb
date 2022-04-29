@@ -1,0 +1,46 @@
+.customscss {
+    .mt-50 {
+        margin-top: 50px;
+    }
+    .separator-c {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .b-red-und {
+        border-bottom: 3px solid #ff385c;
+    }
+    .img-c-show {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+    img {
+        margin-top: 20px;
+        border-radius: 5%;
+    }
+
+    .b-red-end {
+        border-right: 3px solid #ff385c;
+    }
+
+    .custom-right {
+        padding-right: 10px;
+    }
+    .list-info {
+        list-style-type: none;
+        padding: 0;
+        padding-left: 10px;
+        li {
+            padding: 10px;
+            border: 1px solid black;
+            border-right: 1px solid red;
+            border-left: 1px solid red;
+            i {
+                margin-right: 10px;
+            }
+            .custom-m {
+                margin-right: 12.5px;
+            }
+        }
+    }
+}

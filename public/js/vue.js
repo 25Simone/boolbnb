@@ -2168,55 +2168,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2246,14 +2197,6 @@ __webpack_require__.r(__webpack_exports__);
     setAddress: function setAddress(i) {
       this.searchedText = this.results[i].address.freeformAddress;
       this.results = [];
-    },
-    saveCheckInDate: function saveCheckInDate(e) {
-      // console.log(e.target.value);
-      this.checkInDate = e.target.value;
-    },
-    saveCheckOutDate: function saveCheckOutDate(e) {
-      // console.log(e.target.value);
-      this.checkOutDate = e.target.value;
     }
   }
 });
@@ -2390,6 +2333,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.fetchAdditionalServices();
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2818,7 +2778,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#suggestedAddresses[data-v-457d8ae5] {\n  z-index: 2;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 100%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > span[data-v-457d8ae5] {\n  display: flex;\n  align-items: center;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 12px;\n  position: relative;\n}\n.searchbar > span .form-section label span[data-v-457d8ae5] {\n  font-weight: 400;\n  font-size: 14px;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: none;\n  border: none;\n}\n.searchbar > span .form-section label .date-input[data-v-457d8ae5]:focus-visible {\n  outline: 0;\n}\n.searchbar > span .form-section label[data-v-457d8ae5] ::-webkit-calendar-picker-indicator {\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n.searchbar > span .form-section .button[data-v-457d8ae5] {\n  position: absolute;\n  right: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > span #place-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n}\n.searchbar > span #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n}\n.searchbar > span .date-range-wrapper[data-v-457d8ae5] {\n  width: 21%;\n}\n.searchbar > span #guest-input-wrapper[data-v-457d8ae5] {\n  width: 29%;\n  position: relative;\n}\n.searchbar #place-input[data-v-457d8ae5] {\n  font-size: 14px;\n}", ""]);
+exports.push([module.i, "#suggestedAddresses-wrapper[data-v-457d8ae5] {\n  margin: 0 auto;\n  width: 70%;\n}\n#suggestedAddresses-wrapper #suggestedAddresses[data-v-457d8ae5] {\n  width: 40%;\n  position: absolute;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.container[data-v-457d8ae5] {\n  position: relative;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 70%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > div .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 16px;\n}\n.searchbar > div .button[data-v-457d8ae5] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: 1px solid #f8393f;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5] {\n  border: none;\n  font-size: 17px;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5]:focus-visible {\n  outline: none;\n}", ""]);
 
 // exports
 
@@ -5213,181 +5173,110 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "searchbar shadow-sm" }, [
-          _c("span", [
-            _c(
-              "div",
-              {
-                staticClass: "form-section d-flex flex-column",
-                attrs: { id: "place-input-wrapper" },
-              },
-              [
-                _c("label", { attrs: { for: "place-input" } }, [
-                  _vm._v("Dove"),
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.searchedText,
-                      expression: "searchedText",
-                    },
-                  ],
-                  attrs: {
-                    autocomplete: "off",
-                    id: "place-input",
-                    type: "text",
-                    placeholder: "Dove vuoi andare?",
-                    name: "address",
-                  },
-                  domProps: { value: _vm.searchedText },
-                  on: {
-                    keyup: _vm.getAddress,
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.searchedText = $event.target.value
-                    },
-                  },
-                }),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-section date-range-wrapper" }, [
+          _c(
+            "div",
+            {
+              staticClass: "d-flex justify-content-between align-items-center",
+            },
+            [
               _c(
-                "label",
-                { staticClass: "px-3 border-start", attrs: { for: "date" } },
-                [
-                  _c("div", [
-                    _vm._v(
-                      "\n                            Check-in\n                            "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm.checkInDate
-                      ? _c("span", { staticClass: "text-secondary" }, [
-                          _vm._v(_vm._s(_vm.checkInDate)),
-                        ])
-                      : _c("span", { staticClass: "text-secondary" }, [
-                          _vm._v("Aggiungi date"),
-                        ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "date-input",
-                    attrs: { type: "date", id: "date" },
-                    on: { change: _vm.saveCheckInDate },
-                  }),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-section date-range-wrapper" }, [
-              _c(
-                "label",
+                "div",
                 {
-                  staticClass: "px-3 border-start border-end",
-                  attrs: { for: "date" },
+                  staticClass: "form-section d-flex flex-column",
+                  attrs: { id: "place-input-wrapper" },
                 },
                 [
-                  _c("div", [
-                    _vm._v(
-                      "\n                            Check-out\n                            "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm.checkOutDate
-                      ? _c("span", { staticClass: "text-secondary" }, [
-                          _vm._v(_vm._s(_vm.checkOutDate)),
-                        ])
-                      : _c("span", { staticClass: "text-secondary" }, [
-                          _vm._v("Aggiungi date"),
-                        ]),
+                  _c("label", { attrs: { for: "place-input" } }, [
+                    _vm._v("Dove"),
                   ]),
                   _vm._v(" "),
                   _c("input", {
-                    staticClass: "date-input",
-                    attrs: { type: "date", id: "date" },
-                    on: { change: _vm.saveCheckOutDate },
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.searchedText,
+                        expression: "searchedText",
+                      },
+                    ],
+                    attrs: {
+                      autocomplete: "off",
+                      id: "place-input",
+                      type: "text",
+                      placeholder: "Dove vuoi andare?",
+                      name: "address",
+                    },
+                    domProps: { value: _vm.searchedText },
+                    on: {
+                      keyup: _vm.getAddress,
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.searchedText = $event.target.value
+                      },
+                    },
                   }),
                 ]
               ),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "form-section d-flex justify-content-between",
-                attrs: { id: "guest-input-wrapper" },
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    on: {
-                      click: function ($event) {
-                        return _vm.$emit("search", _vm.searchedText)
-                      },
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button shadow",
+                  on: {
+                    click: function ($event) {
+                      return _vm.$emit("search", _vm.searchedText)
                     },
                   },
-                  [_c("i", { staticClass: "fas fa-search" })]
-                ),
-              ]
-            ),
-          ]),
+                },
+                [_c("i", { staticClass: "fas fa-search" })]
+              ),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light", attrs: { id: "suggestedAddresses" } },
-          _vm._l(_vm.results, function (result, i) {
-            return _c(
+          {
+            staticClass: "container",
+            attrs: { id: "suggestedAddresses-wrapper" },
+          },
+          [
+            _c(
               "div",
-              {
-                key: i,
-                on: {
-                  click: function ($event) {
-                    return _vm.setAddress(i)
+              { staticClass: "bg-light", attrs: { id: "suggestedAddresses" } },
+              _vm._l(_vm.results, function (result, i) {
+                return _c(
+                  "div",
+                  {
+                    key: i,
+                    on: {
+                      click: function ($event) {
+                        return _vm.setAddress(i)
+                      },
+                    },
                   },
-                },
-              },
-              [
-                _c("span", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(result.address.freeformAddress) +
-                      "\n                "
-                  ),
-                ]),
-              ]
-            )
-          }),
-          0
+                  [
+                    _c("span", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(result.address.freeformAddress) +
+                          "\n                    "
+                      ),
+                    ]),
+                  ]
+                )
+              }),
+              0
+            ),
+          ]
         ),
       ]),
     ]
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "ps-3", attrs: { for: "guest" } }, [
-      _vm._v("\n                        Ospiti\n                        "),
-      _c("br"),
-      _vm._v(" "),
-      _c("span", { staticClass: "text-secondary" }, [
-        _vm._v("Aggiungi ospiti"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -5639,16 +5528,15 @@ var staticRenderFns = [
     return _c("div", { staticClass: "filter-container" }, [
       _c(
         "button",
-        { staticClass: "btn filter-button", attrs: { title: "Add filter" } },
-        [
-          _c("i", {
-            staticClass: "fas fa-filter filter-icon",
-            attrs: {
-              "data-bs-toggle": "modal",
-              "data-bs-target": "#staticBackdrop",
-            },
-          }),
-        ]
+        {
+          staticClass: "btn filter-button",
+          attrs: {
+            title: "Add filter",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#staticBackdrop",
+          },
+        },
+        [_c("i", { staticClass: "fas fa-filter filter-icon" })]
       ),
     ])
   },
@@ -5671,6 +5559,40 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h1", [_vm._v("Sono la Home Page")]),
+      _vm._v(" Sono la Home Page"),
     ])
   },
 ]
@@ -21737,6 +21659,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/Home.vue":
+/*!*************************************!*\
+  !*** ./resources/js/pages/Home.vue ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=b3c5cf30&scoped=true& */ "./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&");
+/* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/pages/Home.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "b3c5cf30",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Home.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Home.vue?vue&type=script&lang=js&":
+/*!**************************************************************!*\
+  !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=template&id=b3c5cf30&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/ShowApartment.vue":
 /*!**********************************************!*\
   !*** ./resources/js/pages/ShowApartment.vue ***!
@@ -21838,6 +21829,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_AdvancedSearch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/AdvancedSearch */ "./resources/js/pages/AdvancedSearch.vue");
 /* harmony import */ var _pages_ShowApartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/ShowApartment */ "./resources/js/pages/ShowApartment.vue");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.vue");
+
 
 
 
@@ -21846,6 +21839,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
+    path: "//",
+    component: _pages_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
+    name: "home",
+    meta: {
+      title: "Boolbnb | Homepage"
+    }
+  }, {
     path: '/advancedSearch',
     component: _pages_AdvancedSearch__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: "advancedSearch",
@@ -21987,7 +21987,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! E:\Project\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
