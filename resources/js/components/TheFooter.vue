@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="info-box d-flex mb-3">
+            <div class="info-box d-flex pb-3">
                 <div class="p-2">
                     <span>© 2022 BoolBnB, Inc.</span>
                     <span>Privacy</span>

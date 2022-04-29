@@ -15,10 +15,11 @@
 import TheFooter from '../components/TheFooter.vue'
 import TheNavbar from '../components/TheNavbar.vue'
 import TheSearchbar from '../components/TheSearchbar.vue'
+import Home from '../pages/Home.vue'
 import AdvancedSearch from '../pages/AdvancedSearch.vue'
 import ShowApartment from '../pages/ShowApartment.vue'
 export default {
-  components: { TheNavbar,TheSearchbar,AdvancedSearch,ShowApartment, TheFooter},
+  components: { TheNavbar,TheSearchbar,AdvancedSearch,ShowApartment, TheFooter, Home},
   data(){
     return{
     //   pagination: {},
