@@ -2481,6 +2481,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2697,7 +2713,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.apartments = resp.data; // console.log(this.apartments);
 
                 if (_this.$route.name !== 'advancedSearch') {
-                  _this.$router.replace({
+                  _this.$router.push({
                     path: '/advancedSearch'
                   });
                 }
@@ -2893,7 +2909,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.apartment-details[data-v-42e4ef7c] {\n  border-top: 1px solid lightgrey;\n}", ""]);
+exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.apartment-details[data-v-42e4ef7c] {\n  border-top: 1px solid lightgrey;\n}\n.services-section .services-left[data-v-42e4ef7c] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.services-section .services-right[data-v-42e4ef7c] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}", ""]);
 
 // exports
 
@@ -5801,7 +5817,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "apartment-details mt-2" }, [
-            _c("div", { staticClass: "mt-3" }, [
+            _c("div", { staticClass: "mt-4" }, [
               _c("span", [
                 _c("i", { staticClass: "fas fa-user" }),
                 _vm._v(
@@ -5814,11 +5830,11 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "mt-3" }, [
               _c("span", [
-                _c("i", { staticClass: "fas fa-bed" }),
+                _c("i", { staticClass: "fas fa-home" }),
                 _vm._v(
                   "\n                  " +
-                    _vm._s(_vm.apartment.beds_number) +
-                    " posti letto\n                "
+                    _vm._s(_vm.apartment.rooms_number) +
+                    " stanze\n                "
                 ),
               ]),
             ]),
@@ -5833,6 +5849,23 @@ var render = function () {
                 ),
               ]),
             ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-bath" }),
+                _vm._v(
+                  "\n                 " +
+                    _vm._s(_vm.apartment.baths_number) +
+                    " bagni\n               "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h3", [_vm._v("Servizi aggiuntivi")]),
+            _vm._v(" "),
+            _vm._m(1),
           ]),
         ]),
         _vm._v(" "),
@@ -6027,6 +6060,20 @@ var staticRenderFns = [
           type: "text/css",
         },
       }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-1 services-section d-flex" }, [
+      _c("div", { staticClass: "services-left" }, [
+        _c("span", [_vm._v("ciao")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("bella")]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "services-right" }, [_vm._v("bella")]),
     ])
   },
 ]
@@ -22249,7 +22296,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Simone\Desktop\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\matti\OneDrive\Desktop\project_boolbnb\boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

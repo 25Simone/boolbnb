@@ -15,7 +15,7 @@
                <h5>Host: {{apartment.user.name}}</h5>
              </div>
              <div class="apartment-details mt-2">
-               <div class="mt-3">
+               <div class="mt-4">
                  <span>
                    <i class="fas fa-user"></i> 
                    {{apartment.guests}} ospiti
@@ -23,8 +23,8 @@
                </div>
                 <div class="mt-3">
                   <span>
-                    <i class="fas fa-bed"></i>
-                    {{apartment.beds_number}} posti letto
+                    <i class="fas fa-home"></i>
+                    {{apartment.rooms_number}} stanze
                   </span>
                </div>
                <div class="mt-3">
@@ -32,6 +32,22 @@
                    <i class="fas fa-bed"></i>
                    {{apartment.beds_number}} posti letto
                  </span>
+               </div>
+                <div class="mt-3">
+                 <span>
+                   <i class="fas fa-bath"></i>
+                   {{apartment.baths_number}} bagni
+                 </span>
+               </div>
+               <hr>
+               <h3>Servizi aggiuntivi</h3>
+               <!-- sezione servizi aggiuntivi -->
+               <div class="mt-1 services-section d-flex">
+                 <div class="services-left">
+                   <span>ciao</span>
+                   <span>bella</span>
+                 </div>
+                 <div class="services-right">bella</div>
                </div>
              </div>
           </div>
@@ -187,4 +203,16 @@ export default {
     border-top: 1px solid lightgrey;
   }
   
+  .services-section{
+    .services-left{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+    .services-right{
+      width: 50%;
+       display: flex;
+      flex-direction: column;
+    }
+  }
 </style>
