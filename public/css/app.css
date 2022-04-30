@@ -20153,7 +20153,7 @@ fieldset:disabled .btn {
 
 .customscss img {
   margin-top: 20px;
-  border-radius: 5%;
+  border-radius: 15px;
 }
 
 .customscss .b-red-end {
@@ -20172,9 +20172,7 @@ fieldset:disabled .btn {
 
 .customscss .list-info li {
   padding: 10px;
-  border: 1px solid black;
-  border-right: 1px solid red;
-  border-left: 1px solid red;
+  border-left: 2px solid #ff385c;
 }
 
 .customscss .list-info li i {
