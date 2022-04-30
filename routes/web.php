@@ -25,6 +25,7 @@ Route::middleware("auth")
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('apartments', 'ApartmentController');  
     Route::get('/inbox','InboxController@index')->name('inbox');
+    Route::delete('/inbox/{inbox}','InboxController@destroy')->name('inbox.destroy');
 });
 
 // VUE CONNECTION WEB.php:

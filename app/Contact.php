@@ -13,4 +13,8 @@ class Contact extends Model
         "message",
         "apartment_id"
     ];
+    //APARTMENT TO CONTACT
+    public function apartment() {
+        return $this->belongsTo('App\Apartment');
+    }
 }

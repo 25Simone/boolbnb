@@ -20220,6 +20220,39 @@ fieldset:disabled .btn {
   background-color: #ff385c;
 }
 
+.inbox-section h1 span,
+.inbox-section .h1 span {
+  padding: 5px 10px;
+  color: #fff;
+  background: #FF385C;
+  border-radius: 15px;
+}
+
+.inbox-section .delete-button {
+  background: #FF385C;
+  border: none;
+}
+
+.message span {
+  color: #FF385C;
+}
+
+.message .btn {
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.message .dropdown-menu {
+  position: relative;
+  border: none !important;
+  background: transparent !important;
+}
+
+.message .dropdown-menu.show {
+  position: relative !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
 #suggestedAddresses {
   width: 30%;
   margin-top: 8px;

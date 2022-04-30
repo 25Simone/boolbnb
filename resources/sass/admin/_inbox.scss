@@ -1,0 +1,32 @@
+.inbox-section {
+    h1 {
+        span {
+            padding: 5px 10px;
+            color: #fff;
+            background: #FF385C;
+            border-radius: 15px;
+        }
+    }
+    .delete-button {
+        background: #FF385C;
+        border: none;
+    }
+}
+.message {
+    span {
+        color: #FF385C;
+    }
+    .btn {
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+    .dropdown-menu{
+        position: relative;
+        border: none !important;
+        background: transparent !important;
+    }
+    .dropdown-menu.show {
+        position: relative !important;
+        transform: translate3d(0, 0, 0) !important;
+    }
+}
