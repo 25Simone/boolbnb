@@ -80,6 +80,7 @@ export default {
     #suggestedAddresses{
         width: 40%;
         position: absolute;
+        z-index:2;
     }
 }
 .bg-dark{
