@@ -7,51 +7,63 @@
         <div class="img-container mt-5">
           <img :src="apartment.photo" class="img-show">
         </div>  
-        <div class="d-flex">
+        <div class="row">
          
-          <div class="details mx-4">
-             <h1 class="mt-3">{{apartment.title}}</h1>
+          <div class="details mx-4 col-11 col-md-7 mt-3">
+             <h1>{{apartment.title}}</h1>
              <div>
                <h5>Host: {{apartment.user.name}}</h5>
+               <hr>
              </div>
              <div class="apartment-details mt-2">
                <div class="mt-4">
                  <span>
                    <i class="fas fa-user"></i> 
-                   {{apartment.guests}} ospiti
+                   {{apartment.guests}} Ospiti
                  </span>
                </div>
                 <div class="mt-3">
                   <span>
                     <i class="fas fa-home"></i>
-                    {{apartment.rooms_number}} stanze
+                    {{apartment.rooms_number}} Stanze
                   </span>
                </div>
                <div class="mt-3">
                  <span>
                    <i class="fas fa-bed"></i>
-                   {{apartment.beds_number}} posti letto
+                   {{apartment.beds_number}} Posti letto
                  </span>
                </div>
                 <div class="mt-3">
                  <span>
                    <i class="fas fa-bath"></i>
-                   {{apartment.baths_number}} bagni
+                   {{apartment.baths_number}} Bagni
+                 </span>
+               </div>
+               <div class="mt-3">
+                 <span>
+                   <i class="fas fa-th"></i>
+                   {{apartment.squaremeters}} Mq.
                  </span>
                </div>
                <hr>
                <h3>Servizi aggiuntivi</h3>
                <!-- sezione servizi aggiuntivi -->
-               <div class="mt-1 services-section d-flex">
-                 <div class="services-left">
-                   <span>ciao</span>
-                   <span>bella</span>
+               <div class="mt-1 services-section row">
+                 <div class="services-left col-12 col-md-6">
+                   <div v-for="service in apartment.additional_services" :key="service.id">
+                     <i class="fas fa-check check"></i>
+                     {{service.name}}
+                   </div>
+            
                  </div>
-                 <div class="services-right">bella</div>
+                 
                </div>
              </div>
           </div>
-          <div class="contact-form card p-3 mt-3">
+
+          <button class="btn message-button" @click="sendMessage">Invia un messaggio all'host</button>
+          <div class="contact-form card p-3 mt-4 col-9 col-md-4" id="contact-form">
            
               <div class="mb-3">
                 <label class="form-label">Name *</label>
@@ -82,8 +94,8 @@
               </div>
           </div>
         </div>
-        <h3 class="px-3 mt-3 fw-bold">Dove ti troverai</h3>
-        <h5 class="px-3">{{apartment.address}}</h5>
+        <h3 class="px-3 fw-bold where">Dove ti troverai</h3>
+        <h6 class="px-3">{{apartment.address}}</h6>
 
         <!-- map container-->
         <div id="map" style="width: 100%; height: 45vh" class="mb-5"></div>
@@ -147,6 +159,14 @@ export default {
         }
         console.log('error in call api' + e.message);
       }
+    },
+    sendMessage(){
+      const form = document.getElementById('contact-form');
+      if(form.style.display === 'none'){
+        form.style.display = "block";
+      }else{
+        form.style.display = "none";
+      }
     }
   },
 
@@ -177,6 +197,10 @@ export default {
 
 <style lang="scss" scoped>
 
+h5{
+  color: grey;
+}
+
   .img-container{
     height: 45vh;
 
@@ -188,31 +212,61 @@ export default {
   }
   }
 
-  .details{
-    width: 70%;
-  }
-
   .contact-form{
-    width: 30%;
+   box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
+-webkit-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
+-moz-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
     .btn {
       background: #ff385c;
     }
   }
-
-  .apartment-details{
-    border-top: 1px solid lightgrey;
-  }
   
   .services-section{
     .services-left{
-      width: 50%;
+      width: 100%;
+      max-height: 200px;
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
     }
-    .services-right{
-      width: 50%;
-       display: flex;
-      flex-direction: column;
+
+  }
+
+  i{
+    color:#ff385c;
+  }
+
+  .check{
+    color: rgb(60, 202, 39);
+    margin-right: 10px;
+  }
+
+  .where{
+    margin-top: 30px;
+  }
+
+  .message-button{
+    display: none;
+  }
+
+//media query
+  @media screen and (max-width: 767px){
+    .contact-form{
+      margin: 0 auto;
+      display: none;
     }
+  .where{
+    margin-top: 60px;
+  }
+  .message-button{
+    background-color: #ff385c;
+    color: white;
+    font-weight: bold;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
   }
 </style>
