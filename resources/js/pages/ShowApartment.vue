@@ -8,9 +8,9 @@
           <img :src="apartment.photo" class="img-show">
         </div>  
         <div class="row">
-         
-          <div class="details mx-4 col-11 col-md-7 mt-3">
-             <h1 class="fw-bold">{{apartment.title}}</h1>
+          <!-- Apartment details -->
+          <div class="details px-4 col-12 col-md-8">
+             <h1 class="mt-3">{{apartment.title}}</h1>
              <div>
                <h5>Host: {{apartment.user.name}}</h5>
                <hr>
@@ -87,11 +87,11 @@
               </div>
               <button @click="submitForm" class="btn">Submit</button>
 
-              <!-- Alert sending successfully -->
-              <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
-                <h5>Grazie per averci contattato!</h5>
-                <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
-              </div>
+            <!-- Alert sending successfully -->
+            <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
+              <h5>Grazie per averci contattato!</h5>
+              <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
+            </div>
           </div>
         </div>
         <h3 class="px-3 fw-bold where">Dove ti troverai</h3>
