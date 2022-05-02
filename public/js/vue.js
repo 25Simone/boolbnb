@@ -2309,9 +2309,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  mounted: function mounted() {
-    this.fetchAdditionalServices();
-  },
   updated: function updated() {
     this.fetchAdditionalServices();
   }
@@ -2910,7 +2907,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".additional-services[data-v-42e4ef7c] {\n  font-weight: bold;\n}\nh5[data-v-42e4ef7c] {\n  color: grey;\n}\n.img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.contact-form[data-v-42e4ef7c] {\n  box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -webkit-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -moz-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.services-section .services-left[data-v-42e4ef7c] {\n  width: 100%;\n  max-height: 200px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n}\ni[data-v-42e4ef7c] {\n  color: #ff385c;\n}\n.check[data-v-42e4ef7c] {\n  color: rgb(60, 202, 39);\n  margin-right: 10px;\n}\n.where[data-v-42e4ef7c] {\n  margin-top: 90px;\n}\n.message-button[data-v-42e4ef7c] {\n  display: none;\n}\n@media screen and (max-width: 767px) {\n.contact-form[data-v-42e4ef7c] {\n    margin: 0 auto;\n    display: none;\n}\n.where[data-v-42e4ef7c] {\n    margin-top: 60px;\n}\n.message-button[data-v-42e4ef7c] {\n    background-color: #ff385c;\n    color: white;\n    font-weight: bold;\n    display: block;\n    width: 90%;\n    margin: 0 auto;\n    margin-top: 40px;\n}\n}", ""]);
+exports.push([module.i, ".additional-services[data-v-42e4ef7c] {\n  font-weight: bold;\n}\nh5[data-v-42e4ef7c] {\n  color: grey;\n}\n.img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.contact-form[data-v-42e4ef7c] {\n  box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -webkit-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -moz-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  border-radius: 30px;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.services-section .services-left[data-v-42e4ef7c] {\n  width: 100%;\n  max-height: 200px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n}\ni[data-v-42e4ef7c] {\n  color: #ff385c;\n}\n.check[data-v-42e4ef7c] {\n  color: rgb(60, 202, 39);\n  margin-right: 10px;\n}\n.where[data-v-42e4ef7c] {\n  margin-top: 90px;\n}\n.message-button[data-v-42e4ef7c] {\n  display: none;\n}\n@media screen and (max-width: 767px) {\n.contact-form[data-v-42e4ef7c] {\n    margin: 0 auto;\n    display: none;\n}\n.where[data-v-42e4ef7c] {\n    margin-top: 60px;\n}\n.message-button[data-v-42e4ef7c] {\n    background-color: #ff385c;\n    color: white;\n    font-weight: bold;\n    display: block;\n    width: 90%;\n    margin: 0 auto;\n    margin-top: 40px;\n}\n}", ""]);
 
 // exports
 
@@ -5800,7 +5797,7 @@ var render = function () {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "img-container mt-5" }, [
+      _c("div", { staticClass: "img-container mt-4" }, [
         _c("img", {
           staticClass: "img-show",
           attrs: { src: _vm.apartment.photo },
@@ -5910,7 +5907,7 @@ var render = function () {
         _c(
           "div",
           {
-            staticClass: "contact-form card p-3 mt-4 col-9 col-md-4",
+            staticClass: "contact-form card p-3 mt-5 col-9 col-md-4",
             attrs: { id: "contact-form" },
           },
           [

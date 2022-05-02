@@ -4,7 +4,7 @@
       <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css" type="text/css">
     </head>
       <div class="container">
-        <div class="img-container mt-5">
+        <div class="img-container mt-4">
           <img :src="apartment.photo" class="img-show">
         </div>  
         <div class="row">
@@ -63,7 +63,7 @@
           </div>
 
           <button class="btn message-button" @click="sendMessage">Invia un messaggio all'host</button>
-          <div class="contact-form card p-3 mt-4 col-9 col-md-4" id="contact-form">
+          <div class="contact-form card p-3 mt-5 col-9 col-md-4" id="contact-form">
            
               <div class="mb-3">
                 <label class="form-label">Name *</label>
@@ -220,6 +220,7 @@ h5{
    box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
 -webkit-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
 -moz-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
+border-radius: 30px;
     .btn {
       background: #ff385c;
     }
