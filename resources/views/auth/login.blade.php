@@ -12,7 +12,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="d-flex">
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 col-6">
                                 {{-- <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label> --}}
 
                                 <div class="">
@@ -26,10 +26,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-6">
                                 {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
 
-                                <div class="ms-3">
+                                <div class="ps-3">
                                     <input id="password" placeholder="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                     @error('password')
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group col-6">
                             <div class="">
                                 <div class="form-check mt-3">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
