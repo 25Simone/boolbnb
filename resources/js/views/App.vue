@@ -62,7 +62,6 @@ export default {
             }
         }catch(e){
             console.log('error in axios call' + e.message);
-            this.apartments = [];
         }
     },
     async fetchFilterApartments(roomsNumber,bedsNumber,radius,checkedService){
