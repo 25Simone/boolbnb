@@ -18,10 +18,8 @@ class ApartmentsController extends Controller
     
         
          $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Cy3GhUqiHtCcdMfQksEJ5XAPmz6EeBsV&query='. $filter . '&countrySet=IT' . '&limit=1');
-         if(gettype($coordinate) != null){
-            $lat = $coordinate["results"][0]["position"]["lat"];
-            $lon = $coordinate["results"][0]["position"]["lon"];
-         }
+         $lat = $coordinate["results"][0]["position"]["lat"];
+         $lon = $coordinate["results"][0]["position"]["lon"];
         
         $apartments = Apartment::all()->where('visible',1);
         $apartments->load('user');
