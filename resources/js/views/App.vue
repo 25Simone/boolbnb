@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import TheFooter from '../components/TheFooter.vue'
 import TheNavbar from '../components/TheNavbar.vue'
 import TheSearchbar from '../components/TheSearchbar.vue'
@@ -47,8 +48,8 @@ export default {
             })
             
             // this.pagination = resp.data;
-            console.log(resp);
             this.apartments = resp.data;
+            const storedSearch = localStorage.setItem("apartmentsSearch",this.searchedText);
             // console.log(this.apartments);
             if(this.$route.name !== 'advancedSearch') {
                 this.$router.push({path: '/advancedSearch'});
@@ -81,7 +82,29 @@ export default {
         this.searchedText = text;
         this.fetchApartments(this.searchedText);
     },
-  }
+    checkApartments(){
+        let storedText = localStorage.getItem("apartmentsSearch");
+        if(storedText){
+            // console.log('sono dentro');
+            // this.fetchApartments(storedText);
+            this.searchedText = storedText;
+            this.fetchApartments(this.searchedText);
+            
+        }
+    }
+  },
+  mounted(){
+   
+          if(this.$route.name === 'advancedSearch') {
+               if(!this.searchedText){
+                     this.checkApartments();
+               }
+            }
+    
+     
+      
+  
+ }
 }
 </script>
 

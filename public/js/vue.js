@@ -2309,7 +2309,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  updated: function updated() {
+  mounted: function mounted() {
     this.fetchAdditionalServices();
   }
 });
@@ -2636,12 +2636,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TheFooter.vue */ "./resources/js/components/TheFooter.vue");
-/* harmony import */ var _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TheNavbar.vue */ "./resources/js/components/TheNavbar.vue");
-/* harmony import */ var _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TheSearchbar.vue */ "./resources/js/components/TheSearchbar.vue");
-/* harmony import */ var _pages_Home_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Home.vue */ "./resources/js/pages/Home.vue");
-/* harmony import */ var _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/AdvancedSearch.vue */ "./resources/js/pages/AdvancedSearch.vue");
-/* harmony import */ var _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/ShowApartment.vue */ "./resources/js/pages/ShowApartment.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TheFooter.vue */ "./resources/js/components/TheFooter.vue");
+/* harmony import */ var _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TheNavbar.vue */ "./resources/js/components/TheNavbar.vue");
+/* harmony import */ var _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TheSearchbar.vue */ "./resources/js/components/TheSearchbar.vue");
+/* harmony import */ var _pages_Home_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/Home.vue */ "./resources/js/pages/Home.vue");
+/* harmony import */ var _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/AdvancedSearch.vue */ "./resources/js/pages/AdvancedSearch.vue");
+/* harmony import */ var _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/ShowApartment.vue */ "./resources/js/pages/ShowApartment.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2667,14 +2669,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    TheNavbar: _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    TheSearchbar: _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    AdvancedSearch: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    ShowApartment: _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    TheFooter: _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Home: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    TheNavbar: _components_TheNavbar_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    TheSearchbar: _components_TheSearchbar_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AdvancedSearch: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    ShowApartment: _pages_ShowApartment_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    TheFooter: _components_TheFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Home: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -2689,7 +2692,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var searchedText, resp;
+        var searchedText, resp, storedSearch;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2697,7 +2700,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 searchedText = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
                 _context.prev = 1;
                 _context.next = 4;
-                return axios.get('/api/apartments', {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/apartments', {
                   params: {
                     // page,
                     filter: searchedText
@@ -2707,8 +2710,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 4:
                 resp = _context.sent;
                 // this.pagination = resp.data;
-                console.log(resp);
-                _this.apartments = resp.data; // console.log(this.apartments);
+                _this.apartments = resp.data;
+                storedSearch = localStorage.setItem("apartmentsSearch", _this.searchedText); // console.log(this.apartments);
 
                 if (_this.$route.name !== 'advancedSearch') {
                   _this.$router.push({
@@ -2743,7 +2746,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return axios.get('/api/apartments', {
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/apartments', {
                   params: {
                     roomsNumber: roomsNumber,
                     filter: _this2.searchedText,
@@ -2775,6 +2778,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     searchApartments: function searchApartments(text) {
       this.searchedText = text;
       this.fetchApartments(this.searchedText);
+    },
+    checkApartments: function checkApartments() {
+      var storedText = localStorage.getItem("apartmentsSearch");
+
+      if (storedText) {
+        // console.log('sono dentro');
+        // this.fetchApartments(storedText);
+        this.searchedText = storedText;
+        this.fetchApartments(this.searchedText);
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.$route.name === 'advancedSearch') {
+      if (!this.searchedText) {
+        this.checkApartments();
+      }
     }
   }
 });
@@ -5427,7 +5447,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "py-4 advanced-container" }, [
-    _vm.apartments.length >= 2
+    _vm.apartments.length >= 1
       ? _c("div", { staticClass: "filter-container" }, [_vm._m(0)])
       : _vm._e(),
     _vm._v(" "),
@@ -5805,8 +5825,8 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "details mx-4 col-11 col-md-7 mt-3" }, [
-          _c("h1", { staticClass: "fw-bold" }, [
+        _c("div", { staticClass: "details px-4 col-12 col-md-8" }, [
+          _c("h1", { staticClass: "mt-3" }, [
             _vm._v(_vm._s(_vm.apartment.title)),
           ]),
           _vm._v(" "),
