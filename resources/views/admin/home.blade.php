@@ -39,7 +39,7 @@
                                         My apartments
                                     </div>
                                     <div class="col-6 dash-right">
-                                        <a href="{{route('admin.apartments.index')}}"><button class="btn dash-button">Apartments</button></a>
+                                        <a href="{{route('admin.apartments.index')}}"><button class="btn dash-button text-white">Apartments</button></a>
                                     </div>
                                 </div>
                             </li>
@@ -49,7 +49,7 @@
                                         Publish your apartment
                                     </div>
                                     <div class="col-6 dash-right">
-                                        <a href="{{route('admin.apartments.create')}}"><button class="btn dash-button">Publish</button></a>
+                                        <a href="{{route('admin.apartments.create')}}"><button class="btn dash-button text-white">Publish</button></a>
                                     </div>
                                     
                                 </div>
