@@ -22,7 +22,7 @@
           @csrf
 
           {{-- TITLE SECTION  --}}
-          <div class="mb-3">
+          <div class="mb-3 mt-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Title *</label>
 
             <input placeholder="Insert your title apartment" type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
@@ -131,7 +131,7 @@
           </div>
           
           {{-- SUBMIT BUTTON TO STORE --}}
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary mb-3">Submit</button>
         </form>
     </div>
   </div>
