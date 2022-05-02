@@ -7,9 +7,9 @@
         <div class="img-container mt-5">
           <img :src="apartment.photo" class="img-show">
         </div>  
-        <div class="d-flex">
-         
-          <div class="details mx-4">
+        <div class="row">
+          <!-- Apartment details -->
+          <div class="details px-4 col-12 col-md-8">
              <h1 class="mt-3">{{apartment.title}}</h1>
              <div>
                <h5>Host: {{apartment.user.name}}</h5>
@@ -51,35 +51,35 @@
                </div>
              </div>
           </div>
-          <div class="contact-form card p-3 mt-3">
-           
-              <div class="mb-3">
-                <label class="form-label">Name *</label>
-                <input v-model="formData.name" type="text" placeholder="Insert your name" name="name" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.name"> {{formValidationErrors.name}} </span>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Lastname *</label>
-                <input v-model="formData.lastname" type="text" placeholder="Insert your lastname" name="lastname" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.lastname"> {{formValidationErrors.lastname}} </span>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Email *</label>
-                <input v-model="formData.email" type="email" placeholder="Insert your email" name="email" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.email"> {{formValidationErrors.email}} </span>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Message *</label>
-                <textarea v-model="formData.message" name="message" class="form-control" required></textarea>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.message"> {{formValidationErrors.message}} </span>
-              </div>
-              <button @click="submitForm" class="btn">Submit</button>
+          <!-- Contact form -->
+          <div class="contact-form card p-3 mt-4 col-12 col-md-4">
+            <div class="mb-3">
+              <label class="form-label">Name *</label>
+              <input v-model="formData.name" type="text" placeholder="Insert your name" name="name" class="form-control" required>
+              <span class="text-danger" v-if="formValidationErrors && formValidationErrors.name"> {{formValidationErrors.name}} </span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Lastname *</label>
+              <input v-model="formData.lastname" type="text" placeholder="Insert your lastname" name="lastname" class="form-control" required>
+              <span class="text-danger" v-if="formValidationErrors && formValidationErrors.lastname"> {{formValidationErrors.lastname}} </span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email *</label>
+              <input v-model="formData.email" type="email" placeholder="Insert your email" name="email" class="form-control" required>
+              <span class="text-danger" v-if="formValidationErrors && formValidationErrors.email"> {{formValidationErrors.email}} </span>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message *</label>
+              <textarea v-model="formData.message" name="message" class="form-control" required></textarea>
+              <span class="text-danger" v-if="formValidationErrors && formValidationErrors.message"> {{formValidationErrors.message}} </span>
+            </div>
+            <button @click="submitForm" class="btn">Submit</button>
 
-              <!-- Alert sending successfully -->
-              <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
-                <h5>Grazie per averci contattato!</h5>
-                <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
-              </div>
+            <!-- Alert sending successfully -->
+            <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
+              <h5>Grazie per averci contattato!</h5>
+              <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
+            </div>
           </div>
         </div>
         <h3 class="px-3 mt-3 fw-bold">Dove ti troverai</h3>
@@ -188,12 +188,12 @@ export default {
   }
   }
 
-  .details{
-    width: 70%;
-  }
+  // .details{
+  //   width: 70%;
+  // }
 
   .contact-form{
-    width: 30%;
+    // width: 30%;
     .btn {
       background: #ff385c;
     }
