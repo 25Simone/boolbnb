@@ -87,9 +87,6 @@ export default {
   
    
     },
-    mounted(){
-      this.fetchAdditionalServices();
-    },
     updated(){
         this.fetchAdditionalServices();
     }
