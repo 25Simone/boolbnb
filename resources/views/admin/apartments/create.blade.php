@@ -12,9 +12,9 @@
   </div>
 @endif
 <div>
-  <div class="row row-cols-2 m-0 align-items-stretch" id="create-form-wrapper">
+  <div class="row row-cols-1 row-cols-md-2 m-0 align-items-stretch" id="create-form-wrapper">
     <div class="col create-section-left">
-      <h1 class="display-3 text-center">Post Your Apartment!</h1>
+      <h1 class="display-3 text-center py-3">Post Your Apartment!</h1>
     </div>
     {{-- FORM --}}
     <div class="col form">
@@ -22,7 +22,7 @@
           @csrf
 
           {{-- TITLE SECTION  --}}
-          <div class="mb-3">
+          <div class="mb-3 mt-3">
             <label for="exampleInputEmail1" class="form-label">Apartment Title *</label>
 
             <input placeholder="Insert your title apartment" type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
@@ -131,7 +131,7 @@
           </div>
           
           {{-- SUBMIT BUTTON TO STORE --}}
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary mb-3">Submit</button>
         </form>
     </div>
   </div>

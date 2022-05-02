@@ -2,9 +2,14 @@
     <div>
         <the-navbar></the-navbar>
        
-        <the-searchbar @search=searchApartments></the-searchbar> 
+        <the-searchbar @search=searchApartments @selection=getAddressSelected></the-searchbar> 
         <!-- <advanced-search :apartments="apartments"></advanced-search> -->
          <main>
+            <div v-if="addressErrorModal" id="addressErrorModal">
+                <div class="alert alert-danger container m-0 mx-auto" role="alert">
+                    Seleziona un indirizzo valido
+                </div>
+            </div>
             <router-view :apartments="apartments" @filteredApartments=fetchFilterApartments></router-view>
         </main>
         <the-footer></the-footer>
@@ -26,7 +31,8 @@ export default {
     //   pagination: {},
       apartments: [],
       searchedText: '',
-     
+      addressSelected: false,
+      addressErrorModal: false
     }
   },
   methods: {
@@ -56,6 +62,7 @@ export default {
             }
         }catch(e){
             console.log('error in axios call' + e.message);
+            this.apartments = [];
         }
     },
     async fetchFilterApartments(roomsNumber,bedsNumber,radius,checkedService){
@@ -79,18 +86,25 @@ export default {
         }
     },
     searchApartments(text){
-        this.searchedText = text;
-        this.fetchApartments(this.searchedText);
+        if(this.addressSelected) {
+            this.searchedText = text;
+            this.fetchApartments(this.searchedText);
+        } else {
+            this.addressErrorModal = true;
+            console.error('indirizzo non esatto')
+        }
     },
     checkApartments(){
         let storedText = localStorage.getItem("apartmentsSearch");
         if(storedText){
-            // console.log('sono dentro');
             // this.fetchApartments(storedText);
             this.searchedText = storedText;
             this.fetchApartments(this.searchedText);
-            
         }
+    },
+    getAddressSelected(boolean) {
+        this.addressSelected = boolean;
+        this.addressErrorModal = false
     }
   },
   mounted(){
@@ -99,15 +113,15 @@ export default {
                if(!this.searchedText){
                      this.checkApartments();
                }
-            }
-    
-     
-      
-  
- }
+          }
+ },
 }
 </script>
 
 <style lang="scss" scoped>
-
+main {
+    #addressErrorModal {
+        background: black;
+    }
+}
 </style>
