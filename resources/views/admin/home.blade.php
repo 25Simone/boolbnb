@@ -19,7 +19,7 @@
                            <button class="btn btn-secondary" id="details">See details</button>
                            <div id="section-details" class="d-none mt-4">
                                 <div><span>Email:</span> {{Auth::user()->email}}</div>
-                                <div><span>Birth date:</span> {{Auth::user()->birth_date}}</div>
+                                @if(Auth::user()->birth_date)<div><span>Birth date:</span> {{Auth::user()->birth_date}}</div>@endif
                                 <div><span>Date of registration: </span>{{Auth::user()->created_at}}</div>
                            </div>
                         </section>
