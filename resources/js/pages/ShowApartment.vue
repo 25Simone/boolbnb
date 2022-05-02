@@ -10,7 +10,7 @@
         <div class="row">
          
           <div class="details mx-4 col-11 col-md-7 mt-3">
-             <h1>{{apartment.title}}</h1>
+             <h1 class="fw-bold">{{apartment.title}}</h1>
              <div>
                <h5>Host: {{apartment.user.name}}</h5>
                <hr>
@@ -47,7 +47,7 @@
                  </span>
                </div>
                <hr>
-               <h3>Servizi aggiuntivi</h3>
+               <h4 class="mb-3 additional-services">Servizi aggiuntivi</h4>
                <!-- sezione servizi aggiuntivi -->
                <div class="mt-1 services-section row">
                  <div class="services-left col-12 col-md-6">
@@ -197,6 +197,10 @@ export default {
 
 <style lang="scss" scoped>
 
+.additional-services{
+  font-weight: bold;
+}
+
 h5{
   color: grey;
 }
@@ -242,7 +246,7 @@ h5{
   }
 
   .where{
-    margin-top: 30px;
+    margin-top: 90px;
   }
 
   .message-button{
