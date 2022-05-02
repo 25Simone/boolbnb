@@ -4,13 +4,13 @@
       <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css" type="text/css">
     </head>
       <div class="container">
-        <div class="img-container mt-5">
+        <div class="img-container mt-4">
           <img :src="apartment.photo" class="img-show">
         </div>  
         <div class="row">
-         
-          <div class="details mx-4 col-11 col-md-7 mt-3">
-             <h1 class="fw-bold">{{apartment.title}}</h1>
+          <!-- Apartment details -->
+          <div class="details px-4 col-12 col-md-8">
+             <h1 class="mt-3">{{apartment.title}}</h1>
              <div>
                <h5>Host: {{apartment.user.name}}</h5>
                <hr>
@@ -63,7 +63,7 @@
           </div>
 
           <button class="btn message-button" @click="sendMessage">Invia un messaggio all'host</button>
-          <div class="contact-form card p-3 mt-4 col-9 col-md-4" id="contact-form">
+          <div class="contact-form card p-3 mt-5 col-9 col-md-4" id="contact-form">
            
               <div class="mb-3">
                 <label class="form-label">Name *</label>
@@ -87,11 +87,11 @@
               </div>
               <button @click="submitForm" class="btn">Submit</button>
 
-              <!-- Alert sending successfully -->
-              <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
-                <h5>Grazie per averci contattato!</h5>
-                <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
-              </div>
+            <!-- Alert sending successfully -->
+            <div v-if="contactSubmitted" class="alert alert-success my-4 py-5">
+              <h5>Grazie per averci contattato!</h5>
+              <p class="lead">Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile.</p>
+            </div>
           </div>
         </div>
         <h3 class="px-3 fw-bold where">Dove ti troverai</h3>
@@ -220,6 +220,7 @@ h5{
    box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
 -webkit-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
 -moz-box-shadow: 0px 0px 5px 2px rgba(123,112,112,0.75);
+border-radius: 30px;
     .btn {
       background: #ff385c;
     }

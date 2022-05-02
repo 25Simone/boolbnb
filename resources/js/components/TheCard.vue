@@ -1,11 +1,11 @@
 <template>
-    <div class="px-4">
+    <div class="px-4 card-container">
         <div class="container-fluid py-3 border-top">
-            <div class="row">
+            <div class="row container-row">
                 <div class="image-container col-2">
                     <img :src="apartment.photo" :alt="apartment.title + 'image'">
                 </div>
-                <div class="d-flex align-items-center justify-content-between px-5 col-8">
+                <div class="d-flex align-items-center justify-content-between px-5 col-10 card-data">
                     <div class="ad-content">
                         <h2>{{ apartment.title }}</h2>
                         <div> <i class="fas fa-map-marker-alt my-3"></i> {{ apartment.address }} </div>
@@ -15,9 +15,9 @@
                             <span class="me-3"> <i class="fas fa-bath"></i> {{ apartment.baths_number }} baths </span>
                         </div>
                     </div>
-                    <div>
+                    <div class="service-section">
                         <h5 class="pt-3 pb-2">Additional Services</h5>
-                        <ul>
+                        <!-- <ul>
                             <li
                             class="mx-2"
                             v-for="(service, i) in apartment.additional_services"
@@ -25,7 +25,15 @@
                             >
                                 {{ service.name }}
                             </li>
-                        </ul>
+                        </ul> -->
+                        <!-- sezione servizi aggiuntivi -->
+                        <div class="services-section-row services-section d-flex">
+                            <div class="services-left">
+                                <div class="p-1" v-for="service in apartment.additional_services" :key="service.id">
+                                  {{service.name}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <router-link :to="{name:'apartment.show',params: {apartment:apartment.slug}}" class="btn">Show</router-link>
                 </div>
@@ -43,9 +51,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .services-section-row{
+      max-height: 95%;
+    .services-left{
+      width: 100%;
+      max-height: 23vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+  }
+.card-container {
+    height: 23vh;
+    .container-fluid {
+        height: 100%;
+        .container-row {
+            height: 100%;
+            .card-data {
+                max-height: 100%;
+                .service-section {
+                    height: 100%;
+                    width: 35%;
+                }
+            }
+        }
+    }
+}
 .container-fluid{
     .row {
-        height: 23vh;
         .image-container {
             // width: 20%;
             height: 100%;

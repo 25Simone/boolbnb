@@ -1,7 +1,7 @@
 <template>
     <div class="py-4 advanced-container">
         <!-- Filter icon -->
-       <div class="filter-container" v-if="apartments.length >= 2">
+       <div class="filter-container" v-if="apartments.length >= 1">
            <button class="btn filter-button"  title="Add filter" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-filter filter-icon"></i></button>
        </div>
         <!-- Modal -->
@@ -83,14 +83,8 @@ export default {
             }
         },
 
-   
-  
-   
     },
     mounted(){
-      this.fetchAdditionalServices();
-    },
-    updated(){
         this.fetchAdditionalServices();
     }
 }
