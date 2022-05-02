@@ -48,11 +48,7 @@
             </div>
         </div>
         <h2 class="py-5 text-center" v-else>Nessuno appartamento corrispondente alla tua ricerca</h2>
-
-     
-    
-   
-  </div>
+    </div>
 </template>
 
 <script>
@@ -96,6 +92,7 @@ export default {
     }
 
     .advanced-container{
+        min-height: 100vh;
         position: relative;
         .filter-button{
             position: absolute;

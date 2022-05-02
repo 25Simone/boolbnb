@@ -12,9 +12,9 @@
   </div>
 @endif
 <div>
-  <div class="row row-cols-2 m-0 align-items-stretch" id="edit-form-wrapper">
+  <div class="row row-cols-1 row-cols-md-2 m-0 align-items-stretch" id="edit-form-wrapper">
     <div class="col edit-section-left">
-      <h1 class="display-3 text-center">Edit Your Apartment!</h1>
+      <h1 class="display-3 text-center py-3">Edit Your Apartment!</h1>
     </div>
     {{-- FORM --}}
     <div class="col form">

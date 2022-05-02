@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
   .services-section-row{
-      max-height: 95%;
+      max-height: 80%;
     .services-left{
       width: 100%;
       max-height: 23vh;

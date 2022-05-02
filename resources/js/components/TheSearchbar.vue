@@ -24,7 +24,7 @@
             </div>
             <div id="suggestedAddresses-wrapper" class="container">
                 <div id="suggestedAddresses" class="bg-light">
-                    <div v-for="(result,i) in results" :key="i" @click="setAddress(i)">
+                    <div v-for="(result,i) in results" :key="i" @click="setAddress(i); $emit('selection',addressSelected)">
                         <span>
                             {{ result.address.freeformAddress }}
                         </span>
@@ -32,7 +32,6 @@
                 </div>
             </div>
         </div>
-           
     </div>    
 </template>
 
@@ -45,7 +44,7 @@ export default {
             results: [],
             checkInDate: "",
             checkOutDate: "", 
-           
+            addressSelected: false,
         }
     },
     methods: {
@@ -68,6 +67,7 @@ export default {
         setAddress(i){
             this.searchedText = this.results[i].address.freeformAddress;
             this.results = [];
+            this.addressSelected = true;
         },
     }
 } 

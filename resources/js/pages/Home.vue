@@ -3,7 +3,7 @@
         <div class="container-fluid bg">
             <div class="container pt-5">
                 <div class="jumbotron d-flex align-items-center justify-content-center">
-                    <p>Affitta la casa dei tuoi sogni</p>
+                    <p class="text-center">Affitta la casa dei tuoi sogni</p>
                 </div>
         
                 <div class="box-img">
@@ -15,7 +15,7 @@
         <div class="container-fluid bg-white">
             <div class="ispirazione-container container">
                 <h2>Ispirazione per i tuoi viaggi</h2>
-                <div class="row d-flex pt-3">
+                <div class="row row-cols-1 row-cols-md-3 pt-3">
                     <div class="col card">
                         <img src="../img/giardino_verticale.jpeg" alt="">
                     </div>
