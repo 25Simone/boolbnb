@@ -2072,26 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2497,6 +2477,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2599,6 +2591,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2, null, [[0, 15]]);
       }))();
+    },
+    sendMessage: function sendMessage() {
+      var form = document.getElementById('contact-form');
+
+      if (form.style.display === 'none') {
+        form.style.display = "block";
+      } else {
+        form.style.display = "none";
+      }
     }
   },
   mounted: function mounted() {
@@ -2852,7 +2853,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#suggestedAddresses-wrapper[data-v-457d8ae5] {\n  margin: 0 auto;\n  width: 70%;\n}\n#suggestedAddresses-wrapper #suggestedAddresses[data-v-457d8ae5] {\n  width: 40%;\n  position: absolute;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.container[data-v-457d8ae5] {\n  position: relative;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 70%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > div .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 16px;\n}\n.searchbar > div .button[data-v-457d8ae5] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: 1px solid #f8393f;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5] {\n  width: 100%;\n  border: none;\n  font-size: 17px;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5]:focus-visible {\n  outline: none;\n}", ""]);
+exports.push([module.i, "#suggestedAddresses-wrapper[data-v-457d8ae5] {\n  margin: 0 auto;\n  width: 70%;\n}\n#suggestedAddresses-wrapper #suggestedAddresses[data-v-457d8ae5] {\n  width: 40%;\n  position: absolute;\n  z-index: 2;\n}\n.bg-dark[data-v-457d8ae5] {\n  background: #000 !important;\n}\n.container[data-v-457d8ae5] {\n  position: relative;\n}\n.searchbar[data-v-457d8ae5] {\n  background: #fff;\n  margin: 0 auto;\n  width: 70%;\n  padding: 15px 20px;\n  border-radius: 40px;\n}\n.searchbar > div .form-section label[data-v-457d8ae5] {\n  width: 100%;\n  font-weight: bold;\n  font-size: 16px;\n}\n.searchbar > div .button[data-v-457d8ae5] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: 1px solid #f8393f;\n  background: #ff5a5f;\n  color: #fff;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5] {\n  width: 100%;\n  border: none;\n  font-size: 17px;\n}\n.searchbar > div #place-input-wrapper input[data-v-457d8ae5]:focus-visible {\n  outline: none;\n}", ""]);
 
 // exports
 
@@ -2909,7 +2910,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.details[data-v-42e4ef7c] {\n  width: 70%;\n}\n.contact-form[data-v-42e4ef7c] {\n  width: 30%;\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.apartment-details[data-v-42e4ef7c] {\n  border-top: 1px solid lightgrey;\n}\n.services-section .services-left[data-v-42e4ef7c] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.services-section .services-right[data-v-42e4ef7c] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}", ""]);
+exports.push([module.i, ".additional-services[data-v-42e4ef7c] {\n  font-weight: bold;\n}\nh5[data-v-42e4ef7c] {\n  color: grey;\n}\n.img-container[data-v-42e4ef7c] {\n  height: 45vh;\n}\n.img-container .img-show[data-v-42e4ef7c] {\n  border-radius: 10px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.contact-form[data-v-42e4ef7c] {\n  box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -webkit-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n  -moz-box-shadow: 0px 0px 5px 2px rgba(123, 112, 112, 0.75);\n}\n.contact-form .btn[data-v-42e4ef7c] {\n  background: #ff385c;\n}\n.services-section .services-left[data-v-42e4ef7c] {\n  width: 100%;\n  max-height: 200px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n}\ni[data-v-42e4ef7c] {\n  color: #ff385c;\n}\n.check[data-v-42e4ef7c] {\n  color: rgb(60, 202, 39);\n  margin-right: 10px;\n}\n.where[data-v-42e4ef7c] {\n  margin-top: 90px;\n}\n.message-button[data-v-42e4ef7c] {\n  display: none;\n}\n@media screen and (max-width: 767px) {\n.contact-form[data-v-42e4ef7c] {\n    margin: 0 auto;\n    display: none;\n}\n.where[data-v-42e4ef7c] {\n    margin-top: 60px;\n}\n.message-button[data-v-42e4ef7c] {\n    background-color: #ff385c;\n    color: white;\n    font-weight: bold;\n    display: block;\n    width: 90%;\n    margin: 0 auto;\n    margin-top: 40px;\n}\n}", ""]);
 
 // exports
 
@@ -5267,9 +5268,9 @@ var staticRenderFns = [
         attrs: {
           type: "button",
           "data-bs-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
+          "data-bs-target": "#navbarSupportedContent",
+          "aria-bs-controls": "navbarSupportedContent",
+          "aria-bs-expanded": "false",
         },
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
@@ -5806,14 +5807,16 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "d-flex" }, [
-        _c("div", { staticClass: "details mx-4" }, [
-          _c("h1", { staticClass: "mt-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "details mx-4 col-11 col-md-7 mt-3" }, [
+          _c("h1", { staticClass: "fw-bold" }, [
             _vm._v(_vm._s(_vm.apartment.title)),
           ]),
           _vm._v(" "),
           _c("div", [
             _c("h5", [_vm._v("Host: " + _vm._s(_vm.apartment.user.name))]),
+            _vm._v(" "),
+            _c("hr"),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "apartment-details mt-2" }, [
@@ -5823,7 +5826,7 @@ var render = function () {
                 _vm._v(
                   " \n                 " +
                     _vm._s(_vm.apartment.guests) +
-                    " ospiti\n               "
+                    " Ospiti\n               "
                 ),
               ]),
             ]),
@@ -5834,7 +5837,7 @@ var render = function () {
                 _vm._v(
                   "\n                  " +
                     _vm._s(_vm.apartment.rooms_number) +
-                    " stanze\n                "
+                    " Stanze\n                "
                 ),
               ]),
             ]),
@@ -5845,7 +5848,7 @@ var render = function () {
                 _vm._v(
                   "\n                 " +
                     _vm._s(_vm.apartment.beds_number) +
-                    " posti letto\n               "
+                    " Posti letto\n               "
                 ),
               ]),
             ]),
@@ -5856,186 +5859,236 @@ var render = function () {
                 _vm._v(
                   "\n                 " +
                     _vm._s(_vm.apartment.baths_number) +
-                    " bagni\n               "
+                    " Bagni\n               "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-3" }, [
+              _c("span", [
+                _c("i", { staticClass: "fas fa-th" }),
+                _vm._v(
+                  "\n                 " +
+                    _vm._s(_vm.apartment.squaremeters) +
+                    " Mq.\n               "
                 ),
               ]),
             ]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
-            _c("h3", [_vm._v("Servizi aggiuntivi")]),
+            _c("h4", { staticClass: "mb-3 additional-services" }, [
+              _vm._v("Servizi aggiuntivi"),
+            ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "mt-1 services-section row" }, [
+              _c(
+                "div",
+                { staticClass: "services-left col-12 col-md-6" },
+                _vm._l(_vm.apartment.additional_services, function (service) {
+                  return _c("div", { key: service.id }, [
+                    _c("i", { staticClass: "fas fa-check check" }),
+                    _vm._v(
+                      "\n                   " +
+                        _vm._s(service.name) +
+                        "\n                 "
+                    ),
+                  ])
+                }),
+                0
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "contact-form card p-3 mt-3" }, [
-          _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label" }, [_vm._v("Name *")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formData.name,
-                  expression: "formData.name",
+        _c(
+          "button",
+          { staticClass: "btn message-button", on: { click: _vm.sendMessage } },
+          [_vm._v("Invia un messaggio all'host")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "contact-form card p-3 mt-4 col-9 col-md-4",
+            attrs: { id: "contact-form" },
+          },
+          [
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "form-label" }, [_vm._v("Name *")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.name,
+                    expression: "formData.name",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Insert your name",
+                  name: "name",
+                  required: "",
                 },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Insert your name",
-                name: "name",
-                required: "",
-              },
-              domProps: { value: _vm.formData.name },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.formData, "name", $event.target.value)
+                domProps: { value: _vm.formData.name },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.formData, "name", $event.target.value)
+                  },
                 },
-              },
-            }),
+              }),
+              _vm._v(" "),
+              _vm.formValidationErrors && _vm.formValidationErrors.name
+                ? _c("span", { staticClass: "text-danger" }, [
+                    _vm._v(" " + _vm._s(_vm.formValidationErrors.name) + " "),
+                  ])
+                : _vm._e(),
+            ]),
             _vm._v(" "),
-            _vm.formValidationErrors && _vm.formValidationErrors.name
-              ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v(" " + _vm._s(_vm.formValidationErrors.name) + " "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "form-label" }, [
+                _vm._v("Lastname *"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.lastname,
+                    expression: "formData.lastname",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Insert your lastname",
+                  name: "lastname",
+                  required: "",
+                },
+                domProps: { value: _vm.formData.lastname },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.formData, "lastname", $event.target.value)
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _vm.formValidationErrors && _vm.formValidationErrors.lastname
+                ? _c("span", { staticClass: "text-danger" }, [
+                    _vm._v(
+                      " " + _vm._s(_vm.formValidationErrors.lastname) + " "
+                    ),
+                  ])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "form-label" }, [_vm._v("Email *")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.email,
+                    expression: "formData.email",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "email",
+                  placeholder: "Insert your email",
+                  name: "email",
+                  required: "",
+                },
+                domProps: { value: _vm.formData.email },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.formData, "email", $event.target.value)
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _vm.formValidationErrors && _vm.formValidationErrors.email
+                ? _c("span", { staticClass: "text-danger" }, [
+                    _vm._v(" " + _vm._s(_vm.formValidationErrors.email) + " "),
+                  ])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "form-label" }, [_vm._v("Message *")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.message,
+                    expression: "formData.message",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { name: "message", required: "" },
+                domProps: { value: _vm.formData.message },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.formData, "message", $event.target.value)
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _vm.formValidationErrors && _vm.formValidationErrors.message
+                ? _c("span", { staticClass: "text-danger" }, [
+                    _vm._v(
+                      " " + _vm._s(_vm.formValidationErrors.message) + " "
+                    ),
+                  ])
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", on: { click: _vm.submitForm } },
+              [_vm._v("Submit")]
+            ),
+            _vm._v(" "),
+            _vm.contactSubmitted
+              ? _c("div", { staticClass: "alert alert-success my-4 py-5" }, [
+                  _c("h5", [_vm._v("Grazie per averci contattato!")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "lead" }, [
+                    _vm._v(
+                      "Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile."
+                    ),
+                  ]),
                 ])
               : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label" }, [_vm._v("Lastname *")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formData.lastname,
-                  expression: "formData.lastname",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Insert your lastname",
-                name: "lastname",
-                required: "",
-              },
-              domProps: { value: _vm.formData.lastname },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.formData, "lastname", $event.target.value)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm.formValidationErrors && _vm.formValidationErrors.lastname
-              ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v(" " + _vm._s(_vm.formValidationErrors.lastname) + " "),
-                ])
-              : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label" }, [_vm._v("Email *")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formData.email,
-                  expression: "formData.email",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "email",
-                placeholder: "Insert your email",
-                name: "email",
-                required: "",
-              },
-              domProps: { value: _vm.formData.email },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.formData, "email", $event.target.value)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm.formValidationErrors && _vm.formValidationErrors.email
-              ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v(" " + _vm._s(_vm.formValidationErrors.email) + " "),
-                ])
-              : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label" }, [_vm._v("Message *")]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.formData.message,
-                  expression: "formData.message",
-                },
-              ],
-              staticClass: "form-control",
-              attrs: { name: "message", required: "" },
-              domProps: { value: _vm.formData.message },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.formData, "message", $event.target.value)
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm.formValidationErrors && _vm.formValidationErrors.message
-              ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v(" " + _vm._s(_vm.formValidationErrors.message) + " "),
-                ])
-              : _vm._e(),
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn", on: { click: _vm.submitForm } }, [
-            _vm._v("Submit"),
-          ]),
-          _vm._v(" "),
-          _vm.contactSubmitted
-            ? _c("div", { staticClass: "alert alert-success my-4 py-5" }, [
-                _c("h5", [_vm._v("Grazie per averci contattato!")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "lead" }, [
-                  _vm._v(
-                    "Il suo messaggio è stato inviato correttamente, risponderemo il prima possibile."
-                  ),
-                ]),
-              ])
-            : _vm._e(),
-        ]),
+          ]
+        ),
       ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "px-3 mt-3 fw-bold" }, [
+      _c("h3", { staticClass: "px-3 fw-bold where" }, [
         _vm._v("Dove ti troverai"),
       ]),
       _vm._v(" "),
-      _c("h5", { staticClass: "px-3" }, [
+      _c("h6", { staticClass: "px-3" }, [
         _vm._v(_vm._s(_vm.apartment.address)),
       ]),
       _vm._v(" "),
@@ -6060,20 +6113,6 @@ var staticRenderFns = [
           type: "text/css",
         },
       }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-1 services-section d-flex" }, [
-      _c("div", { staticClass: "services-left" }, [
-        _c("span", [_vm._v("ciao")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("bella")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "services-right" }, [_vm._v("bella")]),
     ])
   },
 ]

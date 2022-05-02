@@ -28,6 +28,7 @@ class ApartmentsController extends Controller
         });
       
         foreach ($apartments as $apartment) {
+
             $distance = sqrt(pow($lat - $apartment['latitude'],2) + pow($lon - $apartment['longitude'],2)) * 100;
             if($request["radius"]){
                 if($distance <= $radius){
@@ -35,6 +36,7 @@ class ApartmentsController extends Controller
                 }
             }else{
                 if($distance <= 20) {
+
                     $apartmentsInRadius[] = $apartment;
                 }
             }
@@ -42,6 +44,7 @@ class ApartmentsController extends Controller
         }
 
         $filteredResults = $apartmentsInRadius;
+
         
         //filtro per il numero di camere
         if($request["roomsNumber"]){
@@ -98,9 +101,8 @@ class ApartmentsController extends Controller
             $filteredResults = $filteredApartments;
         };
 
-
         return response()->json(
-         $filteredResults,
+         $filteredResults
         );
 
     }
