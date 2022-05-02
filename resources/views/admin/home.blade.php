@@ -60,7 +60,7 @@
                                         Check messages
                                     </div>
                                     <div class="col-6 dash-right">
-                                        <a href="{{route('admin.inbox')}}"><button class="btn dash-button">Inbox messages</button></a>
+                                        <a href="{{route('admin.inbox')}}"><button class="btn dash-button text-white">Inbox messages</button></a>
                                     </div>
                                     
                                 </div>
