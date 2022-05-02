@@ -68,22 +68,30 @@
               <div class="mb-3">
                 <label class="form-label">Name *</label>
                 <input v-model="formData.name" type="text" placeholder="Insert your name" name="name" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.name"> {{formValidationErrors.name}} </span>
+                <span v-if="formValidationErrors && formValidationErrors.name">
+                  <div v-for="(formValidationError, i) in formValidationErrors.name" :key="i" class="text-danger"> {{formValidationError}} </div>
+                </span>
               </div>
               <div class="mb-3">
                 <label class="form-label">Lastname *</label>
                 <input v-model="formData.lastname" type="text" placeholder="Insert your lastname" name="lastname" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.lastname"> {{formValidationErrors.lastname}} </span>
+                <span v-if="formValidationErrors && formValidationErrors.lastname">
+                  <div v-for="(formValidationError, i) in formValidationErrors.lastname" :key="i" class="text-danger"> {{formValidationError}} </div>
+                </span>
               </div>
               <div class="mb-3">
                 <label class="form-label">Email *</label>
                 <input v-model="formData.email" type="email" placeholder="Insert your email" name="email" class="form-control" required>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.email"> {{formValidationErrors.email}} </span>
+                <span v-if="formValidationErrors && formValidationErrors.email">
+                  <div v-for="(formValidationError, i) in formValidationErrors.email" :key="i" class="text-danger"> {{formValidationError}} </div>
+                </span>
               </div>
               <div class="mb-3">
                 <label class="form-label">Message *</label>
                 <textarea v-model="formData.message" name="message" class="form-control" required></textarea>
-                <span class="text-danger" v-if="formValidationErrors && formValidationErrors.message"> {{formValidationErrors.message}} </span>
+                <span v-if="formValidationErrors && formValidationErrors.message">
+                  <div v-for="(formValidationError, i) in formValidationErrors.message" :key="i" class="text-danger"> {{formValidationError}} </div>
+                </span>
               </div>
               <button @click="submitForm" class="btn">Submit</button>
 
@@ -144,9 +152,10 @@ export default {
         formDataInstance.append("email",this.formData.email);
         formDataInstance.append("message",this.formData.message);
         formDataInstance.append("apartment_id",this.apartment.id);
+        formDataInstance.append("ownerEmail",this.apartment.user.email);
 
         // Axios post call
-        const resp = await axios.post('/api/contacts',formDataInstance);
+        const resp = await axios.post('/api/contacts', formDataInstance);
 
         // Alert show
         this.contactSubmitted = true;
@@ -157,7 +166,7 @@ export default {
         if (e.response.status === 422) {
           this.formValidationErrors = e.response.data.errors;
         }
-        console.log('error in call api' + e.message);
+        console.log('error in call api ' + e.message);
       }
     },
     sendMessage(){

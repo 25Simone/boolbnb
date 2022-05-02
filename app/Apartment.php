@@ -23,7 +23,7 @@ class Apartment extends Model
     ];
 
     // USER TO APARTMENT 
-    public function user () {
+    public function user() {
     return $this->belongsTo('App\User');
     }
     //CONTACT TO APARTMENT

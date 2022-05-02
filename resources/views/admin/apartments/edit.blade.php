@@ -17,7 +17,7 @@
       <h1 class="display-3 text-center py-3">Edit Your Apartment!</h1>
     </div>
     {{-- FORM --}}
-    <div class="col form">
+    <div class="col form py-3">
         <form action="{{ route('admin.apartments.update', $apartment) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("put")

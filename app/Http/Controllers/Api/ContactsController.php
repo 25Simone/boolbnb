@@ -19,13 +19,13 @@ class ContactsController extends Controller
             "message" => "string|required",
             "apartment_id" => "exists:apartments,id|integer"
         ]);
-        dump('ciao');
+        $ownerEmail = $request['ownerEmail'];
 
         $newContact = new Contact();
         $newContact->fill($data);
         $newContact->save();
 
-        Mail::to(Auth::user()->email)->send(new NewApartmentMail($newContact)); 
+        Mail::to($ownerEmail)->send(new NewApartmentMail($newContact)); 
         return response()->json($newContact);
     }
 }
